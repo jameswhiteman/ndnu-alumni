@@ -18,33 +18,6 @@
 	<div ui-view></div>
   <footer ng-include="'temp/footer.html'"></footer>
 
- <md-toolbar class="md-primary">
-    <h1 class="md-toolbar-tools">
-      Alumni Network
-    </h1>
-  </md-toolbar>
-  <md-content class="md-padding">
-    <form name="projectForm">
-      <md-input-container>
-        <label>User Name</label>
-        <input md-maxlength="30" required name="description" ng-model="project.description">
-        <div ng-messages="projectForm.description.$error">
-          <div ng-message="required">This is required.</div>
-        </div>
-      </md-input-container>
-      <md-input-container>
-        <label>Password</label>
-        <input required name="clientName" ng-model="project.password" type="password">
-        <div ng-messages="projectForm.password.$error">
-          <div ng-message="required">This is required.</div>
-        </div>
-    </form>
-  </md-content>
-<section layout="column" layout-sm="column" layout-align="center center">
-      <md-button class="md-raised" onclick="loginAction();">Login</md-button>
-      <md-button ng-href="{{googleUrl}}" target="_blank">Forget Password?</md-button>
-      <md-button ng-href="{{googleUrl}}" target="_blank">New User Registration</md-button>
-    </section>
     <script src="./bower_components/angular/angular.js"></script>
     <script src="./bower_components/angular-route/angular-route.js"></script>
     <script src="./bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
