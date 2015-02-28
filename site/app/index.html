@@ -10,6 +10,21 @@
 
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css">
     <link rel="stylesheet" href="./app.css" >
+    <script>
+// Simple GET request example :
+alert("something");
+$http.get('http://google.com').
+  success(function(data, status, headers, config) {
+    // this callback will be called asynchronously
+    // when the response is available
+    alert("hello");
+  }).
+  error(function(data, status, headers, config) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+    alert("world");
+  });
+    </script>
   </head>
 
   <body ng-app="starterApp" layout="column" ng-controller="AppCtrl">
@@ -37,7 +52,7 @@
     </form>
   </md-content>
 <section layout="column" layout-sm="column" layout-align="center center">
-      <md-button class="md-raised">Login</md-button>
+      <md-button class="md-raised" onclick="loginAction();">Login</md-button>
       <md-button ng-href="{{googleUrl}}" target="_blank">Forget Password?</md-button>
       <md-button ng-href="{{googleUrl}}" target="_blank">New User Registration</md-button>
     </section>

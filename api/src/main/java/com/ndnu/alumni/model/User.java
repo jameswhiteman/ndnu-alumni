@@ -3,14 +3,14 @@
  * Developer: Rich Hoggan
  * Creation Date: 02-12-2015
  * Description: The data class for users in the AlumniNetwork application.
- * 
+ *
  * @author richhoggan
  */
 
 //Package Declarations
-package UserClasses;
+package com.ndnu.alumni.model;
 
-public class Users 
+public class User
 {
 	////Data Members////
 	private String username;
@@ -25,13 +25,13 @@ public class Users
 	private String state;
 	private String description;
 	private String page;
-	
+
 	////Class Constructors////
 	/**
 	 * Method Description: Empty constructor that sets data members to null values.
-	 * 
+	 *
 	 */
-	public Users()
+	public User()
 	{
 		this.username = "";
 		this.password = "";
@@ -46,7 +46,7 @@ public class Users
 		this.description = "";
 		this.page = "";
 	}
-	
+
 	/**
 	 * Method Description: Constructor that sets data members to user supplied input.
 	 * @param username
@@ -62,9 +62,9 @@ public class Users
 	 * @param description
 	 * @param page
 	 */
-	public Users(String username, String password, String firstName, 
+	public User(String username, String password, String firstName,
 			String lastName, String emailAddress, int graduationYear, String major,
-			String phoneNumber, String city, String state, String description, 
+			String phoneNumber, String city, String state, String description,
 			String page)
 	{
 		this.username = username;
@@ -80,7 +80,7 @@ public class Users
 		this.description = description;
 		this.page = page;
 	}
-	
+
 	////Getters and Setters////
 	/**
 	 * Method Description: Sets the username data member.
@@ -90,7 +90,7 @@ public class Users
 	{
 		this.username = username;
 	}
-	
+
 	/**
 	 * Method Description: Sets the password data member.
 	 * @param password
@@ -99,7 +99,7 @@ public class Users
 	{
 		this.password = password;
 	}
-	
+
 	/**
 	 * Method Description: Sets the firstName data member.
 	 * @param firstName
@@ -108,7 +108,7 @@ public class Users
 	{
 		this.firstName = firstName;
 	}
-	
+
 	/**
 	 * Method Description: Sets the lastName data member.
 	 * @param lastName
@@ -117,7 +117,7 @@ public class Users
 	{
 		this.lastName = lastName;
 	}
-	
+
 	/**
 	 * Method Description: Sets the emailAddress data member.
 	 * @param emailAddress
@@ -126,7 +126,7 @@ public class Users
 	{
 		this.emailAddress = emailAddress;
 	}
-	
+
 	/**
 	 * Method Description: Sets the graduationYear data member.
 	 * @param graduationYear
@@ -135,7 +135,7 @@ public class Users
 	{
 		this.graduationYear = graduationYear;
 	}
-	
+
 	/**
 	 * Method Description: Sets the major data member.
 	 * @param major
@@ -144,7 +144,7 @@ public class Users
 	{
 		this.major = major;
 	}
-	
+
 	/**
 	 * Method Description: Sets the phoneNumber data member.
 	 * @param phoneNumber
@@ -153,7 +153,7 @@ public class Users
 	{
 		this.phoneNumber = phoneNumber;
 	}
-	
+
 	/**
 	 * Method Description: Sets the city data member.
 	 * @param city
@@ -162,7 +162,7 @@ public class Users
 	{
 		this.city = city;
 	}
-	
+
 	/**
 	 * Method Description: Sets the state data member.
 	 * @param state
@@ -171,7 +171,7 @@ public class Users
 	{
 		this.state = state;
 	}
-	
+
 	/**
 	 * Method Description: Sets the description data member.
 	 * @param description
@@ -180,7 +180,7 @@ public class Users
 	{
 		this.description = description;
 	}
-	
+
 	/**
 	 * Method Description: Sets the page data member.
 	 * @param page
@@ -189,7 +189,7 @@ public class Users
 	{
 		this.page = page;
 	}
-	
+
 	/**
 	 * Method Description: Returns a reference to the username data member.
 	 * @return username
@@ -198,7 +198,7 @@ public class Users
 	{
 		return this.username;
 	}
-	
+
 	/**
 	 * Method Description: Returns a reference to the password data member.
 	 * @return password
@@ -207,7 +207,7 @@ public class Users
 	{
 		return this.password;
 	}
-	
+
 	/**
 	 * Method Description: Returns a reference to the firstName data member.
 	 * @return firstName
@@ -216,7 +216,7 @@ public class Users
 	{
 		return this.firstName;
 	}
-	
+
 	/**
 	 * Method Description: Returns a reference to the lastName data member.
 	 * @return lastName
@@ -225,7 +225,7 @@ public class Users
 	{
 		return this.lastName;
 	}
-	
+
 	/**
 	 * Method Description: Returns a reference to the emailAddress data member.
 	 * @return emailAddress
@@ -234,7 +234,7 @@ public class Users
 	{
 		return this.emailAddress;
 	}
-	
+
 	/**
 	 * Method Description: Returns a reference to the graduationYear data member.
 	 * @return graduationYear
@@ -243,7 +243,7 @@ public class Users
 	{
 		return this.graduationYear;
 	}
-	
+
 	/**
 	 * Method Description: Returns a reference to the major data member.
 	 * @return major
@@ -252,7 +252,7 @@ public class Users
 	{
 		return this.major;
 	}
-	
+
 	/**
 	 * Method Description: Returns a reference to the phoneNumber data member.
 	 * @return phoneNumber
@@ -261,7 +261,7 @@ public class Users
 	{
 		return this.phoneNumber;
 	}
-	
+
 	/**
 	 * Method Description: Returns a reference to the city data member.
 	 * @return city
@@ -270,7 +270,7 @@ public class Users
 	{
 		return this.city;
 	}
-	
+
 	/**
 	 * Method Description: Returns a reference to the state data member.
 	 * @return state
@@ -279,7 +279,7 @@ public class Users
 	{
 		return this.state;
 	}
-	
+
 	/**
 	 * Method Description: Returns a reference to the description data member.
 	 * @return description
@@ -288,10 +288,10 @@ public class Users
 	{
 		return this.description;
 	}
-	
+
 	/**
 	 * Method Description: Returns a reference to the page data member.
-	 * @return page 
+	 * @return page
 	 */
 	public String getPage()
 	{
@@ -306,7 +306,7 @@ public class Users
 	public String toString()
 	{
 		return (this.username + "\n" + this.password + "\n"
-				+ this.firstName + "\n" + this.lastName + "\n" + this.emailAddress + "\n" 
+				+ this.firstName + "\n" + this.lastName + "\n" + this.emailAddress + "\n"
 				+ this.graduationYear + "\n" + this.major + "\n" + this.phoneNumber + "\n"
 				+ this.city + "\n" + this.state + "\n" + this.description + "\n" + this.page + "\n");
 	}

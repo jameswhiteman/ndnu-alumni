@@ -1,6 +1,7 @@
 (function(){
 'use strict';
 
+
   angular
       .module('starterApp', ['ngMaterial', 'avatars'])
       .controller('AppCtrl', ['$scope', 'avatarsService', '$mdSidenav', '$mdBottomSheet', '$log', AvatarAppController ])
