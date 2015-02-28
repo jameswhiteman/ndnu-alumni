@@ -1,0 +1,17 @@
+<md-content class="md-padding">
+<md-card>
+ <div layout="row" layout-align="center center" style="height: 100px;" layout-fill>
+<p> Pick a major:  </p>
+<input list="majors">
+<datalist id="majors">
+<option ng-repeat="majors in majors" ui-sref="dept/'{{majors.name}}'" ui-sref-active="active">{{majors.name}}</option>
+</datalist>
+</div>
+
+ <img src="/img/alumni-banner-web.jpg" class="md-card-image">
+ <h2>As a graduate, you are a lifetime member of the Alumni Association of Notre Dame de Namur University — more than 12,000 strong.</h2>
+ <p>
+The Alumni Office helps alumni stay connected with each other and with the university. As a member, you have access to the NDNU Online Community and to the NDNU Alumni Association group on LinkedIn, which enables you to network with fellow alums, find classmates, recommend colleagues or search for a new job. The Alumni Office also sponsors class reunions, Alumni and Family Weekend and campus and regional events. Once an Argonaut, you are always an Argonaut and a member of the NDNU family.
+ </p>
+</md-card>
+  </md-content>
