@@ -1,33 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en">
   <head>
-    <title>Login</title>
+    <title>NDNU ALMNI</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css">
-    <link rel="stylesheet" href="./app.css" >
-    <script>
-// Simple GET request example :
-alert("something");
-$http.get('http://google.com').
-  success(function(data, status, headers, config) {
-    // this callback will be called asynchronously
-    // when the response is available
-    alert("hello");
-  }).
-  error(function(data, status, headers, config) {
-    // called asynchronously if an error occurs
-    // or server returns response with an error status.
-    alert("world");
-  });
-    </script>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app.css">
   </head>
 
-  <body ng-app="starterApp" layout="column" ng-controller="AppCtrl">
+  <body ng-app="app">
+
+	<header ng-include="'temp/nav.html'"></header>
+	<div ui-view></div>
+  <footer ng-include="'temp/footer.html'"></footer>
 
  <md-toolbar class="md-primary">
     <h1 class="md-toolbar-tools">
@@ -58,13 +47,14 @@ $http.get('http://google.com').
     </section>
     <script src="./bower_components/angular/angular.js"></script>
     <script src="./bower_components/angular-route/angular-route.js"></script>
+    <script src="./bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="./bower_components/angular-aria/angular-aria.js"></script>
     <script src="./bower_components/angular-animate/angular-animate.js"></script>
-
     <script src="./bower_components/angular-material/angular-material.js"></script>
 
-    <script src="./app.js"></script>
-    <script src="./src/avatars/avatarService.js"></script>
 
+    <script src="./js/app.js"></script>
+    <script src="./js/homeCtrl.js"></script>
+    <script src="./js/deptCtrl.js"></script>
   </body>
 </html>
