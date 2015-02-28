@@ -4,7 +4,7 @@ angular
     $scope.data = {
       selectedIndex : 0,
       secondLocked : true,
-      secondLabel : "S"
+      secondLabel : "Item Two"
     };
     $scope.next = function() {
       $scope.data.selectedIndex = Math.min($scope.data.selectedIndex + 1, 2) ;
