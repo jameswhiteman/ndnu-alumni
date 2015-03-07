@@ -18,7 +18,13 @@ public class Projects extends HttpServlet
         response.addHeader("Access-Control-Allow-Headers", "X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept");
         response.addHeader("Access-Control-Max-Age", "1728000");
         PrintWriter out = response.getWriter();
-        out.println("{projectsdata}");
+       /* JSONObject object = new JSONObject();
+        object.put("Hello", "world");
+        String callback = "superfunction";
+        String json = callback + "(" + object + ")";
+        out.println(json);
+        */
+        out.print("callbackfunction{'endpoint':'projects'}");
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
