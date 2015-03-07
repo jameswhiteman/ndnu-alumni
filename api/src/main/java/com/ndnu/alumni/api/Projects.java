@@ -2,12 +2,17 @@ package com.ndnu.alumni.api;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ndnu.alumni.db.ProjectsBackend;
+import com.ndnu.alumni.model.Project;
 
 public class Projects extends HttpServlet
 {
@@ -24,7 +29,27 @@ public class Projects extends HttpServlet
         String json = callback + "(" + object + ")";
         out.println(json);
         */
-        out.print("callbackfunction{'endpoint':'projects'}");
+        String data = "";
+        try
+        {
+            ProjectsBackend db = new ProjectsBackend();
+            data = data + "yo";
+            List<Project> project = db.getAllProjectNamesAndYears();
+            if (project.size() == 0)
+                data = data + "nothing";
+            for (int i = 0; i < project.size(); i++)
+            {
+                data = data + i;
+            }
+            Project project1 = project.get(0);
+            data = data + project1.getProjectName();
+            data = data + project1.getProjectYear();
+        }
+        catch (SQLException e)
+        {
+            data = data + "sql exception";
+        }
+        out.print("callbackfunction{'endpoint':'" + data + "'}");
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

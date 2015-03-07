@@ -1,9 +1,0 @@
-ProjectsClasses\Document.class
-com\ndnu\alumni\db\NDNUAlumni.class
-com\ndnu\alumni\model\User.class
-ProjectsClasses\Project.class
-com\ndnu\alumni\api\Events.class
-com\ndnu\alumni\api\Documents.class
-com\ndnu\alumni\api\Users.class
-com\ndnu\alumni\api\Projects.class
-EventClasses\Event.class

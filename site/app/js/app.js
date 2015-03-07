@@ -10,18 +10,16 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
 	  	controller: 'homeCtrl',
 	  	resolve: {
 	  		majors: ['$http' , function($http){
-	  			return $http.get('info.json').then(function(response) {
-	  				return response.data;
-
-	  			})
+	  			return $http.get('http://localhost:8282/ndnualumni-api/projects').then(function(response) {
+                    alert(response.data);
+	  			});
 	  		}]
 	  	}
 	  	})
 	   .state('dept', {
 	  	url:'/dept',
-	  	templateUrl: 'temp/dept.html',	
+	  	templateUrl: 'temp/dept.html',
 	  	controller: 'deptCtrl'
 	  	})
 
 }])
-
