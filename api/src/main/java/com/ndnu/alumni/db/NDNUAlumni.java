@@ -1,5 +1,8 @@
 package com.ndnu.alumni.db;
 
+import com.ndnu.alumni.model.*;
+
+import java.util.List;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -19,7 +22,7 @@ public class NDNUAlumni
         String url = host + "?user=" + user + "&password=" + password;
         Connection connection = DriverManager.getConnection(this.host);
     }
-
+/*
     public List<Project> getProjects()
     {
         Statement statement = connection.createStatement();
@@ -37,4 +40,5 @@ public class NDNUAlumni
 
         }
     }
+    */
 }
