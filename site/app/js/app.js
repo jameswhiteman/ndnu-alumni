@@ -7,15 +7,8 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
 	  .state('home', {
 	  	url:'/',
 	  	templateUrl: 'temp/home.html',
-	  	controller: 'homeCtrl',
-	  	resolve: {
-	  		majors: ['$http' , function($http){
-	  			return $http.get('http://localhost:8282/ndnualumni-api/projects').then(function(response) {
-                    alert(response.data);
-	  			});
-	  		}]
-	  	}
-	  	})
+	  	controller: 'homeCtrl'
+	  		  	})
 	   .state('dept', {
 	  	url:'/dept',
 	  	templateUrl: 'temp/dept.html',
