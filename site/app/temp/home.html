@@ -24,17 +24,17 @@ The Alumni Office helps alumni stay connected with each other and with the unive
 
  </md-tab>
 
-   <md-tab label="Senior Projects" id="tab2" aria-controls="tab2-content" ng-disabled="data.secondLocked">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, natus. Pariatur quod dignissimos, vel esse hic officiis quo beatae fuga inventore cupiditate dolore sit sapiente illum ducimus commodi quidem. Ut.</md-tab>
+   <md-tab label="Senior Projects" id="tab2" aria-controls="tab2-content" ng-disabled="data.tabLocked">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, natus. Pariatur quod dignissimos, vel esse hic officiis quo beatae fuga inventore cupiditate dolore sit sapiente illum ducimus commodi quidem. Ut.</md-tab>
 
-   <md-tab label="Alumni" id="tab3" aria-controls="tab3-content" ng-disabled="data.secondLocked">Alumni Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, natus. Pariatur quod dignissimos, vel esse hic officiis quo beatae fuga inventore cupiditate dolore sit sapiente illum ducimus commodi quidem. Ut.</md-tab>
+   <md-tab label="Alumni" id="tab3" aria-controls="tab3-content" ng-disabled="data.tabLocked">Alumni Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, natus. Pariatur quod dignissimos, vel esse hic officiis quo beatae fuga inventore cupiditate dolore sit sapiente illum ducimus commodi quidem. Ut.</md-tab>
 
-    <md-tab label="Jobs/Internships" id="tab4" aria-controls="tab4-content" ng-disabled="data.secondLocked">Jobs Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, natus. Pariatur quod dignissimos, vel esse hic officiis quo beatae fuga inventore cupiditate dolore sit sapiente illum ducimus commodi quidem. Ut.</md-tab>
+    <md-tab label="Jobs/Internships" id="tab4" aria-controls="tab4-content" ng-disabled="data.tabLocked">Jobs Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, natus. Pariatur quod dignissimos, vel esse hic officiis quo beatae fuga inventore cupiditate dolore sit sapiente illum ducimus commodi quidem. Ut.</md-tab>
 
-     <md-tab label="Guest lecture" id="tab5" aria-controls="tab5-content" ng-disabled="data.secondLocked">Guest Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, natus. Pariatur quod dignissimos, vel esse hic officiis quo beatae fuga inventore cupiditate dolore sit sapiente illum ducimus commodi quidem. Ut.</md-tab> 
+     <md-tab label="Guest lecture" id="tab5" aria-controls="tab5-content" ng-disabled="data.tabLocked">Guest Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, natus. Pariatur quod dignissimos, vel esse hic officiis quo beatae fuga inventore cupiditate dolore sit sapiente illum ducimus commodi quidem. Ut.</md-tab> 
 
-      <md-tab label="Events" id="tab6" aria-controls="tab6-content" ng-disabled="data.secondLocked">Events Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, natus. Pariatur quod dignissimos, vel esse hic officiis quo beatae fuga inventore cupiditate dolore sit sapiente illum ducimus commodi quidem. Ut.</md-tab> 
+      <md-tab label="Events" id="tab6" aria-controls="tab6-content" ng-disabled="data.tabLocked">Events Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, natus. Pariatur quod dignissimos, vel esse hic officiis quo beatae fuga inventore cupiditate dolore sit sapiente illum ducimus commodi quidem. Ut.</md-tab> 
 
-   <md-tab label="Feedback" id="tab6" aria-controls="tab6-content" ng-disabled="data.secondLocked">Feedback Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, natus. Pariatur quod dignissimos, vel esse hic officiis quo beatae fuga inventore cupiditate dolore sit sapiente illum ducimus commodi quidem. Ut.</md-tab>
+   <md-tab label="Feedback" id="tab6" aria-controls="tab6-content" ng-disabled="data.tabLocked">Feedback Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, natus. Pariatur quod dignissimos, vel esse hic officiis quo beatae fuga inventore cupiditate dolore sit sapiente illum ducimus commodi quidem. Ut.</md-tab>
 </md-tabs>
 
     <ng-switch on="data.selectedIndex" class="tabpanel-container">
@@ -59,6 +59,28 @@ The Alumni Office helps alumni stay connected with each other and with the unive
              md-swipe-left="next()"
              md-swipe-right="previous()" >
         </div>
+         <div role="tabpanel"
+             id="tab3-content"
+             aria-labelledby="tab4"
+             ng-switch-when="3"
+             md-swipe-left="next()"
+             md-swipe-right="previous()" >
+        </div>
+         <div role="tabpanel"
+             id="tab3-content"
+             aria-labelledby="tab5"
+             ng-switch-when="4"
+             md-swipe-left="next()"
+             md-swipe-right="previous()" >
+        </div>
+         <div role="tabpanel"
+             id="tab3-content"
+             aria-labelledby="tab6"
+             ng-switch-when="5"
+             md-swipe-left="next()"
+             md-swipe-right="previous()" >
+        </div>
+
     </ng-switch>
 
 </div>

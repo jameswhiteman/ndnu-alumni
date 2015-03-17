@@ -1,16 +1,18 @@
 <div layout="column" layout-fill layout-sm="column">
   <md-toolbar>
     <div class="md-toolbar-tools">
-      <span>NDNU ALMNI</span>
+      <span>
+      <div class="docs-logotype">
+        <md-button href="#/home">NDNU ALMNI</md-button>
+        </div>
+      </span>
       <!-- fill up the space between left and right area -->
       <span flex></span>
       <div ng-controller="barCtrl">
       <md-button ng-click="showAdvanced($event)">
         Log in
       </md-button>
-      <md-button>
-        Sign up
-      </md-button>
+      <md-button href="#/signup">Sign up</md-button>
       </div>
     </div>
   </md-toolbar>

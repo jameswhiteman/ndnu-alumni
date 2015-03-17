@@ -9,10 +9,10 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
 	  	templateUrl: 'temp/home.html',
 	  	controller: 'homeCtrl'
 	  		  	})
-	   .state('dept', {
-	  	url:'/dept',
-	  	templateUrl: 'temp/dept.html',
-	  	controller: 'deptCtrl'
+	   .state('signup', {
+	  	url:'/signup',
+	  	templateUrl: 'temp/signup.html',
+	  	controller: 'signUpCtrl'
 	  	})
 
 }])

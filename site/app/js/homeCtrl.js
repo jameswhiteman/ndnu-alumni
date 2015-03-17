@@ -9,7 +9,7 @@ app.controller('homeCtrl', function($scope, $http)
 
 	 $scope.data = {
       selectedIndex : 0,
-      secondLocked : true
+      tabLocked : true
     };
     $scope.next = function() {
       $scope.data.selectedIndex = Math.min($scope.data.selectedIndex + 1, 2) ;
