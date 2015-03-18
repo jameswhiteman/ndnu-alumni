@@ -23,27 +23,14 @@ public class Projects extends HttpServlet
         response.addHeader("Access-Control-Allow-Headers", "X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept");
         response.addHeader("Access-Control-Max-Age", "1728000");
         PrintWriter out = response.getWriter();
-       /* JSONObject object = new JSONObject();
-        object.put("Hello", "world");
-        String callback = "superfunction";
-        String json = callback + "(" + object + ")";
-        out.println(json);
-        */
         String data = "";
         try
         {
             ProjectsBackend db = new ProjectsBackend();
-            data = data + "yo";
             List<Project> project = db.getAllProjectNamesAndYears();
-            if (project.size() == 0)
-                data = data + "nothing";
-            for (int i = 0; i < project.size(); i++)
-            {
-                data = data + i;
-            }
             Project project1 = project.get(0);
-            data = data + project1.getProjectName();
-            data = data + project1.getProjectYear();
+            data = data + "Name:" + project1.getProjectName();
+            data = data + "\nYear:" + project1.getProjectYear();
         }
         catch (SQLException e)
         {
