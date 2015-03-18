@@ -1,5 +1,6 @@
-var gulp        = require('gulp');
-var browserSync = require('browser-sync');
+var gulp        = require('gulp'),
+    livereload  = require('gulp-livereload'),
+    browserSync = require('browser-sync');
 
 // start server
 gulp.task('browser-sync', function() {
@@ -22,5 +23,6 @@ gulp.task('default', ['browser-sync'], function () {
 
     // add browserSync.reload to the tasks array to make
     // all browsers reload after tasks are complete.
-    gulp.watch("./app/*.html", ['html', browserSync.reload]);
+    gulp.watch("./app/*.html", ['html', browserSync.reload]),
+    gulp.watch("./app/temp/*.html", ['html', browserSync.reload]);
 });
