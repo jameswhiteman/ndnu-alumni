@@ -1,10 +1,10 @@
 var app = angular.module('app');
 
-app.controller('homeCtrl', function($scope, $http) 
+app.controller('homeCtrl', function($scope, $http)
 {
 	 $http.get('info.json')
        .then(function(res){
-          $scope.depts = res.data;                
+          $scope.depts = res.data;
         });
 
 	 $scope.data = {
