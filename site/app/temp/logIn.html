@@ -1,10 +1,26 @@
 <md-dialog aria-label="Mango (Fruit)">
   <md-content>
-    <md-subheader class="md-sticky-no-effect"></md-subheader>
+    <md-subheader class="md-sticky-no-effect">Enter Name & pass</md-subheader>
     
   </md-content>
   <div class="md-actions" layout="row">
     <span flex></span>
+        <form name="signUpForm">
+      <md-input-container>
+        <label>First Name {{signUpForm.fName}}</label>
+        <input type="text" ng-model="signUpForm.fName" required>
+        <div ng-messages="signUpForm.fName.$error.required">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+       <md-input-container>
+        <label>Last Name</label>
+        <input type="password" ng-model="signUpForm.lName" required>
+        <div ng-messages="signUpForm.fName.$error.required">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+      </form>
     <md-button ng-click="answer('Log In')">
      Log In
     </md-button>
