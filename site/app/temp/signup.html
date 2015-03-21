@@ -2,10 +2,10 @@
 
   <md-content class="md-padding">
       <md-card>
-    <form name="signUpForm">
+    <form name="signUpForm" ng-submit="submit()" ng-controller="signUpCtrl">
       <md-input-container>
         <label>First Name {{signUpForm.fName}}</label>
-        <input type="text" ng-model="signUpForm.fName" required>
+        <input type="text" ng-model="first" name="first" required>
         <div ng-messages="signUpForm.fName.$error.required">
           <div ng-message="required">This is required.</div>
         </div>
@@ -13,7 +13,7 @@
 
       <md-input-container>
         <label>Last Name {{signUpForm.lName}}</label>
-        <input ng-model="signUpForm.lName" required>
+        <input ng-model="last" name="last" required>
         <div ng-messages="signUpForm.fName.$error.required">
           <div ng-message="required">This is required.</div>
         </div>
@@ -21,7 +21,7 @@
 
       	 <md-input-container>
         <label>Email {{signUpForm.email}}</label>
-        <input type="email" ng-model="signUpForm.email" required>
+        <input type="email" ng-model="email" name="email" required>
         <div ng-messages="signUpForm.e.$error.required">
           <div ng-message="required">This is required.</div>
         </div>
@@ -29,7 +29,7 @@
 
       <md-input-container>
         <label>Grad. Year {{signUpForm.gYear}}</label>
-        <input type="number"  ng-model="signUpForm.gYear" required>
+        <input type="number"  ng-model="year" name="year" required>
         <div ng-messages="signUpForm.gYear.$error.required">
           <div ng-message="required">This is required.</div>
         </div>
@@ -37,7 +37,7 @@
 
          <md-input-container>
         <label>Major {{signUpForm.major}}</label>
-        <input type="text" ng-model="signUpForm.major" required>
+        <input type="text" ng-model="major" name="major" required>
         <div ng-messages="signUpForm.major.$error.required">
           <div ng-message="required">This is required.</div>
         </div>
@@ -45,7 +45,7 @@
 
       <md-input-container>
         <label>Phone# {{signUpForm.phone}}</label>
-        <input ng-model="signUpForm.phone" required>
+        <input ng-model="phone" name="phone" required>
         <div ng-messages="signUpForm.phone.$error.required">
           <div ng-message="required">This is required.</div>
         </div>
@@ -53,13 +53,13 @@
 
       	 <md-input-container>
         <label>About Me</label>
-        <textarea md-maxlength="300" type="text" ng-model="signUpForm.aboutMe"></textarea>
+        <textarea md-maxlength="300" type="text" name="about" ng-model="about"></textarea>
         <div ng-messages="signUpForm.aboutMe.$error">
        </div>
       </md-input-container>
 
 	<md-card>
-      <md-button ng-click="submit()" class="md-raised md-warn" style="height: 45px;">Submit</md-button>
+      <md-button type="submit" id="submit" class="md-raised md-warn" style="height: 45px;">Submit</md-button>
 </md-card>
    </form>
     </md-card>

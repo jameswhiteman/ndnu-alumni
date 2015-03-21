@@ -36,20 +36,31 @@ public class Users extends HttpServlet
         PrintWriter out = response.getWriter();
 
         // Get the request parameters.
+        out.println("Yo0");
         String first = request.getParameter("first");
+        out.println("Yo1");
         String last = request.getParameter("last");
+        out.println("Yo2");
         String email = request.getParameter("email");
+        out.println("Yo3");
         int year = Integer.parseInt(request.getParameter("year"));
+        out.println("Yo4");
         String major = request.getParameter("major");
+        out.println("Yo5");
         String phone = request.getParameter("phone");
+        out.println("Yo6");
         String about = request.getParameter("about");
+        out.println("Yo7");
 
         // Add the user to the database.
         response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         try
         {
+            out.println("Yo8");
             UserStorage store = new UserStorage();
+            out.println("Yo9");
             store.createUser(first, last, email, year, major, phone, about);
+            out.println("Yo10");
             response.setStatus(HttpServletResponse.SC_CREATED);
             out.println("Successfully created user.");
         }
