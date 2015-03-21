@@ -55,13 +55,13 @@
         <label>About Me</label>
         <textarea md-maxlength="300" type="text" ng-model="signUpForm.aboutMe"></textarea>
         <div ng-messages="signUpForm.aboutMe.$error">
-        </div>
+       </div>
       </md-input-container>
 
 	<md-card>
-      <md-button class="md-raised md-warn" style="height: 45px;">Submit</md-button>
+      <md-button ng-click="submit()" class="md-raised md-warn" style="height: 45px;">Submit</md-button>
 </md-card>
-    </form>
+   </form>
     </md-card>
   </md-content>
 </div>

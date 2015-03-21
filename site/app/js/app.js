@@ -8,11 +8,12 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
 	  	url:'/',
 	  	templateUrl: 'temp/home.html',
 	  	controller: 'homeCtrl'
-	  		  	})
+        })
 	   .state('signup', {
 	  	url:'/signup',
 	  	templateUrl: 'temp/signup.html',
 	  	controller: 'signUpCtrl'
 	  	})
 
-}])
+}]);
+

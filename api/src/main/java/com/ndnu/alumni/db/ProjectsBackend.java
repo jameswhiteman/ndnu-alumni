@@ -39,8 +39,8 @@ public class ProjectsBackend
 	public ProjectsBackend() throws SQLException
 	{
         DBConnection dbc = new DBConnection();
-        Connection connection = dbc.getConnection();
-        statementObject = connection.createStatement();
+        connectionObject = dbc.getConnection();
+        statementObject = connectionObject.createStatement();
 		String query = "use ndnualumni;";
         statementObject.executeQuery(query);
 	}

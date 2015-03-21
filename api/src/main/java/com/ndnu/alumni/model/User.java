@@ -13,8 +13,7 @@ package com.ndnu.alumni.model;
 public class User
 {
 	////Data Members////
-	private String username;
-	private String password;
+	private String id;
 	private String firstName;
 	private String lastName;
 	private String emailAddress;
@@ -26,6 +25,8 @@ public class User
 	private String description;
 	private String page;
 
+	private String password;
+
 	////Class Constructors////
 	/**
 	 * Method Description: Empty constructor that sets data members to null values.
@@ -33,8 +34,7 @@ public class User
 	 */
 	public User()
 	{
-		this.username = "";
-		this.password = "";
+		this.id = "";
 		this.firstName = "";
 		this.lastName = "";
 		this.emailAddress = "";
@@ -45,12 +45,13 @@ public class User
 		this.state = "";
 		this.description = "";
 		this.page = "";
+
+		this.password = "";
 	}
 
 	/**
 	 * Method Description: Constructor that sets data members to user supplied input.
-	 * @param username
-	 * @param password
+	 * @param id
 	 * @param firstName
 	 * @param lastName
 	 * @param emailAddress
@@ -62,13 +63,11 @@ public class User
 	 * @param description
 	 * @param page
 	 */
-	public User(String username, String password, String firstName,
-			String lastName, String emailAddress, int graduationYear, String major,
-			String phoneNumber, String city, String state, String description,
-			String page)
+    public User(String id, String firstName, String lastName, int graduationYear, String major,
+            String phoneNumber, String emailAddress, String city, String state,
+            String description, String page)
 	{
-		this.username = username;
-		this.password = password;
+        this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailAddress = emailAddress;
@@ -79,6 +78,8 @@ public class User
 		this.state = state;
 		this.description = description;
 		this.page = page;
+
+        this.password = "";
 	}
 
 	////Getters and Setters////
@@ -86,9 +87,9 @@ public class User
 	 * Method Description: Sets the username data member.
 	 * @param username
 	 */
-	public void setUsername(String username)
+	public void setId(String id)
 	{
-		this.username = username;
+		this.id = id;
 	}
 
 	/**
@@ -194,9 +195,9 @@ public class User
 	 * Method Description: Returns a reference to the username data member.
 	 * @return username
 	 */
-	public String getUsername()
+	public String getId()
 	{
-		return this.username;
+		return this.id;
 	}
 
 	/**
@@ -305,7 +306,7 @@ public class User
 	 */
 	public String toString()
 	{
-		return (this.username + "\n" + this.password + "\n"
+		return (this.id + "\n" + this.password + "\n"
 				+ this.firstName + "\n" + this.lastName + "\n" + this.emailAddress + "\n"
 				+ this.graduationYear + "\n" + this.major + "\n" + this.phoneNumber + "\n"
 				+ this.city + "\n" + this.state + "\n" + this.description + "\n" + this.page + "\n");

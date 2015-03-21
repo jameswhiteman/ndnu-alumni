@@ -1,6 +1,6 @@
-package ProjectsClasses;
+package com.ndnu.alumni.model;
 
-public class Document 
+public class Document
 {
-	
+
 }

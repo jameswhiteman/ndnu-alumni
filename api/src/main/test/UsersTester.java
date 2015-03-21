@@ -3,11 +3,9 @@
 
 
 //Package Declarations
-package ClassTesting;
+package senior_project;
 
 //Import Declarations
-import UserClasses.Users;
-
 public class UsersTester 
 {
 	public static void main(String[] args)
