@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller('signUpCtrl', function($scope, $http)
+app.controller('signUpCtrl', function($scope, $http, $state)
 {
     $scope.submit = function() {
         alert("Submitting...");
@@ -9,6 +9,7 @@ app.controller('signUpCtrl', function($scope, $http)
             // this callback will be called asynchronously
             // when the response is available
             alert("success");
+              $state.go('home') 
           }).
           error(function(data, status, headers, config) {
             // called asynchronously if an error occurs

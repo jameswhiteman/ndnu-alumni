@@ -4,48 +4,48 @@
       <md-card>
     <form name="signUpForm">
       <md-input-container>
-        <label>First Name {{signUpForm.fName}}</label>
-        <input type="text" ng-model="signUpForm.fName" required>
+        <label>First Name {{user.fName}}</label>
+        <input type="text" name="fName" ng-model="user.fName" required>
         <div ng-messages="signUpForm.fName.$error.required">
           <div ng-message="required">This is required.</div>
         </div>
       </md-input-container>
 
       <md-input-container>
-        <label>Last Name {{signUpForm.lName}}</label>
-        <input ng-model="signUpForm.lName" required>
+        <label>Last Name {{user.lName}}</label>
+        <input type="text" name="lName" ng-model="user.lName" required>
         <div ng-messages="signUpForm.fName.$error.required">
           <div ng-message="required">This is required.</div>
         </div>
       </md-input-container>
 
       	 <md-input-container>
-        <label>Email {{signUpForm.email}}</label>
-        <input type="email" ng-model="signUpForm.email" required>
+        <label>Email {{user.email}}</label>
+        <input type="email" name="e" ng-model="signUpForm.email" required>
         <div ng-messages="signUpForm.e.$error.required">
           <div ng-message="required">This is required.</div>
         </div>
       </md-input-container>
 
       <md-input-container>
-        <label>Grad. Year {{signUpForm.gYear}}</label>
-        <input type="number"  ng-model="signUpForm.gYear" required>
+        <label>Grad. Year {{user.gYear}}</label>
+        <input type="number" name="gYear" ng-model="user.gYear" required>
         <div ng-messages="signUpForm.gYear.$error.required">
           <div ng-message="required">This is required.</div>
         </div>
       </md-input-container>
 
          <md-input-container>
-        <label>Major {{signUpForm.major}}</label>
-        <input type="text" ng-model="signUpForm.major" required>
+        <label>Major {{user.major}}</label>
+        <input type="text" name="major" ng-model="user.major" required>
         <div ng-messages="signUpForm.major.$error.required">
           <div ng-message="required">This is required.</div>
         </div>
       </md-input-container>
 
       <md-input-container>
-        <label>Phone# {{signUpForm.phone}}</label>
-        <input ng-model="signUpForm.phone" required>
+        <label>Phone# {{user.phone}}</label>
+        <input name="phone" ng-model="user.phone" required>
         <div ng-messages="signUpForm.phone.$error.required">
           <div ng-message="required">This is required.</div>
         </div>
@@ -53,15 +53,13 @@
 
       	 <md-input-container>
         <label>About Me</label>
-        <textarea md-maxlength="300" type="text" ng-model="signUpForm.aboutMe"></textarea>
+        <textarea md-maxlength="300" name="aboutMe" type="text" ng-model="user.aboutMe"></textarea>
         <div ng-messages="signUpForm.aboutMe.$error">
        </div>
       </md-input-container>
 
-	<md-card>
-      <md-button ng-click="submit()" class="md-raised md-warn" style="height: 45px;">Submit</md-button>
-</md-card>
    </form>
+         <md-button ng-click="submit()" class="md-raised md-warn" style="height: 45px;">Submit</md-button>
     </md-card>
   </md-content>
 </div>
