@@ -1,3 +1,5 @@
+<div layout="column" layout-sm="column">
+  <md-content class="md-padding">
   <md-input-container>
         <label>Project Name</label>
         <input type="text" name="proj_name" ng-model="formData.proj_name" required>
@@ -38,4 +40,8 @@
         </div>
   </md-input-container>
 
-      <md-button ng-submit="submitForm()" type="submit">Submit!</md-button>
+       Documentation: <div md-button ng-file-select ng-file-change="upload($files)" ng-multiple="multiple">Select File</div>
+
+</md-content>
+</div>
+      <md-button class="md-raised md-warn" ng-submit="submitForm()" type="submit">Submit!</md-button>
