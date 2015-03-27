@@ -14,6 +14,20 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
 	  	templateUrl: 'temp/signup.html',
 	  	controller: 'signUpCtrl'
 	  	})
+	   .state('cpanel', {
+	  	url:'/cpanel',
+	  	templateUrl: 'temp/cpanel.html',
+	  	controller: 'cpanelCtrl'
+	  	})
+        .state('cpanel.AddProjBasicInfo', {
+            templateUrl: '/temp/AddProjBasicInfo.html'
+        })
+        .state('cpanel.AddProjInfo', {
+            templateUrl: '/temp/AddProjInfo.html'
+        })
+        .state('cpanel.AddProjPreview', {
+            templateUrl: '/temp/AddProjPreview.html'
+        })
 
 }]);
 

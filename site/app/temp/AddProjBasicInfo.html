@@ -1,0 +1,15 @@
+  <md-input-container>
+        <label>Project Name {{formData.fName}}</label>
+        <input type="text" name="pNAme" ng-model="formData.pName" required>
+        <div ng-messages="formData.pName.$error.required">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+
+       <md-input-container>
+        <label>Abstract</label>
+        <textarea md-maxlength="500" name="abstract" type="text" ng-model="formData.abstract" required></textarea>
+        <div ng-messages="formData.abstract.$error.required">
+        <div ng-message="required">This is required.</div>
+       </div>
+      </md-input-container>

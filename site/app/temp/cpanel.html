@@ -1,0 +1,44 @@
+<md-content class="md-padding">
+<div ng-controller="cpanelCtrl">
+<md-tabs  md-selected="data.selectedIndex">
+ <md-tab label="Control page" id="tab1" aria-controls="tab1-content">
+
+ <h1>Cpanal</h1>
+
+ </md-tab>
+
+   <md-tab label="Adding Senior Projects" id="tab2" aria-controls="tab2-content">
+
+   <div>
+              <a ui-sref-active="active" ui-sref=".AddProjBasicInfo"><span>1</span>AddProjBasicInfo</a>
+              <a ui-sref-active="active" ui-sref=".AddProjInfo"><span>1</span>AddProjInfo</a>
+              <a ui-sref-active="active" ui-sref=".AddProjPreview"><span>1</span>AddProjPreview</a>
+
+          </div>
+
+         <form id="addProj-form" ng-submit="submitForm()">
+          <!-- our nested state views will be injected here -->
+          <div id="form-views" ui-view></div>
+      </form>
+  
+    <!-- show our formData as it is being typed -->
+  <pre>
+    {{ formData }}
+  </pre>
+
+   </md-tab>
+
+
+</md-tabs>
+
+</div>
+  </md-content>
+
+
+
+
+
+
+
+
+
