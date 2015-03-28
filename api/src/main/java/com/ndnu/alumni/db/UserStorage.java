@@ -21,6 +21,10 @@ import java.sql.DriverManager;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.mindrot.jbcrypt.BCrypt;
+
+import static com.ndnu.alumni.model.User.Major;
+
 //import jdbc_session3.DBConnection;
 
 public class UserStorage
@@ -73,26 +77,46 @@ public class UserStorage
 	 * @param id - the user's ID
 	 * @return the User object model for the given ID
 	 */
-	public User readUser(String id) throws SQLException
+	public User readUser(String identifier, String verifier) throws SQLException
 	{
-        String query = "select * from users where UserId=?";
+        String query = "select Password,UserId from users where Email=?";
         PreparedStatement statement = connection.prepareStatement(query);
-        statement.setString(1, id);
+        statement.setString(1, identifier);
+        statement.executeQuery();
         ResultSet resultSet = statement.executeQuery();
+        String id = "";
+        while (resultSet.next())
+        {
+            String hashedPassword = BCrypt.hashpw(verifier, BCrypt.gensalt());
+            String storedPassword = resultSet.getString(1);
+            if (hashedPassword.equals(storedPassword))
+            {
+            }
+            id = resultSet.getString(2);
+        }
+
+        // Get the user if password validates.
+        query = "select * from users where UserId=?";
+        statement = connection.prepareStatement(query);
+        statement.setString(1, id);
+        resultSet = statement.executeQuery();
         User user = null;
         while (resultSet.next())
         {
             String projectId = resultSet.getInt(2) + "";
             String first = resultSet.getString(3);
             String last = resultSet.getString(4);
-            int year = resultSet.getInt(5);
-            String major = resultSet.getString(6);
-            String phone = resultSet.getString(7);
-            String email = resultSet.getString(8);
-            String city = resultSet.getString(9);
-            String state = resultSet.getString(10);
-            String about = resultSet.getString(11);
-            String page = resultSet.getString(12);
+            String type = resultSet.getString(5);
+            int year = resultSet.getInt(6);
+            String rawMajor = resultSet.getString(7);
+            String phone = resultSet.getString(8);
+            String email = resultSet.getString(9);
+            String city = resultSet.getString(11);
+            String state = resultSet.getString(12);
+            String about = resultSet.getString(13);
+            String page = resultSet.getString(14);
+            String rawLoggedIn = resultSet.getString(15);
+            Major major = User.getMajorForString(rawMajor);
             user = new User(id, first, last, year, major, phone, email, city, state, about, page);
         }
         return user;

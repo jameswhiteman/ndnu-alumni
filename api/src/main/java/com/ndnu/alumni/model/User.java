@@ -12,20 +12,23 @@ package com.ndnu.alumni.model;
 
 public class User
 {
-	////Data Members////
+    public static enum Major
+    {
+        CS,ART,HST,REL,BUS,COMM
+    }
+
+	// Data Members
 	private String id;
 	private String firstName;
 	private String lastName;
-	private String emailAddress;
-	private int graduationYear;
-	private String major;
-	private String phoneNumber;
+	private String email;
+	private int year;
+	private Major major;
+	private String phone;
 	private String city;
 	private String state;
 	private String description;
 	private String page;
-
-	private String password;
 
 	////Class Constructors////
 	/**
@@ -37,16 +40,14 @@ public class User
 		this.id = "";
 		this.firstName = "";
 		this.lastName = "";
-		this.emailAddress = "";
-		this.graduationYear = 0;
-		this.major = "";
-		this.phoneNumber = "";
+		this.email = "";
+		this.year = 0;
+		this.major = Major.CS;
+		this.phone = "";
 		this.city = "";
 		this.state = "";
 		this.description = "";
 		this.page = "";
-
-		this.password = "";
 	}
 
 	/**
@@ -63,24 +64,34 @@ public class User
 	 * @param description
 	 * @param page
 	 */
-    public User(String id, String firstName, String lastName, int graduationYear, String major,
-            String phoneNumber, String emailAddress, String city, String state,
+    public User(String id, String firstName, String lastName, int year, Major major,
+            String phone, String email, String city, String state,
             String description, String page)
 	{
         this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.emailAddress = emailAddress;
-		this.graduationYear = graduationYear;
+		this.email = email;
+		this.year = year;
 		this.major = major;
-		this.phoneNumber = phoneNumber;
+		this.phone = phone;
 		this.city = city;
 		this.state = state;
 		this.description = description;
 		this.page = page;
-
-        this.password = "";
 	}
+
+    // Convenience
+    public static Major getMajorForString(String value)
+    {
+        if (value.equals("Software Engineering") ||
+                value.equals("Management Information Systems") ||
+                value.equals("cs"))
+        {
+            return Major.CS;
+        }
+        return Major.CS;
+    }
 
 	////Getters and Setters////
 	/**
@@ -90,15 +101,6 @@ public class User
 	public void setId(String id)
 	{
 		this.id = id;
-	}
-
-	/**
-	 * Method Description: Sets the password data member.
-	 * @param password
-	 */
-	public void setPassword(String password)
-	{
-		this.password = password;
 	}
 
 	/**
@@ -121,38 +123,38 @@ public class User
 
 	/**
 	 * Method Description: Sets the emailAddress data member.
-	 * @param emailAddress
+	 * @param email
 	 */
-	public void setEmailAddress(String emailAddress)
+	public void setEmail(String email)
 	{
-		this.emailAddress = emailAddress;
+		this.email = email;
 	}
 
 	/**
 	 * Method Description: Sets the graduationYear data member.
-	 * @param graduationYear
+	 * @param year
 	 */
-	public void setGraduationYear(int graduationYear)
+	public void setYear(int year)
 	{
-		this.graduationYear = graduationYear;
+		this.year = year;
 	}
 
 	/**
 	 * Method Description: Sets the major data member.
 	 * @param major
 	 */
-	public void setMajor(String major)
+	public void setMajor(Major major)
 	{
 		this.major = major;
 	}
 
 	/**
 	 * Method Description: Sets the phoneNumber data member.
-	 * @param phoneNumber
+	 * @param phone
 	 */
-	public void setPhoneNumber(String phoneNumber)
+	public void setPhone(String phone)
 	{
-		this.phoneNumber = phoneNumber;
+		this.phone = phone;
 	}
 
 	/**
@@ -193,20 +195,11 @@ public class User
 
 	/**
 	 * Method Description: Returns a reference to the username data member.
-	 * @return username
+	 * @return id
 	 */
 	public String getId()
 	{
 		return this.id;
-	}
-
-	/**
-	 * Method Description: Returns a reference to the password data member.
-	 * @return password
-	 */
-	public String getPassword()
-	{
-		return this.password;
 	}
 
 	/**
@@ -229,27 +222,27 @@ public class User
 
 	/**
 	 * Method Description: Returns a reference to the emailAddress data member.
-	 * @return emailAddress
+	 * @return email
 	 */
-	public String getEmailAddress()
+	public String getEmail()
 	{
-		return this.emailAddress;
+		return this.email;
 	}
 
 	/**
 	 * Method Description: Returns a reference to the graduationYear data member.
-	 * @return graduationYear
+	 * @return year
 	 */
-	public int getGraduationYear()
+	public int getYear()
 	{
-		return this.graduationYear;
+		return this.year;
 	}
 
 	/**
 	 * Method Description: Returns a reference to the major data member.
 	 * @return major
 	 */
-	public String getMajor()
+	public Major getMajor()
 	{
 		return this.major;
 	}
@@ -258,9 +251,9 @@ public class User
 	 * Method Description: Returns a reference to the phoneNumber data member.
 	 * @return phoneNumber
 	 */
-	public String getPhoneNumber()
+	public String getPhone()
 	{
-		return this.phoneNumber;
+		return this.phone;
 	}
 
 	/**
@@ -306,9 +299,8 @@ public class User
 	 */
 	public String toString()
 	{
-		return (this.id + "\n" + this.password + "\n"
-				+ this.firstName + "\n" + this.lastName + "\n" + this.emailAddress + "\n"
-				+ this.graduationYear + "\n" + this.major + "\n" + this.phoneNumber + "\n"
+		return (this.id + "\n" + this.firstName + "\n" + this.lastName + "\n" + this.email + "\n"
+				+ this.year + "\n" + this.major + "\n" + this.phone + "\n"
 				+ this.city + "\n" + this.state + "\n" + this.description + "\n" + this.page + "\n");
 	}
 }
