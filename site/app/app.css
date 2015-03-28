@@ -76,12 +76,3 @@ md-toolbar h1 {
   font-weight: 400;
 }
 
-.selectdemoOptionGroups p {
-  padding: 0 20px;
-  text-align: center; }
-.selectdemoOptionGroups p.result {
-  font-size: 0.8em;
-  color: #777; }
-.selectdemoOptionGroups .demo-content {
-  min-height: 348px; 
-}

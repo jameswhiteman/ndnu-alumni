@@ -53,7 +53,7 @@ public class ProjectsBackend
 	 * @param projectYear
 	 * @param projectAbstract
 	 */
-	public void addProject(int projectID, String projectName, int projectYear, String projectAbstract)
+	public void createProject(int projectID, String projectName, int projectYear, String projectAbstract)
 	{
 		//Variable declarations
 		String addProjectQuery = "";
