@@ -30,7 +30,7 @@
       <!-- added 4/8/15  -->
       <md-input-container>
         <label>Password {{user.password}}</label>
-        <input name="password" ng-model="password" required>
+        <input type="password" name="password" ng-model="password" required>
         <div ng-messages="signUpForm.password.$error.required">
           <div ng-message="required">This is required.</div>
         </div>
@@ -38,7 +38,7 @@
 
       <md-input-container>
         <label>Confirm Password {{user.confPass}}</label>
-        <input name="confPass" ng-model="confPass" required>
+        <input type="password" name="confPass" ng-model="confPass" required>
         <div ng-messages="signUpForm.confPass.$error.required">
           <div ng-message="required">This is required.</div>
         </div>
