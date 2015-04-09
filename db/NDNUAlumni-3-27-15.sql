@@ -1,4 +1,3 @@
-
 -- NDNU Alumni
 -- version 3
 --
@@ -9,11 +8,11 @@
 -- Authors: Eric & Ryan
 --
 
-DROP DATABASE IF EXISTS NDNUAlumni;
+DROP DATABASE IF EXISTS ndnualumni;
 
-CREATE DATABASE IF NOT EXISTS NDNUAlumni;
+CREATE DATABASE IF NOT EXISTS ndnualumni;
 
-USE NDNUAlumni;
+USE ndnualumni;
 
 --
 -- Database: 'NDNUAlumni'
@@ -23,7 +22,7 @@ USE NDNUAlumni;
 -- Table structure for table 'Projects'
 --
 
-DROP TABLE IF EXISTS project;
+DROP TABLE IF EXISTS Projects
 CREATE TABLE Projects (
   ProjectID int(5) NOT NULL auto_increment,
   ProjectName varchar(40) NOT NULL default '',
@@ -55,8 +54,8 @@ INSERT INTO Projects (ProjectID, ProjectName, ProjectYear, ProjectAbstracts) VAL
 
 DROP TABLE IF EXISTS Users;
 CREATE TABLE Users (
-  UserID int(5) NOT NULL auto_increment,
-  ProjectID int(5),
+  UserId int(5) NOT NULL auto_increment,
+  ProjectId int(5),
   FirstName varchar(30) default NULL,
   LastName varchar(50) default NULL,
   UserType varchar(30) default NULL,
@@ -79,7 +78,7 @@ CREATE TABLE Users (
 -- Dumping date for table 'Users'
 -- 
 
-INSERT INTO Users (UserID, ProjectID, FirstName, LastName, UserType, GradYear, Major, PhoneNumber, Email, Password, City, State, Description, Page, LoggedIn) VALUES
+INSERT INTO Users (UserID, ProjectId, FirstName, LastName, UserType, GradYear, Major, PhoneNumber, Email, Password, City, State, Description, Page, LoggedIn) VALUES
 ('00001', '00001', 'John', 'Snow', 'User', '2001', 'Software Engineering', '415-555-0001', 'JohnSnow@gmail.com', 'Password123', 'Castle Black', 'The Wall', 'Lord Commander of the Nights Watch', 'http://www.facebook.com/JohnSnow', 'N'),
 ('00002', '00004', 'Arya', 'Stark', 'User', '2003', 'Software Engineering', '415-555-0002', 'AryaHorseface@gmail.com', 'Password123', 'House of Black and White', 'Bravos', 'Acolite of the House of Black and White', 'http://www.facebook.com/AryaStark', 'N'),
 ('00003', '00001', 'Roose', 'Bolton', 'User', '2000', 'Software Engineering', '415-555-0003', 'rbolton@gmail.com', 'Password123', 'Dredfort', 'The North', 'Warden of the North', 'www.dreadfort.com', 'N'),
@@ -168,17 +167,14 @@ INSERT INTO Jobs (JobID, UserID, JobTitle, CompanyName, Salary, Description, Job
 -- added on 2/8/15
 DROP TABLE IF EXISTS Feedback;
 CREATE TABLE Feedback (
-  QuestionID int(6) NOT NULL auto_increment,
-  UserID int(5) NOT NULL ,
+  QuestionId int(6) NOT NULL auto_increment,
   QuestionOne int(10),
   QuestionTwo int(10) default NULL,
   QuestionThree int(10) default NULL,
   QuestionFour int(10) default NULL,
   QuestionFive int(10) default NULL,
   Comments text default NULL,
-  PRIMARY KEY  (QuestionID),
-  FOREIGN KEY (UserID) REFERENCES Users(UserID),
-  UNIQUE KEY QuestionId (QuestionID)
+  UNIQUE KEY QuestionId (QuestionId)
   ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
@@ -186,7 +182,7 @@ CREATE TABLE Feedback (
 -- Dumping date for table 'Feedback'
 -- 
 
-INSERT INTO Feedback (QuestionID, UserID, QuestionOne, QuestionTwo, QuestionThree, QuestionFour, QuestionFive, Comments) VALUES
-('1', '00001', '8', '6', '9', '10', '5', 'this is the comments colum'),
-('2', '00002', '8', '6', '9', '10', '5', 'Oh look another comments'),
-('3', '00003', '8', '6', '9', '10', '5', 'A wild comment appeared');
+INSERT INTO Feedback (QuestionId, QuestionOne, QuestionTwo, QuestionThree, QuestionFour, QuestionFive, Comments) VALUES
+(1, 8, 6, 9, 10, 5, 'this is the comments colum'),
+(2, 8, 6, 9, 10, 5, 'Oh look another comments'),
+(3, 8, 6, 9, 10, 5, 'A wild comment appeared');

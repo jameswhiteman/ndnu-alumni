@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller('barCtrl', function($scope, $mdDialog) 
+app.controller('barCtrl', function($scope, $mdDialog)
 {
 	 $scope.showAdvanced = function(ev) {
     $mdDialog.show({
@@ -26,4 +26,3 @@ function DialogController($scope, $mdDialog) {
     $mdDialog.hide(answer);
   };
 }
-

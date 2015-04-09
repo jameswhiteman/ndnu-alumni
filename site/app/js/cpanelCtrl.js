@@ -1,7 +1,6 @@
 var app = angular.module('app');
 
-
-app.controller('cpanelCtrl', ['$scope', '$upload', function($scope, $upload)
+app.controller('cpanelCtrl', ['$scope', '$upload', '$http', function($scope, $upload, $http)
 {
 	 $scope.data = {
       selectedIndex : 0,
@@ -17,13 +16,24 @@ app.controller('cpanelCtrl', ['$scope', '$upload', function($scope, $upload)
     };
 
     $scope.formData = {};
-    
     // function to process the form
     $scope.submitForm = function() {
-        alert('submitForm!');  
+        $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+        //var info = "name="+$scope.formData.name.$modelValue+"&description="+$scope.formData.description.$modelValue+"&year="+$scope.formData.year.$modelValue;
+        info = "jj";
+        console.log(info);
+        $http.post('http://localhost:8282/ndnualumni-api/projects', info).
+        success(function(data, status, headers, config) {
+            alert("success");
+            $state.go('home')
+        }).
+        error(function(data, status, headers, config) {
+            alert("error");
+        });
     };
 
     $scope.upload = function (files) {
+        /*
         if (files && files.length) {
             for (var i = 0; i < files.length; i++) {
                 var file = files[i];
@@ -39,5 +49,6 @@ app.controller('cpanelCtrl', ['$scope', '$upload', function($scope, $upload)
                 });
             }
         }
+        */
     };
 }]);

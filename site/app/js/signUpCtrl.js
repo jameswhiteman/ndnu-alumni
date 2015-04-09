@@ -1,5 +1,4 @@
 var app = angular.module('app');
-
 app.controller('signUpCtrl', ['$scope', '$http', '$state', function($scope, $http, $state)
 {
     $scope.data = [];
@@ -25,12 +24,12 @@ app.controller('signUpCtrl', ['$scope', '$http', '$state', function($scope, $htt
         $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
         var info = "first="+this.first+"&last="+this.last+"&email="+this.email+"&password="+this.password+"&year="+this.year+"&major="+this.major+"&phone="+this.phone+"&about="+this.about;
         $http.post('http://localhost:8282/ndnualumni-api/users', info).
-          success(function(data, status, headers, config) {
+        success(function(data, status, headers, config) {
             alert("success");
-            $state.go('home')
-          }).
-          error(function(data, status, headers, config) {
+            $state.go('home');
+        }).
+        error(function(data, status, headers, config) {
             alert("error");
-          });
+        });
     }
 }]);
