@@ -15,7 +15,7 @@ app.controller('signUpCtrl', ['$scope', '$http', '$state', function($scope, $htt
         $http.post('http://localhost:8282/ndnualumni-api/users', info).
         success(function(data, status, headers, config) {
             alert("success");
-            $state.go('home')
+            $state.go('home');
         }).
         error(function(data, status, headers, config) {
             alert("error");

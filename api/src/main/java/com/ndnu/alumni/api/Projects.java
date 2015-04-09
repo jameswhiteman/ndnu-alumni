@@ -49,23 +49,23 @@ public class Projects extends HttpServlet
         PrintWriter out = response.getWriter();
 
         // Get the request parameters.
-        int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         int year = Integer.parseInt(request.getParameter("year"));
         String description = request.getParameter("description");
+        System.out.println("Name:" + name + "\nYear:" + year + "\nDesc:" + description);
 
         // Add the project to the database.
         response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         try
         {
             ProjectsBackend store = new ProjectsBackend();
-            store.createProject(id, name, year, description);
+            store.createProject(name, year, description);
             response.setStatus(HttpServletResponse.SC_CREATED);
-            out.println("Successfully created user.");
+            out.println("Successfully created project.");
         }
         catch (SQLException e)
         {
-            out.println("Failed to create user.");
+            out.println("Failed to create project.");
         }
     }
 }
