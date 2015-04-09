@@ -54,18 +54,21 @@ INSERT INTO Projects (ProjectID, ProjectName, ProjectYear, ProjectAbstracts) VAL
 
 DROP TABLE IF EXISTS Users;
 CREATE TABLE Users (
-  UserId int(5) NOT NULL auto_increment,
-  ProjectId int(5),
+  UserID int(5) NOT NULL auto_increment,
+  ProjectID int(5),
   FirstName varchar(30) default NULL,
   LastName varchar(50) default NULL,
+  UserType varchar(30) default NULL,
   GradYear int(4) default NULL,
   Major varchar(40) default NULL,
   PhoneNumber varchar(12) default NULL,
   Email varchar(70) default NULL,
+  Password varchar(255) default NULL,
   City varchar(30) default NULL,
   State varchar(20) default NULL,
   Description text default NULL,
   Page varchar(255) default NULL,
+  LoggedIn varchar(1) default NULL,
   PRIMARY KEY (UserId),
   UNIQUE KEY user_id (UserId),
   FOREIGN Key (ProjectId) REFERENCES Projects(ProjectId)
@@ -75,17 +78,17 @@ CREATE TABLE Users (
 -- Dumping date for table 'Users'
 -- 
 
-INSERT INTO Users (UserID, ProjectId, FirstName, LastName, GradYear, Major, PhoneNumber, Email, City, State, Description, Page) VALUES
-('00001', '00001', 'John', 'Snow', '2001', 'Software Engineering', '415-555-0001', 'JohnSnow@gmail.com', 'Castle Black', 'The Wall', 'Lord Commander of the Nights Watch', 'http://www.facebook.com/JohnSnow'),
-('00002', '00004', 'Arya', 'Stark', '2003', 'Software Engineering', '415-555-0002', 'AryaHorseface@gmail.com', 'House of Black and White', 'Bravos', 'Acolite of the House of Black and White', 'http://www.facebook.com/AryaStark'),
-('00003', '00001', 'Roose', 'Bolton', '2000', 'Software Engineering', '415-555-0003', 'rbolton@gmail.com', 'Dredfort', 'The North', 'Warden of the North', 'www.dreadfort.com'),
-('00004', '00002', 'HODOR', 'HODOR', '2001', 'Management Information Science', '415-555-0004', 'HODOR@gmail.com', 'Winterfel', 'The North', 'HODOR', 'www.hodor.com'),
-('00005', '00003', 'Robb', 'Stark', '2002', 'Software Engineering', '415-555-0005', 'youngwolf@gmail.com', 'Winterfel', 'The North', 'The King in the North', 'www.thrkinginthenorth.org'),
-('00006', '00004', 'Theon', 'Greyjoy', '2004', 'Management Information Science', '650-555-0006', 'turncloak@yahoo.com', 'Pike', 'Iron Islands', 'Reek, Reek, it rimes with sneek', 'www.mynameisreek.com'),
-('00007', '00006', 'Sirio', 'Forell', '2005', 'Software Engineering', '650-555-0007', 'sforell@hotmail.com', 'Tavern', 'Bravos', 'First sword of Bravos', 'www.sirioforell.com'),
-('00008', '00007', 'Rhaegar', 'Targaryen', '2006', 'Software Engineering', '415-555-0008', 'RhaegarT@aol.com', 'Red Keep', 'Crown Lands', 'Son of the Mad King', 'www.silverharp.com'),
-('00009', '00008', 'Tyrion', 'Lanister', '2007', 'Management Information Science', '650-555-0009', 'theImp@gmail.com', 'Casterly Rock', 'Lanisport', 'HALF MAN, HALF MAM', 'www.impingainteasy.com'),
-('00010', '00009', 'Khal', 'Drogo', '2008', 'Software Engineering', '510-555-0010', 'KhalDrogo@netscape.com', 'The Dothraki Sea', 'Essos', 'Khal of the great grass see', 'www.drogo.com');
+INSERT INTO Users (UserID, ProjectID, FirstName, LastName, UserType, GradYear, Major, PhoneNumber, Email, Password, City, State, Description, Page, LoggedIn) VALUES
+('00001', '00001', 'John', 'Snow', 'User', '2001', 'Software Engineering', '415-555-0001', 'JohnSnow@gmail.com', 'Password123', 'Castle Black', 'The Wall', 'Lord Commander of the Nights Watch', 'http://www.facebook.com/JohnSnow', 'N'),
+('00002', '00004', 'Arya', 'Stark', 'User', '2003', 'Software Engineering', '415-555-0002', 'AryaHorseface@gmail.com', 'Password123', 'House of Black and White', 'Bravos', 'Acolite of the House of Black and White', 'http://www.facebook.com/AryaStark', 'N'),
+('00003', '00001', 'Roose', 'Bolton', 'User', '2000', 'Software Engineering', '415-555-0003', 'rbolton@gmail.com', 'Password123', 'Dredfort', 'The North', 'Warden of the North', 'www.dreadfort.com', 'N'),
+('00004', '00002', 'HODOR', 'HODOR', 'User', '2001', 'Management Information Science', '415-555-0004', 'HODOR@gmail.com', 'Password123', 'Winterfel', 'The North', 'HODOR', 'www.hodor.com', 'N'),
+('00005', '00003', 'Robb', 'Stark', 'User', '2002', 'Software Engineering', '415-555-0005', 'youngwolf@gmail.com', 'Password123', 'Winterfel', 'The North', 'The King in the North', 'www.thrkinginthenorth.org', 'N'),
+('00006', '00004', 'Theon', 'Greyjoy', 'User', '2004', 'Management Information Science', '650-555-0006', 'turncloak@yahoo.com', 'Password123', 'Pike', 'Iron Islands', 'Reek, Reek, it rimes with sneek', 'www.mynameisreek.com', 'N'),
+('00007', '00006', 'Sirio', 'Forell', 'User', '2005', 'Software Engineering', '650-555-0007', 'sforell@hotmail.com', 'Password123', 'Tavern', 'Bravos', 'First sword of Bravos', 'www.sirioforell.com', 'N'),
+('00008', '00007', 'Rhaegar', 'Targaryen', 'User', '2006', 'Software Engineering', '415-555-0008', 'RhaegarT@aol.com', 'Password123', 'Red Keep', 'Crown Lands', 'Son of the Mad King', 'www.silverharp.com', 'N'),
+('00009', '00008', 'Tyrion', 'Lanister', 'User', '2007', 'Management Information Science', '650-555-0009', 'theImp@gmail.com', 'Password123', 'Casterly Rock', 'Lanisport', 'HALF MAN, HALF MAM', 'www.impingainteasy.com', 'N'),
+('00010', '00009', 'Khal', 'Drogo', 'User', '2008', 'Software Engineering', '510-555-0010', 'KhalDrogo@netscape.com', 'Password123', 'The Dothraki Sea', 'Essos', 'Khal of the great grass see', 'www.drogo.com', 'N');
 
 -- 
 -- Table structure for table 'Docs'
@@ -164,14 +167,17 @@ INSERT INTO Jobs (JobID, UserID, JobTitle, CompanyName, Salary, Description, Job
 -- added on 2/8/15
 DROP TABLE IF EXISTS Feedback;
 CREATE TABLE Feedback (
-  QuestionId int(6) NOT NULL auto_increment,
+  QuestionID int(6) NOT NULL auto_increment,
+  UserID int(5) NOT NULL ,
   QuestionOne int(10),
   QuestionTwo int(10) default NULL,
   QuestionThree int(10) default NULL,
   QuestionFour int(10) default NULL,
   QuestionFive int(10) default NULL,
   Comments text default NULL,
-  UNIQUE KEY QuestionId (QuestionId)
+  PRIMARY KEY  (QuestionID),
+  FOREIGN KEY (UserID) REFERENCES Users(UserID),
+  UNIQUE KEY QuestionId (QuestionID)
   ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
@@ -179,5 +185,8 @@ CREATE TABLE Feedback (
 -- Dumping date for table 'Feedback'
 -- 
 
-INSERT INTO Feedback (QuestionId, QuestionOne, QuestionTwo, QuestionThree, QuestionFour, QuestionFive, Comments) VALUES
-(1, 8, 6, 9, 10, 5, 'this is the comments colum');
+INSERT INTO Feedback (QuestionID, UserID, QuestionOne, QuestionTwo, QuestionThree, QuestionFour, QuestionFive, Comments) VALUES
+('1', '00001', '8', '6', '9', '10', '5', 'this is the comments colum'),
+('2', '00002', '8', '6', '9', '10', '5', 'Oh look another comments'),
+('3', '00003', '8', '6', '9', '10', '5', 'A wild comment appeared');
+
