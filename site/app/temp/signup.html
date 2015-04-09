@@ -1,57 +1,82 @@
 <div ng-controller="signUpCtrl" layout="column" layout-sm="column">
-    <md-content class="md-padding">
-        <md-card>
-            <form name="signUpForm" ng-submit="submit()" ng-controller="signUpCtrl">
-                <md-input-container>
-                    <label>First Name {{user.fName}}</label>
-                    <input type="text" name="first" ng-model="first" required>
-                    <div ng-messages="signUpForm.fName.$error.required">
-                        <div ng-message="required">This is required.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container>
-                    <label>Last Name {{user.lName}}</label>
-                    <input type="text" name="last" ng-model="last" required>
-                    <div ng-messages="signUpForm.fName.$error.required">
-                        <div ng-message="required">This is required.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container>
-                    <label>Email {{user.email}}</label>
-                    <input type="email" name="email" ng-model="email" required>
-                    <div ng-messages="signUpForm.e.$error.required">
-                        <div ng-message="required">This is required.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container>
-                    <label>Grad. Year {{user.gYear}}</label>
-                    <input type="number" name="year" ng-model="year" required>
-                    <div ng-messages="signUpForm.gYear.$error.required">
-                        <div ng-message="required">This is required.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container>
-                    <label>Major {{user.major}}</label>
-                    <input type="text" name="major" ng-model="major" required>
-                    <div ng-messages="signUpForm.major.$error.required">
-                        <div ng-message="required">This is required.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container>
-                    <label>Phone# {{user.phone}}</label>
-                    <input name="phone" ng-model="phone" required>
-                    <div ng-messages="signUpForm.phone.$error.required">
-                        <div ng-message="required">This is required.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container>
-                    <label>About Me</label>
-                    <textarea md-maxlength="300" name="about" type="text" ng-model="about"></textarea>
-                    <div ng-messages="signUpForm.aboutMe.$error">
-                    </div>
-                </md-input-container>
-                <md-button type="submit" id="submit" class="md-raised md-warn" style="height: 45px;">Submit</md-button>
-            </form>
-        </md-card>
-    </md-content>
+
+  <md-content class="md-padding">
+      <md-card>
+    <form name="signUpForm" ng-submit="submit()" ng-controller="signUpCtrl">
+      <md-input-container>
+        <label>First Name {{user.fName}}</label>
+        <input type="text" name="first" ng-model="first" required>
+        <div ng-messages="signUpForm.fName.$error.required">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Last Name {{user.lName}}</label>
+        <input type="text" name="last" ng-model="last" required>
+        <div ng-messages="signUpForm.fName.$error.required">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Email {{user.email}}</label>
+        <input type="email" name="email" ng-model="email" required>
+        <div ng-messages="signUpForm.e.$error.required">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+
+      <!-- added 4/8/15  -->
+      <md-input-container>
+        <label>Password {{user.password}}</label>
+        <input name="password" ng-model="password" required>
+        <div ng-messages="signUpForm.password.$error.required">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Confirm Password {{user.confPass}}</label>
+        <input name="confPass" ng-model="confPass" required>
+        <div ng-messages="signUpForm.confPass.$error.required">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Grad. Year {{user.gYear}}</label>
+        <input type="number" name="year" ng-model="year" required>
+        <div ng-messages="signUpForm.gYear.$error.required">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Major {{user.major}}</label>
+        <input type="text" name="major" ng-model="major" required>
+        <div ng-messages="signUpForm.major.$error.required">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Phone# {{user.phone}}</label>
+        <input name="phone" ng-model="phone" required>
+        <div ng-messages="signUpForm.phone.$error.required">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container>
+        <label>About Me</label>
+        <textarea md-maxlength="300" name="about" type="text" ng-model="about"></textarea>
+          <div ng-messages="signUpForm.aboutMe.$error">
+        </div>
+      </md-input-container>
+
+         <md-button type="submit" id="submit" class="md-raised md-warn" style="height: 45px;">Submit</md-button>
+   </form>
+    </md-card>
+  </md-content>
 </div>
