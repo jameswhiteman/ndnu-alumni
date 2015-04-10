@@ -19,8 +19,8 @@ app.controller('cpanelCtrl', ['$scope', '$upload', '$http', function($scope, $up
     // function to process the form
     $scope.submitForm = function() {
         $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
-        //var info = "name="+$scope.formData.name.$modelValue+"&description="+$scope.formData.description.$modelValue+"&year="+$scope.formData.year.$modelValue;
-        info = "jj";
+        var info = "name="+$scope.formData.name.$modelValue+"&description="+$scope.formData.description.$modelValue+"&year="+$scope.formData.year.$modelValue;
+        //info = "jj";
         console.log(info);
         $http.post('http://localhost:8282/ndnualumni-api/projects', info).
         success(function(data, status, headers, config) {

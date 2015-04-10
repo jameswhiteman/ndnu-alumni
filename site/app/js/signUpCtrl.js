@@ -13,13 +13,13 @@ app.controller('signUpCtrl', ['$scope', '$http', '$state', function($scope, $htt
     $scope.phone = 5555555555;
     $scope.about = "";
     $scope.submit = function() {
-        if (scope.password.length<6) {
+        if ($scope.password.length<6) {
             alert("Password must be greater than six characters.");
-            return
+            return;
         }
-        if (scope.password!===scope.confPass) {
+        if ($scope.password!=$scope.confPass) {
             alert("Password does not match.");
-            return
+            return;
         }
         $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
         var info = "first="+this.first+"&last="+this.last+"&email="+this.email+"&password="+this.password+"&year="+this.year+"&major="+this.major+"&phone="+this.phone+"&about="+this.about;
