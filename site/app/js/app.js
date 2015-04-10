@@ -21,7 +21,8 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
 	  	})
         .state('cpanel.AddProjInfo', {
          abstract: true,
-        templateUrl: 'temp/AddProjInfo.html'
+        templateUrl: 'temp/addProjInfo.html',
+        controller: 'addProjCtrl'
         })
 
 }]);

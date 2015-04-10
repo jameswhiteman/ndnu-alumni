@@ -39,11 +39,14 @@ public class Users extends HttpServlet
             User user = store.readUser(email, password);
             response.setStatus(HttpServletResponse.SC_OK);
             Gson gson = new Gson();
-            out.println(gson.toJson(user));
+            if (user != null)
+            {
+                out.println(gson.toJson(user));
+            }
         }
         catch (SQLException e)
         {
-            out.println("Failed to retrieve user.");
+            out.println("Failed to retrieve user from database.");
         }
     }
 

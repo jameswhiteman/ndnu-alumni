@@ -7,7 +7,7 @@ app.controller('homeCtrl', function($scope, $http)
           $scope.depts = res.data;
         });
 
-   $http.get('projects.json').
+   $http.get('http://localhost:8282/ndnualumni-api/projects').
     success(function(data) {
       $scope.projects = data;
     }).

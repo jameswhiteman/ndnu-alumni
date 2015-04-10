@@ -24,11 +24,11 @@ The Alumni Office helps alumni stay connected with each other and with the unive
 </md-card>
  </md-tab>
 
-   <md-tab label="Senior Projects" id="tab2" aria-controls="tab2-content" ng-disabled="data.tabLocked">
+   <md-tab label="Senior Projects" id="tab2" aria-controls="tab2-content">
                <div ng-repeat="projects in projects">
       <md-toolbar class="md-theme-light">
     <h2 class="md-toolbar-tools">
-      <span>{{projects.ProjectName}}</span>
+      <span>{{projects.projectName}}</span>
     </h2>
   </md-toolbar>
   <md-content>
@@ -37,8 +37,8 @@ The Alumni Office helps alumni stay connected with each other and with the unive
 
       <md-list-item class="md-2-line">
         <div class="md-list-item-text">
-              <h3>{{projects.ProjectYear}}</h3>
-          <p>{{projects.ProjectAbstracts}}</p>
+              <h3>{{projects.projectYear}}</h3>
+          <p>{{projects.projectAbstract}}</p>
         </div>
       </md-list-item>
     </md-list>
