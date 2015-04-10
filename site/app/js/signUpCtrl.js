@@ -10,7 +10,7 @@ app.controller('signUpCtrl', ['$scope', '$http', '$state', function($scope, $htt
     $scope.major = "";
     $scope.phone = 5555555555;
     $scope.about = "";
-    $scope.submit = function() {
+    $scope.createProject = function() {
         $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
         var info = "first="+this.first+"&last="+this.last+"&email="+this.email+"&year="+this.year+"&major="+this.major+"&phone="+this.phone+"&about="+this.about;
         $http.post('http://localhost:8282/ndnualumni-api/users', info).

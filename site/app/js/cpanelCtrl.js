@@ -17,10 +17,10 @@ app.controller('cpanelCtrl', ['$scope', '$upload', function($scope, $upload)
     };
 
     $scope.formData = {};
-    
+
     // function to process the form
-    $scope.submitForm = function() {
-        alert('submitForm!');  
+    $scope.addProject = function() {
+        alert('submitForm!');
     };
 
     $scope.upload = function (files) {
