@@ -16,13 +16,13 @@ app.controller('signUpCtrl', ['$scope', '$http', '$state', function($scope, $htt
     $scope.createProject = function() {
 =======
     $scope.submit = function() {
-        if (scope.password.length<6) {
+        if ($scope.password.length<6) {
             alert("Password must be greater than six characters.");
-            return
+            return;
         }
-        if (scope.password!===scope.confPass) {
+        if ($scope.password!=$scope.confPass) {
             alert("Password does not match.");
-            return
+            return;
         }
 >>>>>>> 5db812b6e7817e2f043a5bb9891a40c96094dbdd
         $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
