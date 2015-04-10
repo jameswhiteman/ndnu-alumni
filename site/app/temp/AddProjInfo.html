@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div layout="column" layout-sm="column">
     <form name="addProjectForm" ng-submit="addProject()" ng-controller="cpanelCtrl">
         <md-content class="md-padding">
@@ -44,4 +45,54 @@
             <md-button type="submit" id="submit" class="md-raised md-warn" style="height: 45px;">Submit</md-button>
         </md-content>
      </form>
+=======
+<div layout="column" layout-sm="column" ng-controller="addProjCtrl">
+    <form name="addProjectForm" ng-controller="addProjCtrl" submit="submit()">
+  <md-content class="md-padding">
+  <md-input-container>
+        <label>Project Name</label>
+        <input type="text" name="name" ng-model="name" required>
+        <div ng-messages="formData.proj_name.$error.required">
+         <div ng-message="required">This is required.</div>
+        </div>
+  </md-input-container>
+
+  <md-input-container>
+        <label>Abstract</label>
+        <textarea md-maxlength="500" name="description" type="text" ng-model="description" required></textarea>
+        <div ng-messages="formData.proj_abstract.$error.required">
+        <div ng-message="required">This is required.</div>
+       </div>
+  </md-input-container>
+
+  <md-input-container>
+        <label>Year</label>
+        <input type="number" name="year" ng-model="year" required>
+        <div ng-messages="formData.proj_year.$error.required">
+          <div ng-message="required">This is required.</div>
+        </div>
+  </md-input-container>
+
+   <md-input-container>
+        <label>Team Members</label>
+        <input type="text" name="proj_members" ng-model="members" required>
+        <div ng-messages="formData.proj_members.$error.required">
+         <div ng-message="required">This is required.</div>
+        </div>
+  </md-input-container>
+
+   <md-input-container>
+        <label>Project Details link</label>
+        <input type="text" name="proj_details" ng-model="details" required>
+        <div ng-messages="formData.proj_details.$error.required">
+         <div ng-message="required">This is required.</div>
+        </div>
+  </md-input-container>
+
+       Documentation: <div md-button ng-file-select ng-file-change="upload($files)" ng-multiple="multiple">Select File</div>
+
+</md-content>
+      <md-button class="md-raised md-warn" type="submit">Submit!</md-button>
+      </form>
+>>>>>>> 5db812b6e7817e2f043a5bb9891a40c96094dbdd
 </div>

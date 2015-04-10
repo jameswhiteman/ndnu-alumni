@@ -45,7 +45,27 @@ public class Projects extends HttpServlet
         response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, HEAD");
         response.addHeader("Access-Control-Allow-Headers", "X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept");
         response.addHeader("Access-Control-Max-Age", "1728000");
+        response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         PrintWriter out = response.getWriter();
-        out.println("{success}");
+
+        // Get the request parameters.
+        String name = request.getParameter("name");
+        int year = Integer.parseInt(request.getParameter("year"));
+        String description = request.getParameter("description");
+        System.out.println("Name:" + name + "\nYear:" + year + "\nDesc:" + description);
+
+        // Add the project to the database.
+        response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        try
+        {
+            ProjectsBackend store = new ProjectsBackend();
+            store.createProject(name, year, description);
+            response.setStatus(HttpServletResponse.SC_CREATED);
+            out.println("Successfully created project.");
+        }
+        catch (SQLException e)
+        {
+            out.println("Failed to create project.");
+        }
     }
 }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+    <display-name>NDNU Alumni</display-name>
+    <description>
+        A portal for connecting the alumni of the NDNU community together.
+    </description>
+
+    <!-- Servlets -->
+    <servlet>
+        <servlet-name>Projects</servlet-name>
+        <servlet-class>com.ndnu.alumni.api.Projects</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Users</servlet-name>
+        <servlet-class>com.ndnu.alumni.api.Users</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Events</servlet-name>
+        <servlet-class>com.ndnu.alumni.api.Events</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Documents</servlet-name>
+        <servlet-class>com.ndnu.alumni.api.Documents</servlet-class>
+    </servlet>
+
+    <!-- Mappings -->
+    <servlet-mapping>
+        <servlet-name>Projects</servlet-name>
+        <url-pattern>/projects</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Users</servlet-name>
+        <url-pattern>/users</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Events</servlet-name>
+        <url-pattern>/events</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Documents</servlet-name>
+        <url-pattern>/documents</url-pattern>
+    </servlet-mapping>
+
+</web-app>

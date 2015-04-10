@@ -1,25 +1,25 @@
 <md-dialog>
-  <md-content>
-    <md-subheader class="md-sticky-no-effect">Enter Name And password</md-subheader>
-  <div class="md-actions" layout="row" layout-align="center center" layout-sm="column" layout-align-sm="space-between center">
-        <form name="logInForm" ng-submit="submit()" ng-controller="loginCtrl">
-      <md-input-container>
-        <label>Email</label>
-        <input type="email" name ="email" ng-model="email" required>
-        <div ng-messages="logInForm.email.$error.required">
-          <div ng-message="required">This is required.</div>
+    <md-content>
+        <md-subheader class="md-sticky-no-effect">Enter Name And password</md-subheader>
+        <div class="md-actions" layout="row" layout-align="center center" layout-sm="column" layout-align-sm="space-between center">
+            <form name="logInForm" ng-submit="submit()" ng-controller="loginCtrl">
+                <md-input-container>
+                    <label>Email</label>
+                    <input type="email" name ="email" ng-model="email" required>
+                    <div ng-messages="logInForm.email.$error.required">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label>Password</label>
+                    <input type="text" name ="password" ng-model="password" required>
+                    <div ng-messages="logInForm.password.$error.required">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+                <md-button type="submit" id="submit" class="md-raised md-primary">Log In</md-button>
+            </form>
+            <md-button class="md-raised md-warn">I forgot my password </md-button>
         </div>
-      </md-input-container>
-       <md-input-container>
-        <label>Password</label>
-        <input type="password" name ="password" ng-model="password" required>
-        <div ng-messages="logInForm.password.$error.required">
-          <div ng-message="required">This is required.</div>
-        </div>
-      </md-input-container>
-       <md-button type="submit" id="submit" class="md-raised md-primary">Log In</md-button>
-      </form>  
-    <md-button class="md-raised md-warn">I forgot my password </md-button>
-    </div>
-  </md-content>
+    </md-content>
 </md-dialog>

@@ -53,7 +53,7 @@ public class ProjectsBackend
 	 * @param projectYear
 	 * @param projectAbstract
 	 */
-	public void addProject(int projectID, String projectName, int projectYear, String projectAbstract)
+	public void createProject(String projectName, int projectYear, String projectAbstract)
 	{
 		//Variable declarations
 		String addProjectQuery = "";
@@ -64,15 +64,14 @@ public class ProjectsBackend
 		if (!projectName.equals("") && projectYear != 0 && !projectAbstract.equals(""))
 		{
 			//Set the addProjectQuery
-			addProjectQuery = "insert into Projects values (?, ?, ?, ?)";
+			addProjectQuery = "insert into projects (ProjectName, ProjectYear, ProjectAbstracts) values (?, ?, ?)";
 
 			try
 			{
 				preparedStatementObject = connectionObject.prepareStatement(addProjectQuery);
-				preparedStatementObject.setInt(1, projectID);
-				preparedStatementObject.setString(2, projectName);
-				preparedStatementObject.setInt(3, projectYear);
-				preparedStatementObject.setString(4, projectAbstract);
+				preparedStatementObject.setString(1, projectName);
+				preparedStatementObject.setInt(2, projectYear);
+				preparedStatementObject.setString(3, projectAbstract);
 				preparedStatementObject.executeUpdate();
 			}
 			catch(SQLException e)
@@ -106,7 +105,7 @@ public class ProjectsBackend
 		if (!name.equals(""))
 		{
 			//Set the getProjectQuery
-			getProjectQuery = "select * from Projects where projectName = ?";
+			getProjectQuery = "select * from projects where ProjectName = ?";
 
 			try
 			{
