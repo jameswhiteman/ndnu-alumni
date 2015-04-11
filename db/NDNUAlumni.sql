@@ -1,4 +1,3 @@
-
 -- NDNU Alumni
 -- version 3
 --
@@ -70,8 +69,8 @@ CREATE TABLE Users (
   Description text default NULL,
   Page varchar(255) default NULL,
   LoggedIn varchar(1) default NULL,
-  PRIMARY KEY (UserId),
-  UNIQUE KEY user_id (UserId),
+  PRIMARY KEY (UserID),
+  UNIQUE KEY user_id (UserID),
   FOREIGN Key (ProjectId) REFERENCES Projects(ProjectId)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -170,12 +169,11 @@ DROP TABLE IF EXISTS Feedback;
 CREATE TABLE Feedback (
   QuestionID int(6) NOT NULL auto_increment,
   UserID int(5) NOT NULL ,
-  QuestionOne int(10),
-  QuestionTwo int(10) default NULL,
-  QuestionThree int(10) default NULL,
-  QuestionFour int(10) default NULL,
-  QuestionFive int(10) default NULL,
-  Comments text default NULL,
+  QuestionOne text default NULL,
+  QuestionTwo text default NULL,
+  QuestionThree text default NULL,
+  QuestionFour text default NULL,
+  QuestionFive text default NULL,
   PRIMARY KEY  (QuestionID),
   FOREIGN KEY (UserID) REFERENCES Users(UserID),
   UNIQUE KEY QuestionId (QuestionID)
@@ -186,7 +184,30 @@ CREATE TABLE Feedback (
 -- Dumping date for table 'Feedback'
 -- 
 
-INSERT INTO Feedback (QuestionID, UserID, QuestionOne, QuestionTwo, QuestionThree, QuestionFour, QuestionFive, Comments) VALUES
-('1', '00001', '8', '6', '9', '10', '5', 'this is the comments colum'),
-('2', '00002', '8', '6', '9', '10', '5', 'Oh look another comments'),
-('3', '00003', '8', '6', '9', '10', '5', 'A wild comment appeared');
+INSERT INTO Feedback (QuestionID, UserID, QuestionOne, QuestionTwo, QuestionThree, QuestionFour, QuestionFive) VALUES
+('00001', '00004', 'feedback', 'Oooooo', 'ahhhhh', 'sweet sweet feedback', 'its nice');
+
+--
+-- Table structure for table 'lecture'
+--
+
+-- added 4/10/15
+DROP TABLE IF EXISTS GuestLecture;
+CREATE TABLE GuestLecture (
+  LectureID int(6) NOT NULL auto_increment,
+  LectureTitle varchar(255) NOT NULL,
+  LectureName varchar(70) default NULL,
+  LectureMajor varchar(70) default NULL,
+  LectureTopic varchar(255) default NULL,
+  LectureDesc text default NULL,
+  LectureDateTime datetime default NULL,
+  PRIMARY KEY (LectureID),
+  UNIQUE KEY LectureID (LectureID)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table
+--
+
+INSERT INTO GuestLecture (LectureID, LectureTitle, LectureName, LectureMajor, LectureTopic, LectureDesc, LectureDateTime) VALUES
+('00001', 'The Wonders of Lisp', 'John Youssefi', 'Computer Science', 'Lisp programming language', 'This lecture will talk about the most awesomeist of programing languages. LISP!!', '2015-06-10 11:00:00');
