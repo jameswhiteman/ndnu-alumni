@@ -183,22 +183,23 @@ INSERT INTO Feedback (QuestionID, UserID, QuestionOne, QuestionTwo, QuestionThre
 --
 
 -- added 4/10/15
-DROP TABLE IF EXISTS GuestLecture;
-CREATE TABLE GuestLecture (
-  LectureID int(6) NOT NULL auto_increment,
-  LectureTitle varchar(255) NOT NULL,
-  LectureName varchar(70) default NULL,
-  LectureMajor varchar(70) default NULL,
-  LectureTopic varchar(255) default NULL,
-  LectureDesc text default NULL,
-  LectureDateTime datetime default NULL,
-  PRIMARY KEY (LectureID),
-  UNIQUE KEY LectureID (LectureID)
+DROP TABLE IF EXISTS Events;
+CREATE TABLE Events (
+  EventID int(6) NOT NULL auto_increment,
+  EventTitle varchar(255) NOT NULL,
+  EventType varchar(100) NOT NULL,
+  EventOrgName varchar(70) default NULL,
+  EventMajor varchar(70) default NULL,
+  EventTopic varchar(255) default NULL,
+  EventDesc text default NULL,
+  EventDateTime datetime default NULL,
+  PRIMARY KEY (EventID),
+  UNIQUE KEY EventID (EventID)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table
 --
 
-INSERT INTO GuestLecture (LectureID, LectureTitle, LectureName, LectureMajor, LectureTopic, LectureDesc, LectureDateTime) VALUES
-('00001', 'The Wonders of Lisp', 'John Youssefi', 'Computer Science', 'Lisp programming language', 'This lecture will talk about the most awesomeist of programing languages. LISP!!', '2015-06-10 11:00:00');
+INSERT INTO Events (EventID, EventTitle, EventType, EventOrgName, EventMajor, EventLectureTopic, EventDesc, EventDateTime) VALUES
+('00001', 'The Wonders of Lisp', 'Guest Lecture', 'John Youssefi', 'Computer Science', 'Lisp programming language', 'This lecture will talk about the most awesomeist of programing languages. LISP!!', '2015-06-10 11:00:00');
