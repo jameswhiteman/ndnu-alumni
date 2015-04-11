@@ -22,10 +22,30 @@
 The Alumni Office helps alumni stay connected with each other and with the university. As a member, you have access to the NDNU Online Community and to the NDNU Alumni Association group on LinkedIn, which enables you to network with fellow alums, find classmates, recommend colleagues or search for a new job. The Alumni Office also sponsors class reunions, Alumni and Family Weekend and campus and regional events. Once an Argonaut, you are always an Argonaut and a member of the NDNU family.
  </p>
 </md-card>
-
  </md-tab>
 
-   <md-tab label="Senior Projects" id="tab2" aria-controls="tab2-content" ng-disabled="data.tabLocked">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, natus. Pariatur quod dignissimos, vel esse hic officiis quo beatae fuga inventore cupiditate dolore sit sapiente illum ducimus commodi quidem. Ut.</md-tab>
+   <md-tab label="Senior Projects" id="tab2" aria-controls="tab2-content">
+               <div ng-repeat="projects in projects">
+      <md-toolbar class="md-theme-light">
+    <h2 class="md-toolbar-tools">
+      <span>{{projects.projectName}}</span>
+    </h2>
+  </md-toolbar>
+  <md-content>
+
+    <md-list>
+
+      <md-list-item class="md-2-line">
+        <div class="md-list-item-text">
+              <h3>{{projects.projectYear}}</h3>
+          <p>{{projects.projectAbstract}}</p>
+        </div>
+      </md-list-item>
+    </md-list>
+  </md-content>
+  </md-toolbar>
+  </div>
+   </md-tab>
 
    <md-tab label="Alumni" id="tab3" aria-controls="tab3-content" ng-disabled="data.tabLocked">Alumni Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, natus. Pariatur quod dignissimos, vel esse hic officiis quo beatae fuga inventore cupiditate dolore sit sapiente illum ducimus commodi quidem. Ut.</md-tab>
 

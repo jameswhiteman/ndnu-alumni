@@ -13,12 +13,10 @@
 
  </md-tab>
 
-   <md-tab label="Adding Senior Projects" id="tab2" aria-controls="tab2-content" ng-hide="true"> 
+   <md-tab label="Add Senior Project" id="tab2" aria-controls="tab2-content" ng-hide="true"> 
 
-         <form ng-submit="submitForm()">
-         <div ng-include="'temp/AddProjInfo.html'"></div>
+         <div ng-controller="addProjCtrl" ng-include="'temp/addProjInfo.html'"></div>
           <div ui-view></div>
-          </form>
   
     <!-- show our formData as it is being typed -->
   <pre>

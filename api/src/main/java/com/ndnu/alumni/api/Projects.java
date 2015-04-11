@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import com.ndnu.alumni.db.ProjectsBackend;
 import com.ndnu.alumni.model.Project;
 
@@ -27,16 +29,17 @@ public class Projects extends HttpServlet
         try
         {
             ProjectsBackend db = new ProjectsBackend();
-            List<Project> project = db.getAllProjectNamesAndYears();
-            Project project1 = project.get(0);
-            data = data + "Name:" + project1.getProjectName();
-            data = data + "\nYear:" + project1.getProjectYear();
+            List<Project> projects = db.getAllProjectNamesAndYears();
+            Gson gson = new Gson();
+            if (projects != null)
+            {
+                out.println(gson.toJson(projects));
+            }
         }
         catch (SQLException e)
         {
-            data = data + "sql exception";
+            out.println("Failed to retrieve projects from database.");
         }
-        out.print("callbackfunction{'endpoint':'" + data + "'}");
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
