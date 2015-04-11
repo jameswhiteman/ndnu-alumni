@@ -59,6 +59,7 @@ CREATE TABLE Users (
   FirstName varchar(30) default NULL,
   LastName varchar(50) default NULL,
   UserType varchar(30) default NULL,
+  JobTitle varchar(255) default NULl,
   GradYear int(4) default NULL,
   Major varchar(40) default NULL,
   PhoneNumber varchar(12) default NULL,
@@ -68,7 +69,6 @@ CREATE TABLE Users (
   State varchar(20) default NULL,
   Description text default NULL,
   Page varchar(255) default NULL,
-  LoggedIn varchar(1) default NULL,
   PRIMARY KEY (UserID),
   UNIQUE KEY user_id (UserID),
   FOREIGN Key (ProjectId) REFERENCES Projects(ProjectId)
@@ -78,17 +78,9 @@ CREATE TABLE Users (
 -- Dumping date for table 'Users'
 -- 
 
-INSERT INTO Users (UserID, ProjectID, FirstName, LastName, UserType, GradYear, Major, PhoneNumber, Email, Password, City, State, Description, Page, LoggedIn) VALUES
-('00001', '00001', 'John', 'Snow', 'User', '2001', 'Software Engineering', '415-555-0001', 'JohnSnow@gmail.com', 'Password123', 'Castle Black', 'The Wall', 'Lord Commander of the Nights Watch', 'http://www.facebook.com/JohnSnow', 'N'),
-('00002', '00004', 'Arya', 'Stark', 'User', '2003', 'Software Engineering', '415-555-0002', 'AryaHorseface@gmail.com', 'Password123', 'House of Black and White', 'Bravos', 'Acolite of the House of Black and White', 'http://www.facebook.com/AryaStark', 'N'),
-('00003', '00001', 'Roose', 'Bolton', 'User', '2000', 'Software Engineering', '415-555-0003', 'rbolton@gmail.com', 'Password123', 'Dredfort', 'The North', 'Warden of the North', 'www.dreadfort.com', 'N'),
-('00004', '00002', 'HODOR', 'HODOR', 'User', '2001', 'Management Information Science', '415-555-0004', 'HODOR@gmail.com', 'Password123', 'Winterfel', 'The North', 'HODOR', 'www.hodor.com', 'N'),
-('00005', '00003', 'Robb', 'Stark', 'User', '2002', 'Software Engineering', '415-555-0005', 'youngwolf@gmail.com', 'Password123', 'Winterfel', 'The North', 'The King in the North', 'www.thrkinginthenorth.org', 'N'),
-('00006', '00004', 'Theon', 'Greyjoy', 'User', '2004', 'Management Information Science', '650-555-0006', 'turncloak@yahoo.com', 'Password123', 'Pike', 'Iron Islands', 'Reek, Reek, it rimes with sneek', 'www.mynameisreek.com', 'N'),
-('00007', '00006', 'Sirio', 'Forell', 'User', '2005', 'Software Engineering', '650-555-0007', 'sforell@hotmail.com', 'Password123', 'Tavern', 'Bravos', 'First sword of Bravos', 'www.sirioforell.com', 'N'),
-('00008', '00007', 'Rhaegar', 'Targaryen', 'User', '2006', 'Software Engineering', '415-555-0008', 'RhaegarT@aol.com', 'Password123', 'Red Keep', 'Crown Lands', 'Son of the Mad King', 'www.silverharp.com', 'N'),
-('00009', '00008', 'Tyrion', 'Lanister', 'User', '2007', 'Management Information Science', '650-555-0009', 'theImp@gmail.com', 'Password123', 'Casterly Rock', 'Lanisport', 'HALF MAN, HALF MAM', 'www.impingainteasy.com', 'N'),
-('00010', '00009', 'Khal', 'Drogo', 'User', '2008', 'Software Engineering', '510-555-0010', 'KhalDrogo@netscape.com', 'Password123', 'The Dothraki Sea', 'Essos', 'Khal of the great grass see', 'www.drogo.com', 'N');
+INSERT INTO Users (UserID, ProjectID, FirstName, LastName, UserType, JobTitle, GradYear, Major, PhoneNumber, Email, Password, City, State, Description, Page) VALUES
+('00001', '00001', 'John', 'Snow', 'User', 'Lord Commander', '2001', 'Software Engineering', '415-555-0001', 'JohnSnow@gmail.com', 'Password123', 'Castle Black', 'The Wall', 'Lord Commander of the Nights Watch', 'http://www.facebook.com/JohnSnow'),
+('00002', '00004', 'Arya', 'Stark', 'User', 'General Bad Ass', '2003', 'Software Engineering', '415-555-0002', 'AryaHorseface@gmail.com', 'Password123', 'House of Black and White', 'Bravos', 'Acolite of the House of Black and White', 'http://www.facebook.com/AryaStark');
 
 -- 
 -- Table structure for table 'Docs'
@@ -178,7 +170,6 @@ CREATE TABLE Feedback (
   FOREIGN KEY (UserID) REFERENCES Users(UserID),
   UNIQUE KEY QuestionId (QuestionID)
   ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
 
 -- 
 -- Dumping date for table 'Feedback'
