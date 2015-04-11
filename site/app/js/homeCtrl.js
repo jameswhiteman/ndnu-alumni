@@ -15,6 +15,14 @@ app.controller('homeCtrl', function($scope, $http)
        alert(data + " e");
     });
 
+      $http.get('users.json').
+    success(function(data) {
+      $scope.users = data;
+    }).
+    error(function(data) {
+       alert("error!");
+    });
+
 	 $scope.data = {
       selectedIndex : 0,
       tabLocked : true

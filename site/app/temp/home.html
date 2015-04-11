@@ -47,7 +47,30 @@ The Alumni Office helps alumni stay connected with each other and with the unive
   </div>
    </md-tab>
 
-   <md-tab label="Alumni" id="tab3" aria-controls="tab3-content" ng-disabled="data.tabLocked">Alumni Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, natus. Pariatur quod dignissimos, vel esse hic officiis quo beatae fuga inventore cupiditate dolore sit sapiente illum ducimus commodi quidem. Ut.</md-tab>
+   <md-tab label="Alumni" id="tab3" aria-controls="tab3-content">
+ <md-input-container>
+        <label>Search</label>
+        <input type="text" ng-model="searchText">
+      </md-input-container>
+        <div ng-repeat="user in users | filter:searchText">
+  <md-content>
+      <md-card id="returnUser">
+    <md-list>
+      <md-list-item class="md-2-line">
+        <div class="md-list-item-text">
+        <h1>{{user.lastName}},{{user.firstName}}</h1>
+        <p>GradYear: {{user.year}}, Major:{{user.major}}</p>
+        <p>Phone#: {{user.phone}}, Email: {{user.email}}</p>
+        <p>City: {{user.city}}, State: {{user.state}}</p>
+        <p>Description: {{user.description}}, page:{{user.page}}</p>
+        </div>
+      </md-list-item>
+    </md-list>
+    </md-card>
+  </md-content>
+  </div>
+
+   </md-tab>
 
     <md-tab label="Jobs/Internships" id="tab4" aria-controls="tab4-content" ng-disabled="data.tabLocked">Jobs Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, natus. Pariatur quod dignissimos, vel esse hic officiis quo beatae fuga inventore cupiditate dolore sit sapiente illum ducimus commodi quidem. Ut.</md-tab>
 
