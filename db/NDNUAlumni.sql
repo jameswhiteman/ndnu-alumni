@@ -192,7 +192,9 @@ CREATE TABLE Events (
   EventMajor varchar(70) default NULL,
   EventTopic varchar(255) default NULL,
   EventDesc text default NULL,
-  EventDateTime datetime default NULL,
+  EventDate date default NULL,
+  EventStartTime time default NULL,
+  EventEndTime time default NULl,
   PRIMARY KEY (EventID),
   UNIQUE KEY EventID (EventID)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -201,5 +203,5 @@ CREATE TABLE Events (
 -- Dumping data for table
 --
 
-INSERT INTO Events (EventID, EventTitle, EventType, EventOrgName, EventMajor, EventLectureTopic, EventDesc, EventDateTime) VALUES
-('00001', 'The Wonders of Lisp', 'Guest Lecture', 'John Youssefi', 'Computer Science', 'Lisp programming language', 'This lecture will talk about the most awesomeist of programing languages. LISP!!', '2015-06-10 11:00:00');
+INSERT INTO Events (EventID, EventTitle, EventType, EventOrgName, EventMajor, EventLectureTopic, EventDesc, EventDate) VALUES
+('00001', 'The Wonders of Lisp', 'Guest Lecture', 'John Youssefi', 'Computer Science', 'Lisp programming language', 'This lecture will talk about the most awesomeist of programing languages. LISP!!', '2015-06-10', '11:00:00', '12:00:00');
