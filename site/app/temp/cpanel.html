@@ -9,6 +9,8 @@
    <md-content>
     <md-list>
           <md-button ng-click="setData(1)">Adding Senior Projects</md-button>
+          <md-button ng-click="setData(2)">List of Users</md-button>
+          <md-button ng-click="setData(3)">Add events</md-button>
     </md-list>
 
  </md-tab>
@@ -25,6 +27,22 @@
 
    </md-tab>
 
+     <md-tab label="Users" id="tab3" aria-controls="tab3-content" ng-hide="true"> 
+        <!--
+         <div ng-controller="" ng-include="'temp/users.html'"></div>
+          <div ui-view></div>
+  
+        <!-- show our formData as it is being typed -->
+
+
+   </md-tab>
+
+ <md-tab label="Events" id="tab4" aria-controls="tab4-content" ng-hide="true"> 
+
+         <div ng-controller="eventsCtrl" ng-include="'temp/addEvents.html'"></div>
+          <div ui-view></div>
+
+   </md-tab>
 
 </md-tabs>
 
