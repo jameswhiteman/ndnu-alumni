@@ -28,20 +28,22 @@ public class Users extends HttpServlet
         PrintWriter out = response.getWriter();
 
         // Get the request parameters.
+        /*
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        */
 
-        // Get the user from the database.
+        // Get the users from the database.
         response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         try
         {
             UserStorage store = new UserStorage();
-            User user = store.readUser(email, password);
+            List<User> users = store.readUsers();
             response.setStatus(HttpServletResponse.SC_OK);
             Gson gson = new Gson();
-            if (user != null)
+            if (users != null)
             {
-                out.println(gson.toJson(user));
+                out.println(gson.toJson(users));
             }
         }
         catch (SQLException e)

@@ -71,13 +71,44 @@ public class UserStorage
         statement.executeUpdate();
 	}
 
+    // Read users
+	public List<User> readUsers() throws SQLException
+	{
+        String query = "select * from users";
+        PreparedStatement statement = connection.prepareStatement(query);
+        ResultSet resultSet = statement.executeQuery();
+        List<User> users = new ArrayList<User>();
+        User user = null;
+        while (resultSet.next())
+        {
+            String id = resultSet.getInt(1) + "";
+            String projectId = resultSet.getInt(2) + "";
+            String first = resultSet.getString(3);
+            String last = resultSet.getString(4);
+            String type = resultSet.getString(5);
+            String title = resultSet.getString(6);
+            int year = resultSet.getInt(7);
+            String rawMajor = resultSet.getString(8);
+            String phone = resultSet.getString(9);
+            String email = resultSet.getString(10);
+            String city = resultSet.getString(12);
+            String state = resultSet.getString(13);
+            String about = resultSet.getString(14);
+            String page = resultSet.getString(15);
+            Major major = User.getMajorForString(rawMajor);
+            user = new User(id, first, last, type, title, year, major, phone, email, city, state, about, page);
+            users.add(user);
+        }
+        return users;
+	}
+
 	/**
 	 * Method Description: Returns all attributes associated with a project based on the
 	 * project name.
 	 * @param id - the user's ID
 	 * @return the User object model for the given ID
 	 */
-	public User readUser(String identifier, String verifier) throws SQLException
+	public User login(String identifier, String verifier) throws SQLException
 	{
         String query = "select Password,UserId from users where Email=?";
         PreparedStatement statement = connection.prepareStatement(query);
@@ -107,17 +138,17 @@ public class UserStorage
             String first = resultSet.getString(3);
             String last = resultSet.getString(4);
             String type = resultSet.getString(5);
-            int year = resultSet.getInt(6);
-            String rawMajor = resultSet.getString(7);
-            String phone = resultSet.getString(8);
-            String email = resultSet.getString(9);
-            String city = resultSet.getString(11);
-            String state = resultSet.getString(12);
-            String about = resultSet.getString(13);
-            String page = resultSet.getString(14);
-            String rawLoggedIn = resultSet.getString(15);
+            String title = resultSet.getString(6);
+            int year = resultSet.getInt(7);
+            String rawMajor = resultSet.getString(8);
+            String phone = resultSet.getString(9);
+            String email = resultSet.getString(10);
+            String city = resultSet.getString(12);
+            String state = resultSet.getString(13);
+            String about = resultSet.getString(14);
+            String page = resultSet.getString(15);
             Major major = User.getMajorForString(rawMajor);
-            user = new User(id, first, last, year, major, phone, email, city, state, about, page);
+            user = new User(id, first, last, type, title, year, major, phone, email, city, state, about, page);
         }
         return user;
 	}

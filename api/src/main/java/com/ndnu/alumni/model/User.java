@@ -22,6 +22,8 @@ public class User
 	private String firstName;
 	private String lastName;
 	private String email;
+    private String type;
+    private String title;
 	private int year;
 	private Major major;
 	private String phone;
@@ -41,6 +43,8 @@ public class User
 		this.firstName = "";
 		this.lastName = "";
 		this.email = "";
+        this.type = "";
+        this.title = "";
 		this.year = 0;
 		this.major = Major.CS;
 		this.phone = "";
@@ -64,7 +68,7 @@ public class User
 	 * @param description
 	 * @param page
 	 */
-    public User(String id, String firstName, String lastName, int year, Major major,
+    public User(String id, String firstName, String lastName, String type, String title, int year, Major major,
             String phone, String email, String city, String state,
             String description, String page)
 	{
@@ -72,6 +76,8 @@ public class User
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+        this.type = type;
+        this.title = title;
 		this.year = year;
 		this.major = major;
 		this.phone = phone;
@@ -129,6 +135,16 @@ public class User
 	{
 		this.email = email;
 	}
+
+    public void setType(String type)
+    {
+        this.type = type;
+    }
+
+    public void setTitle(String title)
+    {
+        this.title = title;
+    }
 
 	/**
 	 * Method Description: Sets the graduationYear data member.
@@ -228,6 +244,16 @@ public class User
 	{
 		return this.email;
 	}
+
+    public String getType()
+    {
+        return this.type;
+    }
+
+    public String getTitle()
+    {
+        return this.title;
+    }
 
 	/**
 	 * Method Description: Returns a reference to the graduationYear data member.

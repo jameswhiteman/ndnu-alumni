@@ -15,12 +15,12 @@ app.controller('homeCtrl', function($scope, $http)
        alert(data + " e");
     });
 
-      $http.get('users.json').
+      $http.get('http://localhost:8282/ndnualumni-api/users').
     success(function(data) {
       $scope.users = data;
     }).
     error(function(data) {
-       alert("error!");
+       alert("Error fetching users data.");
     });
 
 	 $scope.data = {
