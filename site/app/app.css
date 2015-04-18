@@ -76,3 +76,7 @@ md-toolbar h1 {
   font-weight: 400;
 }
 
+.time-date {
+    font-size: 14px !important;
+}
+

@@ -31,13 +31,18 @@
                 <label>EventDesc</label>
                 <textarea type="text" name="Desc" ng-model="Desc" required></textarea> 
             </md-input-container>
-
+                
+            <time-date-picker ng-model="dateValue" data-display-mode="full" class="modal-content"></time-date-picker>
+               {{dateValue | date:'yyyy/MM/dd HH:mm a'}}
               <md-input-container>
+
+ <!--
+             
                 <label>EventDate</label>
                 <input type="date" name="EventDate" ng-model="EventDate" required>
             </md-input-container>
 
-<!--
+
               <md-input-container>
                 <label>EventStartTime</label>
                 <input type="text" name="proj_details" ng-model="details">
