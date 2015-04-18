@@ -1,0 +1,56 @@
+[{
+  "LectureTitle": "Title1",
+  "LectureName": "LectureName1",
+  "LectureMajor": "LectureMajor1",
+  "LectureTopic": "LectureTopic1",
+  "LectureDesc": "LectureDesc1",
+  "LectureDateTime": "LectureDateTime1"
+},
+{
+  "LectureTitle": "Title2",
+  "LectureName": "LectureName2",
+  "LectureMajor": "LectureMajor2",
+  "LectureTopic": "LectureTopic2",
+  "LectureDesc": "LectureDesc2",
+  "LectureDateTime": "LectureDateTime2"
+},
+{
+  "LectureTitle": "Title3",
+  "LectureName": "LectureName3",
+  "LectureMajor": "LectureMajor3",
+  "LectureTopic": "LectureTopic3",
+  "LectureDesc": "LectureDesc3",
+  "LectureDateTime": "LectureDateTime3"
+},
+{
+  "LectureTitle": "Title4",
+  "LectureName": "LectureName4",
+  "LectureMajor": "LectureMajor4",
+  "LectureTopic": "LectureTopic4",
+  "LectureDesc": "LectureDesc4",
+  "LectureDateTime": "LectureDateTime4"
+},
+{
+  "LectureTitle": "Title5",
+  "LectureName": "LectureName5",
+  "LectureMajor": "LectureMajor5",
+  "LectureTopic": "LectureTopic5",
+  "LectureDesc": "LectureDesc5",
+  "LectureDateTime": "LectureDateTime5"
+},
+{
+  "LectureTitle": "Title6",
+  "LectureName": "LectureName6",
+  "LectureMajor": "LectureMajor6",
+  "LectureTopic": "LectureTopic6",
+  "LectureDesc": "LectureDesc6",
+  "LectureDateTime": "LectureDateTime6"
+},
+{
+  "LectureTitle": "Title7",
+  "LectureName": "LectureName7",
+  "LectureMajor": "LectureMajor7",
+  "LectureTopic": "LectureTopic7",
+  "LectureDesc": "LectureDesc7",
+  "LectureDateTime": "LectureDateTime7"
+}]

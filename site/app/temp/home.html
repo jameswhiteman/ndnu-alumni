@@ -5,7 +5,7 @@
 
 <md-card>
  <div layout="column" layout-align="center center" style="height: 150px;min-height: 100px;" layout-fill>
-<p>
+  <p>
 	  <p>Chose a major</p>
     <md-select ng-model="aMajor" placeholder="Majors">
           <md-optgroup label="Majors">
@@ -13,9 +13,11 @@
         </md-optgroup>
       </md-select>
       <p> {{aMajor}} </p>
-      <md-checkbox ng-model="data.tabLocked"> {{data.tabLocked}} </md-checkbox>
+      <md-checkbox ng-model="data.tabLocked">{{data.tabLocked}}</md-checkbox>
+      </p> 
+
+
 </div>
-</p> 
  <img src="/img/alumni-banner-web.jpg" class="md-card-image">
  <h2>As a graduate, you are a lifetime member of the Alumni Association of Notre Dame de Namur University — more than 12,000 strong.</h2>
  <p>
@@ -25,7 +27,7 @@ The Alumni Office helps alumni stay connected with each other and with the unive
  </md-tab>
 
    <md-tab label="Senior Projects" id="tab2" aria-controls="tab2-content">
-               <div ng-repeat="projects in projects">
+    <div ng-repeat="projects in projects">
       <md-toolbar class="md-theme-light">
     <h2 class="md-toolbar-tools">
       <span>{{projects.projectName}}</span>

@@ -33,13 +33,13 @@ public class DBConnection
 //
 //		url = props.getProperty("jdbc:mysql://localhost:3306");
 //		driver = props.getProperty("com.mysql.jdbc.Driver");
-//		login = props.getProperty("root");
-//		password = props.getProperty("american");
+//		login = props.getProperty(“dbuser1”);
+//		password = props.getProperty(“welcome”);
 
 		url = "jdbc:mysql://localhost:3306";
 		driver = "com.mysql.jdbc.Driver";
-		login = "root";
-		password = "";
+		login = "dbuser1";
+		password = "welcome" ;
 	}
 
 	public Connection getConnection()
@@ -48,7 +48,7 @@ public class DBConnection
 		{
 		     Class.forName(driver).newInstance();
 //	             conn = DriverManager.getConnection(url, login, password);
-	             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "");
+	             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "dbuser1", "welcome");
 		}catch (ClassNotFoundException e) {
 	           e.printStackTrace();
 	  	}catch (SQLException sqlex) {
