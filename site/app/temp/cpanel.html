@@ -11,6 +11,8 @@
           <md-button ng-click="setData(1)">Adding Senior Projects</md-button>
           <md-button ng-click="setData(2)">List of Users</md-button>
           <md-button ng-click="setData(3)">Add events</md-button>
+          <md-button ng-click="setData(4)">Add Jobs/Internships</md-button>
+          <md-button ng-click="setData(5)">List of feedbacks</md-button>
     </md-list>
 
  </md-tab>
@@ -40,6 +42,20 @@
  <md-tab label="Events" id="tab4" aria-controls="tab4-content" ng-hide="true"> 
 
          <div ng-controller="eventsCtrl" ng-include="'temp/addEvents.html'"></div>
+          <div ui-view></div>
+
+   </md-tab>
+
+   <md-tab label="Jobs/Internships" id="tab5" aria-controls="tab5-content" ng-hide="true"> 
+
+         <div ng-controller="eventsCtrl" ng-include="'temp/addJobs.html'"></div>
+          <div ui-view></div>
+
+   </md-tab>
+
+ <md-tab label="Feedbacks" id="tab6" aria-controls="tab6-content" ng-hide="true"> 
+
+         <div ng-controller="eventsCtrl" ng-include="'temp/feedbacks.html'"></div>
           <div ui-view></div>
 
    </md-tab>
