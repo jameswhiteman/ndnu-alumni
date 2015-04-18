@@ -2,26 +2,28 @@
  * Class: Projects.java
  * Developer: Ryan Bollier
  * Creation Date: 02-20-2015
- * Description: The data class for Projects in the AlumniNetwork application.
+ * Description: Addapted from Users.java by Rich Hoggan The data class for Projects in the AlumniNetwork application.
+ * Uodated: added the command char
  *
  * @Ryan Bollier
  */
 
 //Package Declarations
-package com.ndnu.alumni.model;
+package senior_project;
 
-public class Project
+public class Project 
 {
 	////Data Members////
 	private int projectId;
 	private String projectName;
 	private int projectYear;
 	private String projectAbstract;
-
+	private char command;
+	
 	////Class Constructors////
 	/**
 	 * Method Description: Empty constructor that sets data members to null values.
-	 *
+	 * 
 	 */
 	public Project()
 	{
@@ -30,7 +32,7 @@ public class Project
 		this.projectYear = 0;
 		this.projectAbstract = "";
 	}
-
+	
 	/**
 	 * Method Description: Constructor that sets data members to user supplied input.
 	 * @param projectId
@@ -38,15 +40,16 @@ public class Project
 	 * @param projectYear
 	 * @param projectAbstract
 	 */
-	public Project(int projectId, String projectName, int projectYear,
-			String projectAbstract)
+	public Project(int projectId, String projectName, int projectYear, 
+			String projectAbstract, char action)
 	{
 		this.projectId = projectId;
 		this.projectName = projectName;
 		this.projectYear = projectYear;
 		this.projectAbstract = projectAbstract;
+		this.command = action;
 	}
-
+	
 	////Getters and Setters////
 
 	//BEGIN SETTERS//
@@ -58,7 +61,7 @@ public class Project
 	{
 		this.projectId = projectId;
 	}
-
+	
 	/**
 	 * Method Description: Sets the projectName data member.
 	 * @param projectName
@@ -67,7 +70,7 @@ public class Project
 	{
 		this.projectName = projectName;
 	}
-
+	
 	/**
 	 * Method Description: Sets the projectYear data member.
 	 * @param prijectYear
@@ -76,7 +79,7 @@ public class Project
 	{
 		this.projectYear = projectYear;
 	}
-
+	
 	/**
 	 * Method Description: Sets the projectAbstract data member.
 	 * @param projectAbstract
@@ -85,7 +88,7 @@ public class Project
 	{
 		this.projectAbstract = projectAbstract;
 	}
-
+	
 	//BEGIN GETTERS//
 	/**
 	 * Method Description: Returns a reference to the projectId data member.
@@ -95,7 +98,7 @@ public class Project
 	{
 		return this.projectId;
 	}
-
+	
 	/**
 	 * Method Description: Returns a reference to the projectName data member.
 	 * @return projectName
@@ -104,7 +107,7 @@ public class Project
 	{
 		return this.projectName;
 	}
-
+	
 	/**
 	 * Method Description: Returns a reference to the projectYear data member.
 	 * @return projectYear
@@ -113,7 +116,7 @@ public class Project
 	{
 		return this.projectYear;
 	}
-
+	
 	/**
 	 * Method Description: Returns a reference to the projectAbstract data member.
 	 * @return projectAbstract
