@@ -29,7 +29,7 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
 
 app.config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
-    .primaryPalette('cyan')
+    .primaryPalette('light-blue')
     .accentPalette('blue-grey');
 });
 
