@@ -55,20 +55,22 @@ INSERT INTO Projects (ProjectID, ProjectName, ProjectYear, ProjectAbstracts) VAL
 DROP TABLE IF EXISTS Users;
 CREATE TABLE Users (
   UserID int(5) NOT NULL auto_increment,
-  ProjectID int(5),
   FirstName varchar(30) default NULL,
   LastName varchar(50) default NULL,
+  UserName varchar(50) default NULL,
+  Password varchar(255) default NULL,
   UserType varchar(30) default NULL,
+  ProjectID int(5), 
   JobTitle varchar(255) default NULl,
+  Company varchar(255) default Null,
   GradYear int(4) default NULL,
   Major varchar(40) default NULL,
   PhoneNumber varchar(12) default NULL,
   Email varchar(70) default NULL,
-  Password varchar(255) default NULL,
   City varchar(30) default NULL,
   State varchar(20) default NULL,
   Description text default NULL,
-  Page varchar(255) default NULL,
+  Page text default NULL,
   PRIMARY KEY (UserID),
   UNIQUE KEY user_id (UserID),
   FOREIGN Key (ProjectId) REFERENCES Projects(ProjectId)
@@ -78,9 +80,8 @@ CREATE TABLE Users (
 -- Dumping date for table 'Users'
 -- 
 
-INSERT INTO Users (UserID, ProjectID, FirstName, LastName, UserType, JobTitle, GradYear, Major, PhoneNumber, Email, Password, City, State, Description, Page) VALUES
-('00001', '00001', 'John', 'Snow', 'User', 'Lord Commander', '2001', 'Software Engineering', '415-555-0001', 'JohnSnow@gmail.com', 'Password123', 'Castle Black', 'The Wall', 'Lord Commander of the Nights Watch', 'http://www.facebook.com/JohnSnow'),
-('00002', '00004', 'Arya', 'Stark', 'User', 'General Bad Ass', '2003', 'Software Engineering', '415-555-0002', 'AryaHorseface@gmail.com', 'Password123', 'House of Black and White', 'Bravos', 'Acolite of the House of Black and White', 'http://www.facebook.com/AryaStark');
+INSERT INTO Users (UserID, FirstName, LastName, UserName, Password, UserType, ProjectID, JobTitle, Company, GradYear, Major, PhoneNumber, Email, City, State, Description, Page) VALUES
+();
 
 -- 
 -- Table structure for table 'Docs'
@@ -192,9 +193,7 @@ CREATE TABLE Events (
   EventMajor varchar(70) default NULL,
   EventTopic varchar(255) default NULL,
   EventDesc text default NULL,
-  EventDate date default NULL,
-  EventStartTime time default NULL,
-  EventEndTime time default NULl,
+  EventDateTime datetime NOT NULL,
   PRIMARY KEY (EventID),
   UNIQUE KEY EventID (EventID)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -203,5 +202,5 @@ CREATE TABLE Events (
 -- Dumping data for table
 --
 
-INSERT INTO Events (EventID, EventTitle, EventType, EventOrgName, EventMajor, EventLectureTopic, EventDesc, EventDate) VALUES
-('00001', 'The Wonders of Lisp', 'Guest Lecture', 'John Youssefi', 'Computer Science', 'Lisp programming language', 'This lecture will talk about the most awesomeist of programing languages. LISP!!', '2015-06-10', '11:00:00', '12:00:00');
+INSERT INTO Events (EventID, EventTitle, EventType, EventOrgName, EventMajor, EventTopic, EventDesc, EventDateTime) VALUES
+('00001', 'The Wonders of Lisp', 'Guest Lecture', 'John Youssefi', 'Computer Science', 'Lisp programming language', 'This lecture will talk about the most awesomeist of programing languages. LISP!!', '2015-06-10 11:00:00');
