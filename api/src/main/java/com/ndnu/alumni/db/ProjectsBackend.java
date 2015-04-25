@@ -157,28 +157,17 @@ public class ProjectsBackend
 
 	public List<Project> readProjects() throws SQLException
 	{
-        System.out.println("yo1");
         String query = "select * from projects";
-        System.out.println("yo2");
         Statement statement = conn.createStatement();
-        System.out.println("query:" + query + ";");
         ResultSet resultSet = statement.executeQuery(query);
-        System.out.println("yo3");
         List<Project> projects = new ArrayList<Project>();
-        System.out.println("yo4");
         while (resultSet.next())
         {
-        System.out.println("yo5");
             int id = resultSet.getInt(1);
-        System.out.println("yo6");
             String name = resultSet.getString(2);
-        System.out.println("yo7");
             int year = resultSet.getInt(3);
-        System.out.println("yo8");
             String description = resultSet.getString(4);
-        System.out.println("yo9");
             Project project = new Project(id, name, year, description);
-        System.out.println("yo10");
             projects.add(project);
         }
         return projects;

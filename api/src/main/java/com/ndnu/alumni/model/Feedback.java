@@ -1,181 +1,95 @@
-/**
- * Class Name: Feedback.java
- * Developer: Ryan Bollier
- * Modified by from Document.java by Rich Hogan
- * Creation Date: 02-27-2015
- * Description: This class describes feedback within the context of the AlumniNetwork web application.
- */
-
-//Package Declarations
 package com.ndnu.alumni.model;
 
 public class Feedback
 {
-	////Data Members////
-	private int questionID;
-	private int questionOne;
-	private int questionTwo;
-	private int questionThree;
-	private int questionFour;
-	private int questionFive;
-	private String comments;
+    private String id;
+    private String userId;
+    private String response1;
+    private String response2;
+    private String response3;
+    private String response4;
+    private String response5;
 
-	////Constructors////
-	/**
-	 * Method Description: Sets the questionID data member to -1 initially
-	 * and sets the other data members to null.
-	 */
-	public Feedback()
-	{
-		this.questionID = -1;
-		this.questionOne = 0;
-		this.questionTwo = 0;
-		this.questionThree = 0;
-		this.questionFour = 0;
-		this.questionFive = 0;
-		this.comments = "";
-	}
+    public Feedback(String id, String userId, String response1, String response2, String response3,
+            String response4, String response5)
+    {
+        setId(id);
+        setUserId(userId);
+        setResponse1(response1);
+        setResponse2(response2);
+        setResponse3(response3);
+        setResponse4(response4);
+        setResponse5(response5);
+    }
 
-	////Getters and Setters////
-	/**
-	 * Method Description: Sets the documentID data member.
-	 * @param questionID
-	 */
-	public void setQuestionID(int questionID)
-	{
-		this.questionID = questionID;
-	}
+    public void setId(String id)
+    {
+        this.id = id;
+    }
 
-	/**
-	 * Method Description: Sets the questionOne data member.
-	 * @param questionOne
-	 */
-	public void setQuestionOne(int questionOne)
-	{
-		this.questionOne = questionOne;
-	}
+    public void setUserId(String userId)
+    {
+        this.userId = userId;
+    }
 
-	/**
-	 * Method Description: Sets the questionTwo data member.
-	 * @param questionTwo
-	 */
-	public void setQuestionTwo(int questionTwo)
-	{
-		this.questionTwo = questionTwo;
-	}
+    public void setResponse1(String response1)
+    {
+        this.response1 = response1;
+    }
 
-	/**
-	 * Method Description: Sets the questionThree data member.
-	 * @param questionThree
-	 */
-	public void setQuestionThree(int questionThree)
-	{
-		this.questionThree = questionThree;
-	}
+    public void setResponse2(String response2)
+    {
+        this.response2 = response2;
+    }
 
-	/**
-	 * Method Description: Sets the questionFour data member.
-	 * @param questionFour
-	 */
-	public void setQuestionFour(int questionFour)
-	{
-		this.questionFour = questionFour;
-	}
+    public void setResponse3(String response3)
+    {
+        this.response3 = response3;
+    }
 
-	/**
-	 * Method Description: Sets the questionFive data member.
-	 * @param questionFive
-	 */
-	public void setQuestionFive(int questionFive)
-	{
-		this.questionFive = questionFive;
-	}
+    public void setResponse4(String response4)
+    {
+        this.response4 = response4;
+    }
 
-	/**
-	 * Method Description: Sets the comments data member.
-	 * @param comments
-	 */
-	public void setComments(String comments)
-	{
-		this.comments = comments;
-	}
+    public void setResponse5(String response5)
+    {
+        this.response5 = response5;
+    }
 
-	/**
-	 * Method Description: Returns the questionID data member.
-	 * @return questionID
-	 */
-	public int getQuestionID()
-	{
-		return this.questionID;
-	}
+    // Getters
+    public String getId()
+    {
+        return this.id;
+    }
 
-	/**
-	 * Method Description: Returns the questionOne data member.
-	 * @return questionOne
-	 */
-	public int getQuestionOne()
-	{
-		return this.questionOne;
-	}
+    public String getUserId()
+    {
+        return this.userId;
+    }
 
-	/**
-	 * Method Description: Returns the questionTwo data member.
-	 * @return questionTwo
-	 */
-	public int getQuestionTwo()
-	{
-		return this.questionTwo;
-	}
+    public String getResponse1()
+    {
+        return this.response1;
+    }
 
-	/**
-	 * Method Description: Returns the questionThree data member.
-	 * @return questionThree
-	 */
-	public int getQuestionThree()
-	{
-		return this.questionThree;
-	}
+    public String getResponse2()
+    {
+        return this.response2;
+    }
 
-	/**
-	 * Method Description: Returns the questionFour data member.
-	 * @return questionFour
-	 */
-	public int getQuestionFour()
-	{
-		return this.questionFour;
-	}
+    public String getResponse3()
+    {
+        return this.response3;
+    }
 
-	/**
-	 * Method Description: Returns the questionfive data member.
-	 * @return questionfive
-	 */
-	public int getQuestionFive()
-	{
-		return this.questionFive;
-	}
+    public String getResponse4()
+    {
+        return this.response4;
+    }
 
-	/**
-	 * Method Description: Returns the comments data member.
-	 * @return comments
-	 */
-	public String getComments()
-	{
-		return this.comments;
-	}
-
-	////Printing Methods////
-	/**
-	 * Method Description: Method override of the toString() method for returning data member
-	 * references.
-	 */
-	public String toString()
-	{
-		return("Question ID: " + this.questionID + "\n"
-				+ "Question One: " + this.questionOne + "\n"
-				+ "Question Two: " + this.questionTwo + "\n"
-				+ "Question Three: " + this.questionThree + "\n"
-				+ "Question Four: " + this.questionFour + "\n"
-				+ "Question Five: " + this.questionFive + "\n"
-				+ "Comments: " + this.comments + "\n");
-	}
+    public String getResponse5()
+    {
+        return this.response5;
+    }
 }

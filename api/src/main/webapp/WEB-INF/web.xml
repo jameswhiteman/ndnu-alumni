@@ -24,6 +24,14 @@
         <servlet-class>com.ndnu.alumni.api.Events</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>Jobs</servlet-name>
+        <servlet-class>com.ndnu.alumni.api.Jobs</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Feedbacks</servlet-name>
+        <servlet-class>com.ndnu.alumni.api.Feedbacks</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>Documents</servlet-name>
         <servlet-class>com.ndnu.alumni.api.Documents</servlet-class>
     </servlet>
@@ -40,6 +48,14 @@
     <servlet-mapping>
         <servlet-name>Events</servlet-name>
         <url-pattern>/events</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Jobs</servlet-name>
+        <url-pattern>/jobs</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Feedbacks</servlet-name>
+        <url-pattern>/feedback</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Documents</servlet-name>
