@@ -1,0 +1,32 @@
+<div layout="column" layout-sm="column" ng-controller="feedbackCtrl">
+    <form name="addFeedbackForm" ng-controller="feedbackCtrl" ng-submit="addFeedback()">
+        <md-content class="md-padding">
+
+            <md-input-container>
+                <label>How is the weather?</label>
+                <input type="text" name="response1" ng-model="response1" required>
+            </md-input-container>
+
+            <md-input-container>
+                <label>How is the weather2?</label>
+                <input type="text" name="response2" ng-model="response2" required>
+            </md-input-container>
+
+            <md-input-container>
+                <label>How is the weather3?</label>
+                <input type="text" name="response3" ng-model="response3" required>
+            </md-input-container>
+
+            <md-input-container>
+                <label>How is the weather4?</label>
+                <input type="text" name="response4" ng-model="response4" required>
+            </md-input-container>
+
+            <md-input-container>
+                <label>How is the weather5?</label>
+                <input type="text" name="response5" ng-model="response5" required>
+            </md-input-container>
+        </md-content>
+        <md-button class="md-raised md-warn" id="submit" type="submit">Submit</md-button>
+    </form>
+</div>

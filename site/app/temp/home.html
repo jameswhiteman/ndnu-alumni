@@ -76,40 +76,14 @@ The Alumni Office helps alumni stay connected with each other and with the unive
 
     <md-tab label="Jobs/Internships" id="tab4" aria-controls="tab4-content" ng-disabled="data.tabLocked">Jobs Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, natus. Pariatur quod dignissimos, vel esse hic officiis quo beatae fuga inventore cupiditate dolore sit sapiente illum ducimus commodi quidem. Ut.</md-tab>
 
-      <md-tab label="Events" id="tab6" aria-controls="tab6-content">
+    <md-tab label="Events" id="tab6" aria-controls="tab6-content">
         <div ng-include="'temp/events.html'"></div>
+    </md-tab> 
 
-      </md-tab> 
+    <md-tab label="Feedback" id="tab6" aria-controls="tab6-content">
+        <div ng-include="'temp/feedback.html'"></div>
+    </md-tab>
 
-   <md-tab label="Feedback" id="tab6" aria-controls="tab6-content">
-
-    <div layout="column">
-    <md-content md-theme="docs-dark" layout-padding>
-    <p> Please, .... </p>
-    <md-input-container>
-      <label>Question 1: What courses helped you most with your career?</label>
-      <input ng-model="question.one">
-    </md-input-container>
-
-    <md-input-container>
-      <label>Question 2: What courses would you like to see added to the program?</label>
-      <input ng-model="question.two">
-    </md-input-container>
-
-    <md-input-container>
-      <label>Question 3: What applications/mediums/technology would you like to see added?</label>
-      <input ng-model="question.three">
-    </md-input-container>
-
-    <md-input-container>
-      <label>Other:</label>
-      <textarea ng-model="question.four"></textarea>
-    </md-input-container>
-    
-    </md-content>
-    </div>
-
-   </md-tab>
 </md-tabs>
 
     <ng-switch on="data.selectedIndex" class="tabpanel-container">

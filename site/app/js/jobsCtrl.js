@@ -2,6 +2,15 @@ var app = angular.module('app');
 
 app.controller('jobsCtrl', ['$scope', '$http', '$state', function($scope, $http, $state)
 {
+    $scope.jobs = "";
+    $http.get('http://localhost:8282/ndnualumni-api/jobs').
+    success(function(data) {
+      $scope.jobs = data;
+    }).
+    error(function(data) {
+       alert("Error fetching jobs data.");
+    });
+
     $scope.title = "";
     $scope.type = "";
     $scope.company = "";
