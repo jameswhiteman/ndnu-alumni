@@ -2,12 +2,12 @@
  * Class: ProjectBackend.java
  * Developer: Rich Hoggan
  * Creation Date: 02-22-2015
- * Description: Handles all back end communication with the database to the Project table. 
+ * Description: Handles all back end communication with the database to the Project table.
  * Updated 4/17/15 by Ryan Bollier - added the insert, select, update, and delete cases
  */
 
 //Package Declarations
-package senior_project;
+package com.ndnu.alumni.db;
 
 //Import Directives
 import java.sql.Connection;
@@ -16,6 +16,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
+
+import com.ndnu.alumni.model.Project;
 
 //import jdbc_session3.DBConnection;
 
@@ -29,32 +32,29 @@ public class ProjectsBackend
 	////Data Members////
 	private Connection conn;
 	private Statement stmt;
-	
+
 	////Constructors////
 	/**
 	 * Method Description: Creates a new ProjectBackend object on instantiation
 	 * and gets a connection to the database.
 	 */
-	public ProjectsBackend()
+	public ProjectsBackend() throws SQLException
 	{
-	   DBConnection dbc = new DBConnection();
-	   conn = dbc.getConnection();
-	   try 
-	   {
-		   stmt = conn.createStatement();
-	   }
-	   catch (SQLException sqlex) 
-	   {
-		   sqlex.printStackTrace();
-	   }
+        DBConnection dbc = new DBConnection();
+        conn = dbc.getConnection();
+
+        // Use the default DB.
+        Statement statement = conn.createStatement();
+		String query = "use ndnualumni;";
+        statement.executeQuery(query);
 	}
-	
+
 	public Statement getStatement() {
 		   Statement stmt = null;
 		   try {
 		     // In order to get an updatable result set, the Statement
 		     // object we create must be updatable.
-			   stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, 
+			   stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
 				     		 ResultSet.CONCUR_UPDATABLE);
 		   }catch (SQLException ex) {
 		       ex.printStackTrace();
@@ -76,8 +76,6 @@ public class ProjectsBackend
 	{
 		//Variable declarations
 		String query = "Select projectID, projectName, projectYear, projectAbstracts from Projects";
-		Statement stmt = getStatement();
-
 		try {
 			ResultSet rs = stmt.executeQuery(query);
 
@@ -92,7 +90,7 @@ public class ProjectsBackend
 						project.setProjectYear(rs.getInt(3));
 						project.setProjectAbstract(rs.getString(4));
 
-						System.out.println(project.getProjectId() + "\t" + project.getProjectName() 
+						System.out.println(project.getProjectId() + "\t" + project.getProjectName()
 							+ "\t" + project.getProjectYear() + "\t" + project.getProjectAbstract());
 					}
 					++row1;
@@ -156,113 +154,43 @@ public class ProjectsBackend
 
 	}
 
-	/**
-	 * Method Description: Returns all attributes associated with a project based on the 
-	 * project name.
-	 * @param name - the project's name
-	 * @return Project object
-	 */
-	public Project getProject(String name) 
-	{
-		//Variable declarations
-		String getProjectQuery = "";
-		Project proj = new Project();
-		PreparedStatement preparedStmt = null;
-		ResultSet resultSetObject = null;
-		int projectID = 0;
-		String projectName = "";
-		int projectYear = 0;
-		String projectAbstract = "";
-		
-		//Validate the arguments before attempting to pass to the database
-		if (!name.equals(""))
-		{
-			//Set the getProjectQuery
-			getProjectQuery = "select * from Project where projectName = ?";
-			
-			try
-			{
-				preparedStmt = conn.prepareStatement(getProjectQuery);
-				preparedStmt.setString(1, name);
-				resultSetObject = preparedStmt.executeQuery();
-				while (resultSetObject.next())
-				{
-					//Get row data
-					projectID = resultSetObject.getInt(1);
-					projectName = resultSetObject.getString(2);
-					projectYear = resultSetObject.getInt(3);
-					projectAbstract = resultSetObject.getString(4);
-					
-					//Set project object
-					proj.setProjectId(projectID);
-					proj.setProjectName(projectName);
-					proj.setProjectYear(projectYear);
-					proj.setProjectAbstract(projectAbstract);
-				}
-			}
-			catch (SQLException e)
-			{
-				e.printStackTrace();
-				System.out.println("Unable to add project.");
-				System.out.println("The database could not be quired.");				
-			}
-		}
-		
-		return proj;
-	}
-	
-	/**
-	 * Method Description: Returns an ArrayList of all Project including their names
-	 * and completion years.
-	 * @param name - the project's name
-	 * @return ArrayList<Project>
-	 */
 
-	/*
-	public ArrayList<Project> getAllProjectNamesAndYears() 
+	public List<Project> readProjects() throws SQLException
 	{
-		//Variable declarations
-		String getProjectNamesYearsQuery = "";
-		ResultSet resultSetObject = null;
-		int projectID = 0;
-		String projectName = "";
-		int projectYear = 0;
-		String projectAbstract = "";
-		ArrayList<Project> projectNamesAndYears = new ArrayList<Project>();
-		
-		//Validate the arguments before attempting to pass to the database
-		//Set the getProjectQuery
-		getProjectNamesYearsQuery = "select ProjectName, ProjectYear from Project";
-		
-		try
-		{
-			resultSetObject = statementObject.executeQuery(getProjectNamesYearsQuery);
-			while (resultSetObject.next())
-			{
-				Project proj = new Project();
-				
-				//Get row data
-				projectName = resultSetObject.getString("ProjectName");
-				projectYear = resultSetObject.getInt("ProjectYear");
-				
-				//Set project object
-				proj.setProjectId(projectID);
-				proj.setProjectName(projectName);
-				proj.setProjectYear(projectYear);
-				proj.setProjectAbstract(projectAbstract);
-				
-				//Add each to the array list
-				projectNamesAndYears.add(proj);
-			}
-		}
-		catch (SQLException e)
-		{
-			e.printStackTrace();
-			System.out.println("Unable to get all Project.");
-			System.out.println("The database could not be quired.");
-		}
-		
-		return projectNamesAndYears;
-	}
-	*/
+        System.out.println("yo1");
+        String query = "select * from projects";
+        System.out.println("yo2");
+        Statement statement = conn.createStatement();
+        System.out.println("query:" + query + ";");
+        ResultSet resultSet = statement.executeQuery(query);
+        System.out.println("yo3");
+        List<Project> projects = new ArrayList<Project>();
+        System.out.println("yo4");
+        while (resultSet.next())
+        {
+        System.out.println("yo5");
+            int id = resultSet.getInt(1);
+        System.out.println("yo6");
+            String name = resultSet.getString(2);
+        System.out.println("yo7");
+            int year = resultSet.getInt(3);
+        System.out.println("yo8");
+            String description = resultSet.getString(4);
+        System.out.println("yo9");
+            Project project = new Project(id, name, year, description);
+        System.out.println("yo10");
+            projects.add(project);
+        }
+        return projects;
+    }
+
+    public void createProject(String name, int year, String description) throws SQLException
+    {
+        String query = "insert into projects (ProjectName, ProjectYear, ProjectAbstracts) values (?, ?, ?)";
+        PreparedStatement statement = conn.prepareStatement(query);
+        statement.setString(1, name);
+        statement.setInt(2, year);
+        statement.setString(3, description);
+        statement.executeUpdate();
+    }
 }

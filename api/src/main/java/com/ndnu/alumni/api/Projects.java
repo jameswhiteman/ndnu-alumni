@@ -29,7 +29,7 @@ public class Projects extends HttpServlet
         try
         {
             ProjectsBackend db = new ProjectsBackend();
-            List<Project> projects = db.getAllProjectNamesAndYears();
+            List<Project> projects = db.readProjects();
             Gson gson = new Gson();
             if (projects != null)
             {
@@ -68,6 +68,7 @@ public class Projects extends HttpServlet
         }
         catch (SQLException e)
         {
+            e.printStackTrace();
             out.println("Failed to create project.");
         }
     }

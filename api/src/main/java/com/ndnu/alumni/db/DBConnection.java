@@ -19,27 +19,10 @@ public class DBConnection
 	}
 
 	private void getConnectionInfo() {
-//		Properties props = new Properties();
-//                // Be careful with the filepath for dbconnection.props
-//		try {
-//		   FileInputStream propsData =
-//			new FileInputStream("./WebContent/WEB-INF/dbconnection3.props");
-//		   props.load(propsData);
-//		   propsData.close();
-//		} catch (IOException e) {
-//		  e.printStackTrace();
-//		  return;
-//		}
-//
-//		url = props.getProperty("jdbc:mysql://localhost:3306");
-//		driver = props.getProperty("com.mysql.jdbc.Driver");
-//		login = props.getProperty(“dbuser1”);
-//		password = props.getProperty(“welcome”);
-
 		url = "jdbc:mysql://localhost:3306";
 		driver = "com.mysql.jdbc.Driver";
-		login = "dbuser1";
-		password = "welcome" ;
+		login = "root";
+		password = "" ;
 	}
 
 	public Connection getConnection()
@@ -48,7 +31,7 @@ public class DBConnection
 		{
 		     Class.forName(driver).newInstance();
 //	             conn = DriverManager.getConnection(url, login, password);
-	             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "dbuser1", "welcome");
+	             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "");
 		}catch (ClassNotFoundException e) {
 	           e.printStackTrace();
 	  	}catch (SQLException sqlex) {

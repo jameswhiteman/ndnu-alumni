@@ -1,0 +1,22 @@
+{
+  "name": "ndnualumni",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jameswhiteman/ndnu-alumni",
+  "authors": [
+    "James Whiteman <jameswhiteman@outlook.com>"
+  ],
+  "description": "A portal for NDNU Alumni",
+  "main": "app/app.css",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

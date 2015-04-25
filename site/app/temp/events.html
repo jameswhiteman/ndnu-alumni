@@ -1,6 +1,20 @@
-<div ng-controller="eventsCtrl" layout="column" style="height:500px;">
-  <section layout="row" flex>
-             <time-date-picker ng-model="dateValue" data-display-mode="full"></time-date-picker>
-    {{dateValue}}
-  </section>
+<div ng-controller="eventsCtrl" layout="column" style="height:100%">
+    <div ng-controller="eventsCtrl" ng-repeat="event in events">
+        <md-content>
+            <md-card>
+                <md-list>
+                    <md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+                    <h1>{{event.title}}</h1>
+                    <h3>{{event.type}}</h3>
+                    <h5>{{event.organizer}}</h5>
+                    <h5>{{event.major}}</h5>
+                    <h5>{{event.topic}}</h5>
+                    <p>{{event.description}}</p>
+                    </div>
+                    </md-list-item>
+                </md-list>
+            </md-card>
+        </md-content>
+    </div>
 </div>
