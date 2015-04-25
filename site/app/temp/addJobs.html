@@ -1,59 +1,26 @@
-<div layout="column" layout-sm="column" ng-controller="addProjCtrl">
-    <form name="addEventForm" ng-controller="eventsCtrl" ng-submit="addEvent()">
+<div layout="column" layout-sm="column" ng-controller="jobsCtrl">
+    <form name="addJobForm" ng-controller="jobsCtrl" ng-submit="addJob()">
         <md-content class="md-padding">
 
             <md-input-container>
-                <label>Event Title</label>
-                <input type="text" name="Title" ng-model="Title" required>
+                <label>Title</label>
+                <input type="text" name="title" ng-model="title" required>
             </md-input-container>
 
             <md-input-container>
-                <label>Event Type</label>
-                <input name="Type" type="text" ng-model="Type" required></textarea>
+                <label>Type</label>
+                <input name="type" type="text" ng-model="type" required></textarea>
             </md-input-container>
 
             <md-input-container>
-                <label>EventOrgName</label>
-                <input type="text" name="OrgName" ng-model="OrgName" required>
-            </md-input-container>
-
-            <md-input-container>
-                <label>EventMajor</label>
-                <input type="text" name="EventMajor" ng-model="EventMajor" required>
-            </md-input-container>
-
-            <md-input-container>
-                <label>EventTopic</label>
-                <input type="text" name="Topic" ng-model="Topic" required>
+                <label>Company</label>
+                <input type="text" name="company" ng-model="company" required>
             </md-input-container>
 
   			<md-input-container>
-                <label>EventDesc</label>
-                <textarea type="text" name="Desc" ng-model="Desc" required></textarea> 
+                <label>Description</label>
+                <textarea type="text" name="description" ng-model="description" required></textarea> 
             </md-input-container>
-
-              <md-input-container>
-                <label>EventDate</label>
-                <input type="date" name="EventDate" ng-model="EventDate" required>
-            </md-input-container>
-
-<!--
-              <md-input-container>
-                <label>EventStartTime</label>
-                <input type="text" name="proj_details" ng-model="details">
-                <div ng-messages="addEventForm.proj_details.$error.required">
-                 <div ng-message="required">This is required.</div>
-                </div>
-            </md-input-container>
-
-            <md-input-container>
-                <label>EventEndTime</label>
-                <input type="text" name="proj_details" ng-model="details">
-                <div ng-messages="addEventForm.proj_details.$error.required">
-                 <div ng-message="required">This is required.</div>
-                </div>
-            </md-input-container>
-   -->
             <md-button class="md-raised md-warn" id="submit" type="submit">Submit</md-button>
         </md-content>
     </form>
