@@ -23,6 +23,7 @@ app.controller('feedbackCtrl', ['$scope', '$http', '$state', function($scope, $h
             "&response3="+$scope.response3+"&response4="+$scope.response4+"&response5="+$scope.response5;
         $http.post('http://localhost:8282/ndnualumni-api/feedback', info).
         success(function(data, status, headers, config) {
+            alert("Feedback submitted.");
             $state.go('home')
         }).
         error(function(data, status, headers, config) {

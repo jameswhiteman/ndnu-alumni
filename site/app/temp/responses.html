@@ -1,0 +1,19 @@
+<div ng-controller="feedbackCtrl" layout="column" style="height:100%">
+    <div ng-controller="feedbackCtrl" ng-repeat="feedback in feedbacks">
+        <md-content>
+            <md-card>
+                <md-list>
+                    <md-list-item class="md-2-line">
+                        <div class="md-list-item-text">
+                            <h3>{{feedback.response1}}</h3>
+                            <h3>{{feedback.response2}}</h3>
+                            <h3>{{feedback.response3}}</h3>
+                            <h3>{{feedback.response4}}</h3>
+                            <h3>{{feedback.response5}}</h3>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-card>
+        </md-content>
+    </div>
+</div>
