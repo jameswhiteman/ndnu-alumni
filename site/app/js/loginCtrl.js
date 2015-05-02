@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller('loginCtrl', ['$scope', '$http', '$state', '$mdToast', '$animate', '$mdDialog', function($scope, $http, $state,$mdToast, $animate,$mdDialog)
+app.controller('loginCtrl', ['$scope', '$http', '$state', '$mdToast', '$animate', '$mdDialog', 'Toast', function($scope, $http, $state,$mdToast, $animate,$mdDialog, $toast)
 {
     $scope.data = [];
     $scope.email = "";
@@ -37,24 +37,27 @@ app.controller('loginCtrl', ['$scope', '$http', '$state', '$mdToast', '$animate'
   }};
 
     $scope.submit = function() {
-        var info = "?email="+this.email+"&password="+this.password;
-        $http.get('http://localhost:8282/ndnualumni-api/users' + info).
-          success(function(data) {
-              console.log(data);
-            if (data === "")
+        var info = "identifier="+this.email+"&verifier="+this.password;
+        $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+        $http.post('http://localhost:8282/ndnualumni-api/login', info).
+        success(function(data, status, headers, config) {
+            if (data === "" || data === "null" || data === null)
             {
-                alert("Invalid e-mail/password combination.");
+                $toast.setText("Invalid e-mail/password combination");
+                $scope.showToast();
             }
             else
             {
+                $toast.setText("Login successful");
                 $scope.showToast();
-               $scope.hide();
+                $scope.hide();
                 $state.go('home')
             }
-          }).
-          error(function(data, status, headers, config) {
-            alert("Error logging in, please try again.");
-          });
+        }).
+        error(function(data, status, headers, config) {
+            $toast.setText("Invalid e-mail/password combination");
+            $scope.showToast();
+        });
     }
 }]);
 

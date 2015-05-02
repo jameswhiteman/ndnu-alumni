@@ -77,7 +77,6 @@ public class EventStorage
             String topic = resultSet.getString(6);
             String description = resultSet.getString(7);
             long time = resultSet.getLong(8);
-            System.out.println("TIME:" + time);
             Major major = User.getMajorForString(rawMajor);
 
             // Parse the correct date

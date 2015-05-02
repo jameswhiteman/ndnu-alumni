@@ -35,3 +35,32 @@ app.config(function($mdThemingProvider) {
 
 
 
+app.service('User', function () {
+    var identifier = '';
+    var verifier = '';
+    return {
+        getIdentifier: function () {
+            return identifier;
+        },
+        getVerifier: function () {
+            return verifier;
+        },
+        setIdentifier: function(value) {
+            identifier = value;
+        },
+        setVerifier: function(value) {
+            verifier = value;
+        }
+    }
+});
+app.service('Toast', function () {
+    var text = 'First';
+    return {
+        getText: function () {
+            return text;
+        },
+        setText: function(value) {
+            text = value;
+        }
+    }
+});

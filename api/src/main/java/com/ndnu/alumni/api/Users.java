@@ -65,17 +65,19 @@ public class Users extends HttpServlet
         String first = request.getParameter("first");
         String last = request.getParameter("last");
         String email = request.getParameter("email");
+        String password = request.getParameter("password");
         int year = Integer.parseInt(request.getParameter("year"));
         String major = request.getParameter("major");
         String phone = request.getParameter("phone");
         String about = request.getParameter("about");
+        String type = request.getParameter("type");
 
         // Add the user to the database.
         response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         try
         {
             UserStorage store = new UserStorage();
-            store.createUser(first, last, email, year, major, phone, about);
+            store.createUser(first, last, email, password, type, year, major, phone, about);
             response.setStatus(HttpServletResponse.SC_CREATED);
             out.println("Successfully created user.");
         }

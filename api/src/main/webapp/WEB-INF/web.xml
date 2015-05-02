@@ -35,6 +35,10 @@
         <servlet-name>Documents</servlet-name>
         <servlet-class>com.ndnu.alumni.api.Documents</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>com.ndnu.alumni.api.Login</servlet-class>
+    </servlet>
 
     <!-- Mappings -->
     <servlet-mapping>
@@ -60,6 +64,10 @@
     <servlet-mapping>
         <servlet-name>Documents</servlet-name>
         <url-pattern>/documents</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
 </web-app>
