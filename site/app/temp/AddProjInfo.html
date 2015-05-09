@@ -4,25 +4,16 @@
             <md-input-container>
                 <label>Project Name</label>
                 <input type="text" name="name" ng-model="name" required>
-                <div ng-messages="formData.proj_name.$error.required">
-                 <div ng-message="required">This is required.</div>
-                </div>
             </md-input-container>
 
             <md-input-container>
                 <label>Year</label>
                 <input type="number" name="year" ng-model="year" required>
-                <div ng-messages="formData.proj_year.$error.required">
-                  <div ng-message="required">This is required.</div>
-                </div>
             </md-input-container>
 
             <md-input-container>
                 <label>Description</label>
                 <textarea md-maxlength="500" name="description" type="text" ng-model="description" required></textarea>
-                <div ng-messages="formData.proj_abstract.$error.required">
-                <div ng-message="required">This is required.</div>
-               </div>
             </md-input-container>
             <!--
             Documentation: <div md-button ng-file-select ng-file-change="upload($files)" ng-multiple="multiple">Select File</div>
