@@ -1,22 +1,17 @@
-<div ng-controller="eventsCtrl" layout="column" style="height:100%">
-    <div ng-controller="eventsCtrl" ng-repeat="event in events">
+<div ng-controller="eventsCtrl" layout="row" layout-wrap style="height:100%">
+    <div flex="33" flex-sm="100" ng-controller="eventsCtrl" ng-repeat="event in events">
         <md-content>
             <md-card>
-                <md-list>
-                    <md-list-item class="md-2-line">
-                    <div class="md-list-item-text">
-                        <h1>{{event.title}}</h1>
-                        <h3>{{event.type}}</h3>
-                        <h5>{{event.organizer}}</h5>
-                        <h5>{{event.major}}</h5>
-                        <h5>{{event.topic}}</h5>
-                        <p>{{event.description}}</p>
-                        <!--
-                        <md-button ng-show="canDelete()" ng-click="deleteEvent(event.id)">Delete</md-button>
-                        -->
-                    </div>
-                    </md-list-item>
-                </md-list>
+                <md-card-content>
+                    <h3>{{event.title}}</h3>
+                    <h5>{{event.type}}, {{event.major}}</h5>
+                    <h5>Organizer: {{event.organizer}}</h5>
+                    <h5>Topic: {{event.topic}}</h5>
+                    <p>{{event.description}}</p>
+                    <!--
+                    <md-button ng-show="canDelete()" ng-click="deleteEvent(event.id)">Delete</md-button>
+                    -->
+                </md-card-content>
             </md-card>
         </md-content>
     </div>

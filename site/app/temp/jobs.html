@@ -1,17 +1,12 @@
-<div ng-controller="jobsCtrl" layout="column" style="height:100%">
-    <div ng-controller="jobsCtrl" ng-repeat="job in jobs">
+<div ng-controller="jobsCtrl" layout="row" layout-wrap style="height:100%">
+    <div flex="33" flex-sm="100" ng-controller="jobsCtrl" ng-repeat="job in jobs">
         <md-content>
             <md-card>
-                <md-list>
-                    <md-list-item class="md-2-line">
-                        <div class="md-list-item-text">
-                            <h3>{{job.title}}</h3>
-                            <h3>{{job.type}}</h3>
-                            <h3>{{job.company}}</h3>
-                            <h3>{{job.description}}</h3>
-                        </div>
-                    </md-list-item>
-                </md-list>
+                <md-card-content>
+                    <h3>{{job.company}}</h3>
+                    <h5>{{job.title}} ({{job.type}})</h5>
+                    <p>{{job.description}}</p>
+                </md-card-content>
             </md-card>
         </md-content>
     </div>

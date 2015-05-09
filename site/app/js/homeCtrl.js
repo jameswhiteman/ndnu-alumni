@@ -7,14 +7,6 @@ app.controller('homeCtrl', function($scope, $http)
           $scope.depts = res.data;
         });
 
-   $http.get('http://localhost:8282/ndnualumni-api/projects').
-    success(function(data) {
-      $scope.projects = data;
-    }).
-    error(function(data) {
-       alert(data + " e");
-    });
-
       $http.get('http://localhost:8282/ndnualumni-api/users').
     success(function(data) {
       $scope.users = data;

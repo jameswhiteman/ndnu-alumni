@@ -15,25 +15,8 @@
 </md-tab>
 
 <md-tab label="Senior Projects" id="tab2" aria-controls="tab2-content" class="md-display-2">
-<div ng-repeat="projects in projects">
-  <md-toolbar class="md-theme-light">
-  <h2 class="md-toolbar-tools">
-    <span>{{projects.projectName}}</span>
-  </h2>
-</md-toolbar>
-<md-content>
-
-<md-list>
-
-<md-list-item class="md-2-line">
-<div class="md-list-item-text">
-  <h3>{{projects.projectYear}}</h3>
-  <p>{{projects.projectAbstract}}</p>
-</div>
-</md-list-item>
-</md-list>
-</md-content>
-</div>
+    <div ng-include="'temp/projects.html'"></div>
+    <div ui-view></div>
 </md-tab>
 
 <md-tab label="Alumni" id="tab3" aria-controls="tab3-content" class="md-display-2">

@@ -1,5 +1,5 @@
-<div layout="column" layout-sm="column" ng-controller="addProjCtrl">
-    <form name="addProjectForm" ng-controller="addProjCtrl" ng-submit="addProject()">
+<div layout="column" layout-sm="column" ng-controller="projectsCtrl">
+    <form name="addProjectForm" ng-controller="projectsCtrl" ng-submit="addProject()">
         <md-content class="md-padding">
             <md-input-container>
                 <label>Project Name</label>
@@ -7,14 +7,6 @@
                 <div ng-messages="formData.proj_name.$error.required">
                  <div ng-message="required">This is required.</div>
                 </div>
-            </md-input-container>
-
-            <md-input-container>
-                <label>Abstract</label>
-                <textarea md-maxlength="500" name="description" type="text" ng-model="description" required></textarea>
-                <div ng-messages="formData.proj_abstract.$error.required">
-                <div ng-message="required">This is required.</div>
-               </div>
             </md-input-container>
 
             <md-input-container>
@@ -26,21 +18,15 @@
             </md-input-container>
 
             <md-input-container>
-                <label>Team Members</label>
-                <input type="text" name="proj_members" ng-model="members" required>
-                <div ng-messages="formData.proj_members.$error.required">
-                 <div ng-message="required">This is required.</div>
-                </div>
+                <label>Description</label>
+                <textarea md-maxlength="500" name="description" type="text" ng-model="description" required></textarea>
+                <div ng-messages="formData.proj_abstract.$error.required">
+                <div ng-message="required">This is required.</div>
+               </div>
             </md-input-container>
-
-            <md-input-container>
-                <label>Project Details link</label>
-                <input type="text" name="proj_details" ng-model="details" required>
-                <div ng-messages="formData.proj_details.$error.required">
-                 <div ng-message="required">This is required.</div>
-                </div>
-            </md-input-container>
+            <!--
             Documentation: <div md-button ng-file-select ng-file-change="upload($files)" ng-multiple="multiple">Select File</div>
+            -->
             <md-button class="md-raised md-warn" id="submit" type="submit">Submit</md-button>
         </md-content>
     </form>

@@ -15,7 +15,9 @@
   <body ng-app="app">
 
 	<header ng-include="'temp/nav.html'"></header>
-	<div ui-view></div>
+    <main flex>
+        <div ui-view></div>
+    </main>
   <footer ng-include="'temp/footer.html'"></footer>
 
     <script src="./bower_components/angular/angular.js"></script>
@@ -40,6 +42,7 @@
     <script src="./js/feedbackCtrl.js"></script>
     <script src="./js/alumniCtrl.js"></script>
     <script src="./js/addProjCtrl.js"></script>
+    <script src="./js/projectsCtrl.js"></script>
     <script src="./js/UsersCtrl.js"></script>
     <script src="./js/eventsCtrl.js"></script>
   </body>
