@@ -1,133 +1,106 @@
-<md-content class="md-padding">
 <div ng-controller="homeCtrl">
-<md-tabs  md-selected="data.selectedIndex">
- <md-tab label="Home" id="tab1" aria-controls="tab1-content">
+  <md-content class="md-padding">
+  <md-tabs md-selected="data.selectedIndex" md-dynamic-height md-border-bottom>
 
-<md-card>
-  <!--
-    <md-select ng-model="aMajor" placeholder="Majors">
-          <md-optgroup label="Majors">
-        <md-option ng-value="deptName.name" ng-repeat="deptName in depts">{{deptName.name}}</md-option>
-        </md-optgroup>
-      </md-select>
-      <p> {{aMajor}} </p>
-      <md-checkbox ng-model="data.tabLocked">{{data.tabLocked}}</md-checkbox>
-      -->
- <img src="/img/alumni-banner-web.jpg" class="md-card-image">
- <h2>As a graduate, you are a lifetime member of the Alumni Association of Notre Dame de Namur University — more than 12,000 strong.</h2>
- <p>
-The Alumni Office helps alumni stay connected with each other and with the university. As a member, you have access to the NDNU Online Community and to the NDNU Alumni Association group on LinkedIn, which enables you to network with fellow alums, find classmates, recommend colleagues or search for a new job. The Alumni Office also sponsors class reunions, Alumni and Family Weekend and campus and regional events. Once an Argonaut, you are always an Argonaut and a member of the NDNU family.
- </p>
+  <md-tab label="Home" id="tab1" aria-controls="tab1-content" class="md-display-2">
+  <md-card>
+  <img src="/img/alumni-banner-web.jpg" class="md-card-image">
+  <md-content layout-padding>
+  <h2>As a graduate, you are a lifetime member of the Alumni Association of Notre Dame de Namur University — more than 12,000 strong.</h2>
+  <p>
+    The Alumni Office helps alumni stay connected with each other and with the university. As a member, you have access to the NDNU Online Community and to the NDNU Alumni Association group on LinkedIn, which enables you to network with fellow alums, find classmates, recommend colleagues or search for a new job. The Alumni Office also sponsors class reunions, Alumni and Family Weekend and campus and regional events. Once an Argonaut, you are always an Argonaut and a member of the NDNU family.
+  </p>
+</md-content>
 </md-card>
- </md-tab>
+</md-tab>
 
-   <md-tab label="Senior Projects" id="tab2" aria-controls="tab2-content">
-    <div ng-repeat="projects in projects">
-      <md-toolbar class="md-theme-light">
-    <h2 class="md-toolbar-tools">
-      <span>{{projects.projectName}}</span>
-    </h2>
-  </md-toolbar>
-  <md-content>
+<md-tab label="Senior Projects" id="tab2" aria-controls="tab2-content" class="md-display-2">
+<div ng-repeat="projects in projects">
+  <md-toolbar class="md-theme-light">
+  <h2 class="md-toolbar-tools">
+    <span>{{projects.projectName}}</span>
+  </h2>
+</md-toolbar>
+<md-content>
 
-    <md-list>
+<md-list>
 
-      <md-list-item class="md-2-line">
-        <div class="md-list-item-text">
-              <h3>{{projects.projectYear}}</h3>
-          <p>{{projects.projectAbstract}}</p>
-        </div>
-      </md-list-item>
-    </md-list>
-  </md-content>
-  </md-toolbar>
-  </div>
-   </md-tab>
+<md-list-item class="md-2-line">
+<div class="md-list-item-text">
+  <h3>{{projects.projectYear}}</h3>
+  <p>{{projects.projectAbstract}}</p>
+</div>
+</md-list-item>
+</md-list>
+</md-content>
+</div>
+</md-tab>
 
-   <md-tab label="Alumni" id="tab3" aria-controls="tab3-content">
- <md-input-container>
-        <label>Search</label>
-        <input type="text" ng-model="searchText">
-      </md-input-container>
-        <div ng-repeat="user in users | filter:searchText">
-  <md-content>
-      <md-card id="returnUser">
-    <md-list>
-      <md-list-item class="md-2-line">
-        <div class="md-list-item-text">
-        <h1>{{user.lastName}},{{user.firstName}}</h1>
-        <p>GradYear: {{user.year}}, Major:{{user.major}}</p>
-        <p>Phone#: {{user.phone}}, Email: {{user.email}}</p>
-        <p>City: {{user.city}}, State: {{user.state}}</p>
-        <p>Description: {{user.description}}, page:{{user.page}}</p>
-        </div>
-      </md-list-item>
-    </md-list>
-    </md-card>
-  </md-content>
-  </div>
+<md-tab label="Alumni" id="tab3" aria-controls="tab3-content" class="md-display-2">
 
-   </md-tab>
+<div ng-include="'temp/users.html'"></div>
+<div ui-view></div>
 
-   <md-tab label="Jobs" id="tab4" aria-controls="tab4-content">
-       <div ng-include="'temp/jobs.html'"></div>
-   </md-tab>
+</md-tab>
 
-    <md-tab label="Events" id="tab6" aria-controls="tab6-content">
-        <div ng-include="'temp/events.html'"></div>
-    </md-tab> 
+<md-tab label="Jobs" id="tab4" aria-controls="tab4-content" class="md-display-2">
+<div ng-include="'temp/jobs.html'"></div>
+</md-tab>
 
-    <md-tab label="Feedback" id="tab6" aria-controls="tab6-content">
-        <div ng-include="'temp/feedback.html'"></div>
-    </md-tab>
+<md-tab label="Events" id="tab6" aria-controls="tab6-content" class="md-display-2">
+<div ng-include="'temp/events.html'"></div>
+</md-tab> 
+
+<md-tab label="Feedback" id="tab6" aria-controls="tab6-content" class="md-display-2">
+<div ng-include="'temp/feedback.html'"></div>
+</md-tab>
 
 </md-tabs>
 
-    <ng-switch on="data.selectedIndex" class="tabpanel-container">
-        <div role="tabpanel"
-             id="tab1-content"
-             aria-labelledby="tab1"
-             ng-switch-when="0"
-             md-swipe-left="next()"
-             md-swipe-right="previous()" >
-        </div>
-        <div role="tabpanel"
-             id="tab2-content"
-             aria-labelledby="tab2"
-             ng-switch-when="1"
-             md-swipe-left="next()"
-             md-swipe-right="previous()" >
-        </div>
-        <div role="tabpanel"
-             id="tab3-content"
-             aria-labelledby="tab3"
-             ng-switch-when="2"
-             md-swipe-left="next()"
-             md-swipe-right="previous()" >
-        </div>
-         <div role="tabpanel"
-             id="tab3-content"
-             aria-labelledby="tab4"
-             ng-switch-when="3"
-             md-swipe-left="next()"
-             md-swipe-right="previous()" >
-        </div>
-         <div role="tabpanel"
-             id="tab3-content"
-             aria-labelledby="tab5"
-             ng-switch-when="4"
-             md-swipe-left="next()"
-             md-swipe-right="previous()" >
-        </div>
-         <div role="tabpanel"
-             id="tab3-content"
-             aria-labelledby="tab6"
-             ng-switch-when="5"
-             md-swipe-left="next()"
-             md-swipe-right="previous()" >
-        </div>
-
-    </ng-switch>
-
+<ng-switch on="data.selectedIndex" class="tabpanel-container">
+<div role="tabpanel"
+id="tab1-content"
+aria-labelledby="tab1"
+ng-switch-when="0"
+md-swipe-left="next()"
+md-swipe-right="previous()" >
 </div>
-  </md-content>
+<div role="tabpanel"
+id="tab2-content"
+aria-labelledby="tab2"
+ng-switch-when="1"
+md-swipe-left="next()"
+md-swipe-right="previous()" >
+</div>
+<div role="tabpanel"
+id="tab3-content"
+aria-labelledby="tab3"
+ng-switch-when="2"
+md-swipe-left="next()"
+md-swipe-right="previous()" >
+</div>
+<div role="tabpanel"
+id="tab3-content"
+aria-labelledby="tab4"
+ng-switch-when="3"
+md-swipe-left="next()"
+md-swipe-right="previous()" >
+</div>
+<div role="tabpanel"
+id="tab3-content"
+aria-labelledby="tab5"
+ng-switch-when="4"
+md-swipe-left="next()"
+md-swipe-right="previous()" >
+</div>
+<div role="tabpanel"
+id="tab3-content"
+aria-labelledby="tab6"
+ng-switch-when="5"
+md-swipe-left="next()"
+md-swipe-right="previous()" >
+</div>
+
+</ng-switch>
+</md-content>
+</div>
