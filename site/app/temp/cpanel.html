@@ -3,7 +3,7 @@
 
 <div ng-controller="cpanelCtrl">
 
-<md-tabs  md-selected="data.selectedIndex">
+<md-tabs  md-selected="data.selectedIndex" md-dynamic-height md-border-bottom>
  <md-tab label="Cpanel Menu" id="tab1" aria-controls="tab1-content">
 
    <md-content>
@@ -21,31 +21,29 @@
 
          <div ng-controller="addProjCtrl" ng-include="'temp/addProjInfo.html'"></div>
           <div ui-view></div>
-  <pre>
-    {{ formData }}
-  </pre>
+
    </md-tab>
 
-     <md-tab label="Users" id="tab3" aria-controls="tab3-content" ng-hide="true"> 
+     <md-tab label="Add Alumni" id="tab3" aria-controls="tab3-content" ng-hide="true"> 
          <div ng-controller="alumniCtrl" ng-include="'temp/addAlumni.html'"></div>
           <div ui-view></div>
    </md-tab>
 
- <md-tab label="Events" id="tab4" aria-controls="tab4-content" ng-hide="true"> 
+ <md-tab label="Add Event" id="tab4" aria-controls="tab4-content" ng-hide="true"> 
 
          <div ng-controller="eventsCtrl" ng-include="'temp/addEvents.html'"></div>
           <div ui-view></div>
 
    </md-tab>
 
-   <md-tab label="Jobs/Internships" id="tab5" aria-controls="tab5-content" ng-hide="true"> 
+   <md-tab label="Add Job" id="tab5" aria-controls="tab5-content" ng-hide="true"> 
 
          <div ng-controller="eventsCtrl" ng-include="'temp/addJobs.html'"></div>
           <div ui-view></div>
 
    </md-tab>
 
- <md-tab label="Feedbacks" id="tab6" aria-controls="tab6-content" ng-hide="true"> 
+ <md-tab label="Feedback" id="tab6" aria-controls="tab6-content" ng-hide="true"> 
 
          <div ng-controller="feedbackCtrl" ng-include="'temp/responses.html'"></div>
           <div ui-view></div>

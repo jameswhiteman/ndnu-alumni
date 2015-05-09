@@ -1,19 +1,24 @@
-<div layout="column" layout-fill layout-sm="column">
+<div ng-controller="barCtrl">
+  <md-content>
   <md-toolbar>
-    <div class="md-toolbar-tools">
-      <span>
-      <div class="docs-logotype">
-        <md-button href="#/home">
-        <img src="img/logo.svg" style="height:40px" class="ng-isolate-scope md-default-theme">
-        </md-button>
-        </div>
-      </span>
-      <span flex></span>
-      <div ng-controller="barCtrl">
-          <md-button ng-click="showControlPanel()">{{cpanelText}}</md-button>
-          <md-button ng-click="showAdvanced($event)">Log in</md-button>
-          <md-button href="#/signup">Sign up</md-button>
-      </div>
-    </div>
-  </md-toolbar>
+  <div class="md-toolbar-tools">
+    <md-button class="md-icon-button" aria-label="Logo" ui-sref="home" ui-sref-active="active">
+    <img src="img/logo2.svg" style="height: 100%;width: 100%" aria-hidden="true">
+  </img>
+</md-button>
+<a ng-href="#/" layout="row" flex="" class="docs-logo" href="#/">
+  <div class="docs-logotype">
+    <h1>
+      <span>NDNU Alumni</span>
+    </h1>
   </div>
+</a>
+<span flex></span>
+<div class="md-toolbar-item docs-tools" layout="column" layout-gt-md="row" offset-md="66">
+  <md-button ng-click="showControlPanel()">{{cpanelText}}</md-button>
+  <md-button ng-click="showAdvanced($event)">Log in</md-button>
+  <md-button href="#/signup">Sign up</md-button>
+</div>
+</div>
+</md-toolbar>
+</div>

@@ -1,16 +1,10 @@
+<div ng-controller="UsersCtrl">
+  <md-list>
+<md-subheader class="md-no-sticky">List of bastards</md-subheader>
+  <md-list-item ng-repeat="user in users" ng-click="goToPerson(user.firstName, $event)">
+    <img alt="{{ user.firstName }}" src="img/UsersList/img/100-1.jpeg" class="md-avatar">
+    <p>{{user.lastName}},{{user.firstName}}</p>
+  </md-list-item>
+</md-list>
+</div>
 
-  <div ng-repeat="user in users">
-  <md-content>
-      <md-card>
-    <md-list>
-      <md-list-item class="md-2-line">
-        <div class="md-list-item-text">
-        <h1>{{user.LastName}},{{user.FirstName}}</h1>
-        <p>GradYear: {{user.GradYear}}, Major:{{user.Major}}</p>
-        </div>
-      </md-list-item>
-    </md-list>
-    </md-card>
-  </md-content>
-  </div>
- 
