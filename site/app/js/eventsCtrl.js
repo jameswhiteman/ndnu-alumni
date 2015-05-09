@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller('eventsCtrl', ['$scope', '$http', '$state', function($scope, $http, $state)
+app.controller('eventsCtrl', ['$scope', '$http', '$state', 'User', function($scope, $http, $state, $user)
 {
     // Get
     $scope.events = "";
@@ -21,6 +21,13 @@ app.controller('eventsCtrl', ['$scope', '$http', '$state', function($scope, $htt
     $scope.description = "";
     $scope.dateValue =  new Date();
 
+    $scope.canDelete = function() {
+        if ($user.getRole() === "User") {
+            return true;
+        }
+        return false;
+    };
+
     $scope.addEvent = function() {
         $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
         var info = "title="+$scope.title+"&type="+$scope.type+"&organizer="+$scope.organizer+"&major="+$scope.major+"&topic="+$scope.topic+"&description="+$scope.description+"&time="+Math.floor($scope.dateValue.getTime() / 10000);
@@ -31,6 +38,17 @@ app.controller('eventsCtrl', ['$scope', '$http', '$state', function($scope, $htt
         }).
         error(function(data, status, headers, config) {
             alert("Failed to create event.");
+        });
+    };
+
+    $scope.deleteEvent = function(eventId) {
+        $http.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+        $http.delete('http://localhost:8282/ndnualumni-api/events?id=' + eventId).
+        success(function(data) {
+            alert(data);
+        }).
+        error(function(data) {
+           alert("Error deleting event.");
         });
     }
 }]);

@@ -54,9 +54,12 @@ public class EventStorage
         statement.setString(4, major);
         statement.setString(5, topic);
         statement.setString(6, description);
+        statement.setString(7, time);
+        /*
         DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
         String newTime = formatter.print(Long.parseLong(time, 10));
         statement.setString(7, newTime);
+        */
         statement.executeUpdate();
     }
 
@@ -83,11 +86,20 @@ public class EventStorage
             /*
             DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss.SS");
             DateTime dt = formatter.parseDateTime(time);
-            */
             DateTime dt = new DateTime(time);
-            Event event = new Event(id, title, type, organizer, major, topic, description, dt);
+            */
+            Event event = new Event(id, title, type, organizer, major, topic, description, time);
             events.add(event);
         }
         return events;
+    }
+
+    // Delete event
+    public void deleteEvent(String id) throws SQLException
+    {
+        String query = "delete from events where EventID=?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, id);
+        statement.executeUpdate();
     }
 }

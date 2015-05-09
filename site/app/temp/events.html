@@ -5,12 +5,13 @@
                 <md-list>
                     <md-list-item class="md-2-line">
                     <div class="md-list-item-text">
-                    <h1>{{event.title}}</h1>
-                    <h3>{{event.type}}</h3>
-                    <h5>{{event.organizer}}</h5>
-                    <h5>{{event.major}}</h5>
-                    <h5>{{event.topic}}</h5>
-                    <p>{{event.description}}</p>
+                        <h1>{{event.title}}</h1>
+                        <h3>{{event.type}}</h3>
+                        <h5>{{event.organizer}}</h5>
+                        <h5>{{event.major}}</h5>
+                        <h5>{{event.topic}}</h5>
+                        <p>{{event.description}}</p>
+                        <md-button ng-show="canDelete()" ng-click="deleteEvent(event.id)">Delete</md-button>
                     </div>
                     </md-list-item>
                 </md-list>

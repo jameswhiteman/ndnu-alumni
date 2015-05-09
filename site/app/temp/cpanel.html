@@ -8,11 +8,11 @@
 
    <md-content>
     <md-list>
-          <md-button ng-click="setData(1)">Adding Senior Projects</md-button>
-          <md-button ng-click="setData(2)">List of Users</md-button>
-          <md-button ng-click="setData(3)">Add events</md-button>
-          <md-button ng-click="setData(4)">Add Jobs/Internships</md-button>
-          <md-button ng-click="setData(5)">List of feedbacks</md-button>
+          <md-button ng-click="setData(1)">Add Senior Project</md-button>
+          <md-button ng-click="setData(2)">Add Alumni</md-button>
+          <md-button ng-click="setData(3)">Add Event</md-button>
+          <md-button ng-click="setData(4)">Add Job</md-button>
+          <md-button ng-click="setData(5)">Feedback</md-button>
     </md-list>
 
  </md-tab>
@@ -21,22 +21,14 @@
 
          <div ng-controller="addProjCtrl" ng-include="'temp/addProjInfo.html'"></div>
           <div ui-view></div>
-  
-    <!-- show our formData as it is being typed -->
   <pre>
     {{ formData }}
   </pre>
-
    </md-tab>
 
      <md-tab label="Users" id="tab3" aria-controls="tab3-content" ng-hide="true"> 
-        <!--
-         <div ng-controller="" ng-include="'temp/users.html'"></div>
+         <div ng-controller="alumniCtrl" ng-include="'temp/addAlumni.html'"></div>
           <div ui-view></div>
-  
-        <!-- show our formData as it is being typed -->
-
-
    </md-tab>
 
  <md-tab label="Events" id="tab4" aria-controls="tab4-content" ng-hide="true"> 

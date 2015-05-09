@@ -1,5 +1,5 @@
 <div layout="column" layout-sm="column" ng-controller="addProjCtrl">
-    <form name="addEventForm" ng-controller="eventsCtrl" ng-submit="addEvent()">
+    <form name="addEventForm" ng-controller="eventsCtrl">
         <md-content class="md-padding">
 
             <md-input-container>
@@ -35,7 +35,7 @@
             <md-input-container>
                 {{dateValue | date:'yyyy/MM/dd HH:mm a'}}
             <md-input-container>
-            <md-button class="md-raised md-warn" id="submit" type="submit">Create Event</md-button>
+            <md-button class="md-raised md-warn" id="submit" type="submit" ng-click="addEvent()">Create Event</md-button>
 
         </md-content>
     </form>

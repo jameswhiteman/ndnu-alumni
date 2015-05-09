@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller('loginCtrl', ['$scope', '$http', '$state', '$mdToast', '$animate', '$mdDialog', 'Toast', function($scope, $http, $state,$mdToast, $animate,$mdDialog, $toast)
+app.controller('loginCtrl', ['$scope', '$http', '$state', '$mdToast', '$animate', '$mdDialog', 'Toast', 'User', function($scope, $http, $state,$mdToast, $animate,$mdDialog, $toast, $user)
 {
     $scope.data = [];
     $scope.email = "";
@@ -37,11 +37,13 @@ app.controller('loginCtrl', ['$scope', '$http', '$state', '$mdToast', '$animate'
   }};
 
     $scope.submit = function() {
+        var currentEmail = this.email;
+        var currentPassword = this.password;
         var info = "identifier="+this.email+"&verifier="+this.password;
         $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
         $http.post('http://localhost:8282/ndnualumni-api/login', info).
         success(function(data, status, headers, config) {
-            if (data === "" || data === "null" || data === null)
+            if (!data || !data.type)
             {
                 $toast.setText("Invalid e-mail/password combination");
                 $scope.showToast();
@@ -49,6 +51,11 @@ app.controller('loginCtrl', ['$scope', '$http', '$state', '$mdToast', '$animate'
             else
             {
                 $toast.setText("Login successful");
+                $user.setIdentifier(currentEmail);
+                $user.setVerifier(currentPassword);
+                $user.setName(data.firstName + " " + data.lastName);
+                $user.setRole(data.type);
+                console.log(currentEmail + currentPassword + data.firstName + data.lastName + data.type);
                 $scope.showToast();
                 $scope.hide();
                 $state.go('home')
@@ -58,6 +65,11 @@ app.controller('loginCtrl', ['$scope', '$http', '$state', '$mdToast', '$animate'
             $toast.setText("Invalid e-mail/password combination");
             $scope.showToast();
         });
+    }
+
+    $scope.logout = function() {
+        $user.setIdentifier("");
+        $user.setVerifier("");
     }
 }]);
 

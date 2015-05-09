@@ -25,11 +25,11 @@ app.controller('signUpCtrl', ['$scope', '$http', '$state', function($scope, $htt
         var info = "first="+this.first+"&last="+this.last+"&email="+this.email+"&password="+this.password+"&year="+this.year+"&major="+this.major+"&phone="+this.phone+"&about="+this.about+"&type=User";
         $http.post('http://localhost:8282/ndnualumni-api/users', info).
         success(function(data, status, headers, config) {
-            alert("success");
+            alert("Successfully created account.");
             $state.go('home');
         }).
         error(function(data, status, headers, config) {
-            alert("error");
+            alert("Failed to create account.");
         });
     }
 }]);

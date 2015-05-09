@@ -31,7 +31,7 @@ public class DBConnection
 		{
 		     Class.forName(driver).newInstance();
 //	             conn = DriverManager.getConnection(url, login, password);
-	             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "american");
+	             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "");
 		}catch (ClassNotFoundException e) {
 	           e.printStackTrace();
 	  	}catch (SQLException sqlex) {

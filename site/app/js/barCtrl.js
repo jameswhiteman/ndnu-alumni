@@ -1,8 +1,16 @@
 var app = angular.module('app');
 
-app.controller('barCtrl', function($scope, $mdDialog)
+app.controller('barCtrl', ['$scope','$mdDialog', '$state', 'User', function($scope, $mdDialog, $state, $user)
 {
 	 $scope.showAdvanced = function(ev) {
+         console.log($scope.identifier + ";" + $scope.verifier);
+         if ($user.getIdentifier() != "" && $user.getVerifier() != "") {
+             $user.setIdentifier("");
+             $user.setVerifier("");
+             $user.setName("");
+             $user.setRole("");
+             return;
+         }
     $mdDialog.show({
       controller: DialogController,
       templateUrl: 'temp/logIn.html',
@@ -10,11 +18,28 @@ app.controller('barCtrl', function($scope, $mdDialog)
     })
     .then(function(answer) {
       $scope.alert =  answer;
+      $scope.updateControlPanelText();
     }, function() {
       $scope.alert = 'You cancelled the dialog.';
+      $scope.updateControlPanelText();
     });
   };
-});
+
+  $scope.showControlPanel = function() {
+      if ($user.getRole() === "User")
+          $state.go("cpanel");
+  };
+$scope.cpanelText = "";
+  $scope.updateControlPanelText = function() {
+      if ($user.getRole() == "User") {
+          $scope.cpanelText = "Control Panel";
+      }
+      else {
+          $scope.cpanelText = "";
+      }
+  }
+}]);
+
 function DialogController($scope, $mdDialog) {
   $scope.hide = function() {
     $mdDialog.hide();

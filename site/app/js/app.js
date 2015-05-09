@@ -35,9 +35,8 @@ app.config(function($mdThemingProvider) {
 
 
 
-app.service('User', function () {
-    var identifier = '';
-    var verifier = '';
+app.factory('User', function () {
+    var identifier, verifier, name, role;
     return {
         getIdentifier: function () {
             return identifier;
@@ -45,11 +44,23 @@ app.service('User', function () {
         getVerifier: function () {
             return verifier;
         },
+        getName: function () {
+            return name;
+        },
+        getRole: function () {
+            return role;
+        },
         setIdentifier: function(value) {
             identifier = value;
         },
         setVerifier: function(value) {
             verifier = value;
+        },
+        setName: function(value) {
+            name = value;
+        },
+        setRole: function(value) {
+            role = value;
         }
     }
 });

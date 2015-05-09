@@ -13,10 +13,10 @@ public class Event
     private Major major;
     private String topic;
     private String description;
-    private DateTime time;
+    private long time;
 
     public Event(String id, String title, String type, String organizer, Major major, String topic,
-            String description, DateTime time)
+            String description, long time)
     {
         setId(id);
         setTitle(title);
@@ -63,7 +63,7 @@ public class Event
         this.description = description;
     }
 
-    public void setTime(DateTime time)
+    public void setTime(long time)
     {
         this.time = time;
     }
@@ -104,7 +104,7 @@ public class Event
         return this.description;
     }
 
-    public DateTime getTime()
+    public long getTime()
     {
         return this.time;
     }

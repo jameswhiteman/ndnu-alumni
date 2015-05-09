@@ -9,12 +9,10 @@
         </div>
       </span>
       <span flex></span>
-      <md-button ui-sref="cpanel" ui-sref-active="active">Control Panel</md-button>
       <div ng-controller="barCtrl">
-      <md-button ng-click="showAdvanced($event)">
-        Log in
-      </md-button>
-      <md-button href="#/signup">Sign up</md-button>
+          <md-button ng-click="showControlPanel()">{{cpanelText}}</md-button>
+          <md-button ng-click="showAdvanced($event)">Log in</md-button>
+          <md-button href="#/signup">Sign up</md-button>
       </div>
     </div>
   </md-toolbar>

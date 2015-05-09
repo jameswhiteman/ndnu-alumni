@@ -1,0 +1,29 @@
+<div layout="column" layout-sm="column" ng-controller="alumniCtrl">
+    <form name="addAlumForm" ng-controller="alumniCtrl" ng-submit="addAlum()">
+        <md-content class="md-padding">
+
+            <md-input-container>
+                <label>First Name</label>
+                <input type="text" name="lastName" ng-model="firstName" required>
+            </md-input-container>
+            <md-input-container>
+                <label>Last Name</label>
+                <input type="text" name="lastName" ng-model="lastName" required>
+            </md-input-container>
+            <md-input-container>
+                <label>Graduation Year</label>
+                <input type="number" name="year" ng-model="year" required>
+            </md-input-container>
+            <md-input-container>
+                <label>Major</label>
+                <input type="text" name="major" ng-model="major" required>
+            </md-input-container>
+            <md-input-container>
+                <label>About</label>
+                <input type="text" name="about" ng-model="about" required>
+            </md-input-container>
+
+            <md-button class="md-raised md-warn" id="submit" type="submit">Submit</md-button>
+        </md-content>
+    </form>
+</div>
