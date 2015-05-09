@@ -31,6 +31,7 @@ public class User
 	private String state;
 	private String description;
 	private String page;
+    private String image;
 
 	////Class Constructors////
 	/**
@@ -52,6 +53,7 @@ public class User
 		this.state = "";
 		this.description = "";
 		this.page = "";
+        this.image = "";
 	}
 
 	/**
@@ -70,7 +72,7 @@ public class User
 	 */
     public User(String id, String firstName, String lastName, String type, String title, int year, Major major,
             String phone, String email, String city, String state,
-            String description, String page)
+            String description, String page, String image)
 	{
         this.id = id;
 		this.firstName = firstName;
@@ -85,6 +87,7 @@ public class User
 		this.state = state;
 		this.description = description;
 		this.page = page;
+        this.image = image;
 	}
 
     // Convenience
@@ -209,6 +212,11 @@ public class User
 		this.page = page;
 	}
 
+    public void setImage(String image)
+    {
+        this.image = image;
+    }
+
 	/**
 	 * Method Description: Returns a reference to the username data member.
 	 * @return id
@@ -317,6 +325,11 @@ public class User
 	{
 		return this.page;
 	}
+
+    public String getImage()
+    {
+        return this.image;
+    }
 
 	////Returning Methods////
 	/**

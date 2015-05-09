@@ -10,8 +10,9 @@ app.controller('signUpCtrl', ['$scope', '$http', '$state', function($scope, $htt
     $scope.confPass = "";
     $scope.year = 2010;
     $scope.major = "";
-    $scope.phone = 5555555555;
+    $scope.phone = "";
     $scope.about = "";
+    $scope.image = "";
     $scope.submit = function() {
         if ($scope.password.length<6) {
             alert("Password must be greater than six characters.");
@@ -22,7 +23,7 @@ app.controller('signUpCtrl', ['$scope', '$http', '$state', function($scope, $htt
             return;
         }
         $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
-        var info = "first="+this.first+"&last="+this.last+"&email="+this.email+"&password="+this.password+"&year="+this.year+"&major="+this.major+"&phone="+this.phone+"&about="+this.about+"&type=User";
+        var info = "first="+this.first+"&last="+this.last+"&email="+this.email+"&password="+this.password+"&year="+this.year+"&major="+this.major+"&phone="+this.phone+"&about="+this.about+"&image="+this.image+"&type=User";
         $http.post('http://localhost:8282/ndnualumni-api/users', info).
         success(function(data, status, headers, config) {
             alert("Successfully created account.");

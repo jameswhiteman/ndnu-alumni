@@ -75,6 +75,14 @@
         </div>
       </md-input-container>
 
+      <md-input-container>
+        <label>Profile Image URL</label>
+        <input name="image" ng-model="image" md-maxlength="512" type="text" required>
+        <div ng-messages="signUpForm.phone.$error.required">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+
          <md-button type="submit" id="submit" class="md-raised md-warn" style="height: 45px;">Submit</md-button>
    </form>
     </md-card>

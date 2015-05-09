@@ -56,10 +56,10 @@ public class UserStorage
 	 * @param projectYear
 	 * @param projectAbstract
 	 */
-	public void createUser(String first, String last, String email, String password, String type, int year, String major, String phone, String about) throws SQLException
+	public void createUser(String first, String last, String email, String password, String type, int year, String major, String phone, String about, String image) throws SQLException
     {
         //Variable declarations
-        String query = "insert into users (FirstName,LastName,Email,Password,UserType,GradYear,Major,PhoneNumber,Description) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "insert into users (FirstName,LastName,Email,Password,UserType,GradYear,Major,PhoneNumber,Description,Image) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setString(1, first);
         statement.setString(2, last);
@@ -71,6 +71,7 @@ public class UserStorage
         statement.setString(7, major);
         statement.setString(8, phone);
         statement.setString(9, about);
+        statement.setString(10, image);
         statement.executeUpdate();
 	}
 
@@ -97,8 +98,9 @@ public class UserStorage
             String state = resultSet.getString(15);
             String about = resultSet.getString(16);
             String page = resultSet.getString(17);
+            String image = resultSet.getString(18);
             Major major = User.getMajorForString(rawMajor);
-            user = new User(id, first, last, type, title, year, major, phone, email, city, state, about, page);
+            user = new User(id, first, last, type, title, year, major, phone, email, city, state, about, page, image);
             users.add(user);
         }
         return users;
@@ -149,8 +151,9 @@ public class UserStorage
             String state = resultSet.getString(15);
             String about = resultSet.getString(16);
             String page = resultSet.getString(17);
+            String image = resultSet.getString(18);
             Major major = User.getMajorForString(rawMajor);
-            user = new User(id, first, last, type, title, year, major, phone, email, city, state, about, page);
+            user = new User(id, first, last, type, title, year, major, phone, email, city, state, about, page, image);
         }
         return user;
 	}

@@ -22,7 +22,7 @@ public class DBConnection
 		url = "jdbc:mysql://localhost:3306";
 		driver = "com.mysql.jdbc.Driver";
 		login = "root";
-		password = "";
+		password = "american";
 	}
 
 	public Connection getConnection()
@@ -31,7 +31,7 @@ public class DBConnection
 		{
 		     Class.forName(driver).newInstance();
 //	             conn = DriverManager.getConnection(url, login, password);
-	             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "");
+	             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "american");
 		}catch (ClassNotFoundException e) {
 	           e.printStackTrace();
 	  	}catch (SQLException sqlex) {
