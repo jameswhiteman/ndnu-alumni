@@ -69,13 +69,6 @@ md-list .md-button {
   width: 1px;
 }
 
-/* Typography support coming in 0.8.0 */
-
-md-toolbar h1 {
-  font-size: 1.250em;
-  font-weight: 400;
-}
-
 .time-date {
     font-size: 14px !important;
 }
