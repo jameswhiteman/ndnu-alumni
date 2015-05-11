@@ -26,7 +26,7 @@ import org.mindrot.jbcrypt.BCrypt;
 public class UserStorage
 {
 	////Data Members////
-	private Connection connection;
+    private DBConnection dbc;
 
 	////Constructors////
 	/**
@@ -35,13 +35,7 @@ public class UserStorage
 	 */
 	public UserStorage() throws SQLException
 	{
-        DBConnection dbc = new DBConnection();
-        connection = dbc.getConnection();
-
-        // Use the default DB.
-        Statement statement = connection.createStatement();
-		String query = "use ndnualumni;";
-        statement.executeQuery(query);
+        dbc = new DBConnection();
 	}
 
 	/**
@@ -55,7 +49,8 @@ public class UserStorage
 	public void createUser(String first, String last, String email, String password, String type, int year, String major, String phone, String about, String image) throws SQLException
     {
         //Variable declarations
-        String query = "insert into users (FirstName,LastName,Email,Password,UserType,GradYear,Major,PhoneNumber,Description,Image) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        Connection connection = dbc.getConnection();
+        String query = "insert into ndnualumni.users (FirstName,LastName,Email,Password,UserType,GradYear,Major,PhoneNumber,Description,Image) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setString(1, first);
         statement.setString(2, last);
@@ -69,12 +64,14 @@ public class UserStorage
         statement.setString(9, about);
         statement.setString(10, image);
         statement.executeUpdate();
+        dbc.closeConnection();
 	}
 
     // Read users
 	public List<User> readUsers() throws SQLException
 	{
-        String query = "select * from users";
+        Connection connection = dbc.getConnection();
+        String query = "select * from ndnualumni.users order by lastName";
         PreparedStatement statement = connection.prepareStatement(query);
         ResultSet resultSet = statement.executeQuery();
         List<User> users = new ArrayList<User>();
@@ -98,6 +95,7 @@ public class UserStorage
             user = new User(id, first, last, type, title, year, major, phone, email, city, state, about, page, image);
             users.add(user);
         }
+        dbc.closeConnection();
         return users;
 	}
 
@@ -109,7 +107,8 @@ public class UserStorage
 	 */
 	public User login(String identifier, String verifier) throws SQLException
 	{
-        String query = "select Password,UserId from users where Email=?";
+        Connection connection = dbc.getConnection();
+        String query = "select Password,UserId from ndnualumni.users where Email=?";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setString(1, identifier);
         statement.executeQuery();
@@ -126,7 +125,7 @@ public class UserStorage
         }
 
         // Get the user if password validates.
-        query = "select * from users where UserId=?";
+        query = "select * from ndnualumni.users where UserId=?";
         statement = connection.prepareStatement(query);
         statement.setString(1, id);
         resultSet = statement.executeQuery();
@@ -149,6 +148,7 @@ public class UserStorage
             String image = resultSet.getString(18);
             user = new User(id, first, last, type, title, year, major, phone, email, city, state, about, page, image);
         }
+        dbc.closeConnection();
         return user;
 	}
 }

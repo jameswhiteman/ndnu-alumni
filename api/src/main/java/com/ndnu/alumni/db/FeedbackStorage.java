@@ -17,20 +17,17 @@ import org.joda.time.format.DateTimeFormat;
 
 public class FeedbackStorage
 {
-    private Connection connection;
+    private DBConnection dbc;
 
     public FeedbackStorage() throws SQLException
     {
-        DBConnection dbc = new DBConnection();
-        connection = dbc.getConnection();
-        Statement statement = connection.createStatement();
-        String query = "use ndnualumni;";
-        statement.executeQuery(query);
+        dbc = new DBConnection();
     }
 
     public void createFeedback(String id, String response1, String response2, String response3, String response4, String response5) throws SQLException
     {
-        String query = "insert into feedback (UserID,QuestionOne,QuestionTwo,QuestionThree,QuestionFour,QuestionFive) values (?,?,?,?,?,?)";
+        Connection connection = dbc.getConnection();
+        String query = "insert into ndnualumni.feedback (UserID,QuestionOne,QuestionTwo,QuestionThree,QuestionFour,QuestionFive) values (?,?,?,?,?,?)";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setString(1, id);
         statement.setString(2, response1);
@@ -39,11 +36,13 @@ public class FeedbackStorage
         statement.setString(5, response4);
         statement.setString(6, response5);
         statement.executeUpdate();
+        dbc.closeConnection();
     }
 
     public List<Feedback> readFeedbacks() throws SQLException
     {
-        String query = "select * from feedback";
+        Connection connection = dbc.getConnection();
+        String query = "select * from ndnualumni.feedback order by QuestionID desc";
         PreparedStatement statement = connection.prepareStatement(query);
         ResultSet resultSet = statement.executeQuery();
         List<Feedback> feedbacks = new ArrayList<Feedback>();
@@ -59,6 +58,7 @@ public class FeedbackStorage
             Feedback feedback = new Feedback(id, userId, response1, response2, response3, response4, response5);
             feedbacks.add(feedback);
         }
+        dbc.closeConnection();
         return feedbacks;
     }
 }

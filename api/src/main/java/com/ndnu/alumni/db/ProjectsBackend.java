@@ -32,6 +32,7 @@ public class ProjectsBackend
 	////Data Members////
 	private Connection conn;
 	private Statement stmt;
+    private DBConnection dbc;
 
 	////Constructors////
 	/**
@@ -40,13 +41,7 @@ public class ProjectsBackend
 	 */
 	public ProjectsBackend() throws SQLException
 	{
-        DBConnection dbc = new DBConnection();
-        conn = dbc.getConnection();
-
-        // Use the default DB.
-        Statement statement = conn.createStatement();
-		String query = "use ndnualumni;";
-        statement.executeQuery(query);
+        dbc = new DBConnection();
 	}
 
 	public Statement getStatement() {
@@ -157,7 +152,8 @@ public class ProjectsBackend
 
 	public List<Project> readProjects() throws SQLException
 	{
-        String query = "select * from projects";
+        Connection conn = dbc.getConnection();
+        String query = "select * from ndnualumni.projects order by ProjectYear";
         Statement statement = conn.createStatement();
         ResultSet resultSet = statement.executeQuery(query);
         List<Project> projects = new ArrayList<Project>();
@@ -170,16 +166,19 @@ public class ProjectsBackend
             Project project = new Project(id, name, year, description);
             projects.add(project);
         }
+        dbc.closeConnection();
         return projects;
     }
 
     public void createProject(String name, int year, String description) throws SQLException
     {
-        String query = "insert into projects (ProjectName, ProjectYear, ProjectAbstracts) values (?, ?, ?)";
+        Connection conn = dbc.getConnection();
+        String query = "insert into ndnualumni.projects (ProjectName, ProjectYear, ProjectAbstracts) values (?, ?, ?)";
         PreparedStatement statement = conn.prepareStatement(query);
         statement.setString(1, name);
         statement.setInt(2, year);
         statement.setString(3, description);
         statement.executeUpdate();
+        dbc.closeConnection();
     }
 }

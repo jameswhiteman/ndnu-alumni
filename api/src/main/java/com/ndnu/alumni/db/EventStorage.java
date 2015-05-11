@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class EventStorage
 {
     ////Data Members////
-    private Connection connection;
+    private DBConnection dbc;
 
     ////Constructors////
     /**
@@ -24,18 +24,13 @@ public class EventStorage
      */
     public EventStorage() throws SQLException
     {
-        DBConnection dbc = new DBConnection();
-        connection = dbc.getConnection();
-
-        // Use the default DB.
-        Statement statement = connection.createStatement();
-        String query = "use ndnualumni;";
-        statement.executeQuery(query);
+        dbc = new DBConnection();
     }
 
     public void createEvent(String title, String type, String organizer, String major, String description, String time) throws SQLException
     {
-        String query = "insert into events (EventTitle,EventType,EventOrgName,EventMajor,EventTopic,EventDesc,EventTime) values (?,?,?,?,?,?,?)";
+        Connection connection = dbc.getConnection();
+        String query = "insert into ndnualumni.events (EventTitle,EventType,EventOrgName,EventMajor,EventTopic,EventDesc,EventTime) values (?,?,?,?,?,?,?)";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setString(1, title);
         statement.setString(2, type);
@@ -45,11 +40,13 @@ public class EventStorage
         statement.setString(6, description);
         statement.setString(7, time);
         statement.executeUpdate();
+        dbc.closeConnection();
     }
 
     public List<Event> readEvents() throws SQLException
     {
-        String query = "select * from events";
+        Connection connection = dbc.getConnection();
+        String query = "select * from ndnualumni.events order by EventTime desc";
         PreparedStatement statement = connection.prepareStatement(query);
         ResultSet resultSet = statement.executeQuery();
         List<Event> events = new ArrayList<Event>();
@@ -73,15 +70,18 @@ public class EventStorage
             Event event = new Event(id, title, type, organizer, major, topic, description, time);
             events.add(event);
         }
+        dbc.closeConnection();
         return events;
     }
 
     // Delete event
     public void deleteEvent(String id) throws SQLException
     {
-        String query = "delete from events where EventID=?";
+        Connection connection = dbc.getConnection();
+        String query = "delete from ndnualumni.events where EventID=?";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setString(1, id);
         statement.executeUpdate();
+        dbc.closeConnection();
     }
 }

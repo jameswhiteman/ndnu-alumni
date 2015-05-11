@@ -65,7 +65,7 @@ CREATE TABLE Users (
   UserName varchar(50) default NULL,
   Password varchar(255) default NULL,
   UserType varchar(30) default NULL,
-  ProjectID int(5), 
+  ProjectID varchar(5),
   JobTitle varchar(255) default NULl,
   Company varchar(255) default Null,
   GradYear int(4) default NULL,
@@ -82,9 +82,9 @@ CREATE TABLE Users (
   FOREIGN Key (ProjectId) REFERENCES Projects(ProjectId)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- 
+--
 -- Dumping date for table 'Users'
--- 
+--
 
 INSERT INTO Users (FirstName, LastName, UserName, Password, UserType, ProjectID, JobTitle, Company, GradYear, Major, PhoneNumber, Email, City, State, Description, Page) VALUES
 ('Daniel', 'Abihider', '', '', 'Alum', '', 'Information Professional', 'Abihider Consulting, Star One Credit Union', '1992', '', '', '', '', '', '', 'https://www.linkedin.com/profile/view?id=26032909&authType=NAME_SEARCH&authToken=supQ&locale=en_US&srchid=557605081416619421297&srchindex=1&srchtotal=1&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A557605081416619421297%2CVSRPtargetId%3A26032909%2CVSRPcmpt%3Aprimary'),
@@ -101,10 +101,10 @@ INSERT INTO Users (FirstName, LastName, UserName, Password, UserType, ProjectID,
 ('Roberto', 'Conception', '', '', 'Alum', '', 'Computer Engineer', 'NEC Electronics', '2006', '', '', '', '', '', '', 'https://www.linkedin.com/profile/view?id=11999032&authType=NAME_SEARCH&authToken=RmwF&locale=en_US&srchid=557605081416532544550&srchindex=1&srchtotal=39&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A557605081416532544550%2CVSRPtargetId%3A11999032%2CVSRPcmpt%3Aprimary'),
 ('Jolly', 'Constance', '', '', 'Alum', '', 'Systems Engineer', 'Lockheed Martin', '2003', '', '', '', '', '', '', 'https://www.linkedin.com/profile/view?id=54071412&authType=NAME_SEARCH&authToken=ym6c&locale=en_US&srchid=557605081414196311384&srchindex=1&srchtotal=2&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A557605081414196311384%2CVSRPtargetId%3A54071412%2CVSRPcmpt%3Aprimary'),
 ('Jennifer', 'Davis', '', '', 'Alum', '', 'Automation Engineer', 'Chef', '2009', '', '', '', '', '', '', 'https://www.linkedin.com/profile/view?id=1125833&authType=NAME_SEARCH&authToken=ifLc&locale=en_US&srchid=557605081416532667356&srchindex=3&srchtotal=3202&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A557605081416532667356%2CVSRPtargetId%3A1125833%2CVSRPcmpt%3Aprimary'),
-('Ranjan', 'Dutta', '', '', 'Alum', '', 'Sr. Engineer', 'Ericsson  2007', '', '', '', '', '', '', 'https://www.linkedin.com/profile/view?id=36279589&authType=OPENLINK&authToken=3SHC&locale=en_US&srchid=557605081414114296558&srchindex=3&srchtotal=124&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A557605081414114296558%2CVSRPtargetId%3A36279589%2CVSRPcmpt%3Aprimary'),
+('Ranjan', 'Dutta', '', '', 'Alum', '', 'Sr. Engineer', 'Ericsson', '2007', '', '', '', '', '', '', 'https://www.linkedin.com/profile/view?id=36279589&authType=OPENLINK&authToken=3SHC&locale=en_US&srchid=557605081414114296558&srchindex=3&srchtotal=124&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A557605081414114296558%2CVSRPtargetId%3A36279589%2CVSRPcmpt%3Aprimary'),
 ('Bernardo', 'Elayda', '', '', 'Alum', '', 'GPS Test Engineer', 'Intel', '2005', '', '', '', '', '', '', 'https://www.linkedin.com/profile/view?id=16587761&authType=NAME_SEARCH&authToken=jumb&locale=en_US&trk=tyah&trkInfo=tarId%3A1414114371558%2Ctas%3Abernardo%20elayda%2Cidx%3A1-1-1'),
 ('Francisco', 'Galdamez', '', '', 'Alum', '', 'Sr. QA Engineer', 'Visa', '', '', '', '', '', '', '','https://www.linkedin.com/profile/view?id=11246173&authType=NAME_SEARCH&authToken=kAFC&locale=en_US&srchid=557605081414109217293&srchindex=1&srchtotal=21&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A557605081414109217293%2CVSRPtargetId%3A11246173%2CVSRPcmpt%3Aprimary'),
-('Maria', 'George', '', '', 'Alum', '', 'Sr. Infrastructure Manager', 'Workday 2002', '', '', '', '', '', '', 'https://www.linkedin.com/profile/view?id=6508380&authType=NAME_SEARCH&authToken=EeBN&locale=en_US&trk=tyah&trkInfo=tarId%3A1414114451767%2Ctas%3Amaria%20George%20%2Cidx%3A1-1-1'),
+('Maria', 'George', '', '', 'Alum', '', 'Sr. Infrastructure Manager', 'Workday', '2002', '', '', '', '', '', '', 'https://www.linkedin.com/profile/view?id=6508380&authType=NAME_SEARCH&authToken=EeBN&locale=en_US&trk=tyah&trkInfo=tarId%3A1414114451767%2Ctas%3Amaria%20George%20%2Cidx%3A1-1-1'),
 ('Hendra', 'Godjali', '', '', 'Alum', '', 'Managing Director', 'Accentire', '1995', '', '', '', '', '', '', 'https://www.linkedin.com/profile/view?id=649988&authType=NAME_SEARCH&authToken=foko&locale=en_US&srchid=557605081414114530271&srchindex=1&srchtotal=1&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A557605081414114530271%2CVSRPtargetId%3A649988%2CVSRPcmpt%3Aprimary'),
 ('Dimitry', 'Gringauz', '', '', 'Alum', '', 'Principal Developer', 'Banner Engineering', '', '', '', '', '', '', '','https://www.linkedin.com/profile/view?id=21567158&authType=NAME_SEARCH&authToken=hQdM&locale=en_US&srchid=557605081416597202142&srchindex=1&srchtotal=1&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A557605081416597202142%2CVSRPtargetId%3A21567158%2CVSRPcmpt%3Aprimary'),
 ('Timothy', 'Hadlock', '', '', 'Alum', '', 'Technology Transactions', 'SaaS Agreements Software Licenses', '', '', '', '', '', '', '','https://www.linkedin.com/profile/view?id=21150552&authType=NAME_SEARCH&authToken=cpTQ&locale=en_US&trk=tyah&trkInfo=tarId%3A1416597304606%2Ctas%3Atomothy%20hadloc%2Cidx%3A1-1-1'),
@@ -128,7 +128,7 @@ INSERT INTO Users (FirstName, LastName, UserName, Password, UserType, ProjectID,
 ('Joel', 'Rumley', '', '', 'Alum', '', 'Product Manager', 'Varian Medical Systems', '2001', '', '', '', '', '', '', 'https://www.linkedin.com/profile/view?id=27416609&authType=NAME_SEARCH&authToken=TLkm&locale=en_US&srchid=557605081416615844010&srchindex=1&srchtotal=1&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A557605081416615844010%2CVSRPtargetId%3A27416609%2CVSRPcmpt%3Aprimary'),
 ('Hany', 'Sabet', '', '', 'Alum', '', 'Sr. VP Sales and Trading', 'The Maxim Group', '', '', '', '', '', '', '','https://www.linkedin.com/profile/view?id=1429874&authType=NAME_SEARCH&authToken=Gd2j&locale=en_US&srchid=557605081416617079356&srchindex=1&srchtotal=3&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A557605081416617079356%2CVSRPtargetId%3A1429874%2CVSRPcmpt%3Aprimary'),
 ('Joe', 'Sangervasi', '', '', 'Alum', '', 'Sr. Software Developer', 'StayHealthy', '2004', '', '', '', '', '', '', 'https://www.linkedin.com/profile/view?id=12777004&authType=NAME_SEARCH&authToken=1l9H&locale=en_US&srchid=557605081414521489974&srchindex=1&srchtotal=1&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A557605081414521489974%2CVSRPtargetId%3A12777004%2CVSRPcmpt%3Aprimary'),
-('Sarah', 'Schwanbeck', '', '', 'Alum', '', 'Senior Engineernig Manager', 'Yahoo   2002', '', '', '', '', '', '', 'https://www.linkedin.com/profile/view?id=1127228&authType=NAME_SEARCH&authToken=4uI_&locale=en_US&srchid=557605081416617204619&srchindex=1&srchtotal=1&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A557605081416617204619%2CVSRPtargetId%3A1127228%2CVSRPcmpt%3Aprimary'),
+('Sarah', 'Schwanbeck', '', '', 'Alum', '', 'Senior Engineernig Manager', 'Yahoo', '2002', '', '', '', '', '', '', 'https://www.linkedin.com/profile/view?id=1127228&authType=NAME_SEARCH&authToken=4uI_&locale=en_US&srchid=557605081416617204619&srchindex=1&srchtotal=1&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A557605081416617204619%2CVSRPtargetId%3A1127228%2CVSRPcmpt%3Aprimary'),
 ('Sergio', 'Shoomiloff', '', '', 'Alum', '', 'Software Engineer', 'Silicon valley', '', '', '', '', '', '', '','https://www.linkedin.com/profile/view?id=5336983&authType=NAME_SEARCH&authToken=aBd-&locale=en_US&trk=tyah2&trkInfo=tarId%3A1416619684257%2Ctas%3Asergio%20shoomi%2Cidx%3A1-1-1'),
 ('Christopher', 'Silveria', '', '', 'Alum', '', 'Manager, Fraud Intelligence', 'Guardian Analytics', '2006', '', '', '', '', '', '', 'https://www.linkedin.com/profile/view?id=5762898&authType=NAME_SEARCH&authToken=-bxU&locale=en_US&srchid=557605081416617374411&srchindex=1&srchtotal=22&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A557605081416617374411%2CVSRPtargetId%3A5762898%2CVSRPcmpt%3Aprimary'),
 ('Alicia', 'Sloan', '', '', 'Alum', '', 'Technology Specialist', 'NA', '2006', '', '', '', '', '', '', 'https://www.linkedin.com/profile/view?id=5769820&authType=NAME_SEARCH&authToken=OJbr&locale=en_US&srchid=557605081416617487039&srchindex=1&srchtotal=16&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A557605081416617487039%2CVSRPtargetId%3A5769820%2CVSRPcmpt%3Aprimary'),
@@ -141,21 +141,11 @@ INSERT INTO Users (FirstName, LastName, UserName, Password, UserType, ProjectID,
 ('Michael', 'Yasko', '', '', 'Alum', '', 'Sr. Manager, Developer Relations & App Review', 'Leap Motion', '2006', '', '', '', '', '', '', 'https://www.linkedin.com/profile/view?id=1455733&authType=NAME_SEARCH&authToken=cS50&locale=en_US&trk=tyah&trkInfo=tarId%3A1414542313982%2Ctas%3Amichael%20yasko%2Cidx%3A1-2-2'),
 ('Chan', 'Woei', '', '', 'Alum', '', 'Area Sales Manager', 'EOS Singapore', '2000', '', '', '', '', '', '', 'https://www.linkedin.com/profile/view?id=56652721&authType=NAME_SEARCH&authToken=Lct4&locale=en_US&trk=tyah&trkInfo=tarId%3A1414113877586%2Ctas%3Ajyh-woei%2Cidx%3A1-1-1');
 
--- 
+--
 -- Table structure for table 'Docs'
--- 
+--
 
 DROP TABLE IF EXISTS Docs;
-CREATE TABLE Docs (
-  DocID int(5) NOT NULL ,
-  ProjectID int NOT NULL ,
-  DocName varchar (40) NULL,
-  DocType varchar (40) NULL,
-  DocLocation text default NULL,
-  PRIMARY KEY  (DocID),
-  FOREIGN KEY (ProjectID) REFERENCES Projects(ProjectID),
-  UNIQUE KEY DocID (DocID)
- ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table 'Projects'
@@ -163,9 +153,9 @@ CREATE TABLE Docs (
 
 
 
--- 
+--
 -- Table structure for table 'Jobs'
--- 
+--
 
 DROP TABLE IF EXISTS Jobs;
 CREATE TABLE Jobs (
@@ -187,7 +177,7 @@ CREATE TABLE Jobs (
 
 --
 -- Table structure for table 'Feedback'
--- 
+--
 
 -- added on 2/8/15
 DROP TABLE IF EXISTS Feedback;
@@ -219,7 +209,7 @@ CREATE TABLE Events (
   EventMajor varchar(70) default NULL,
   EventTopic varchar(255) default NULL,
   EventDesc text default NULL,
-  EventTime decimal(9,0) NOT NULL,
+  EventTime decimal(13,0) NOT NULL,
   PRIMARY KEY (EventID),
   UNIQUE KEY EventID (EventID)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;

@@ -38,6 +38,7 @@ public class Projects extends HttpServlet
         }
         catch (SQLException e)
         {
+            e.printStackTrace();
             out.println("Failed to retrieve projects from database.");
         }
     }

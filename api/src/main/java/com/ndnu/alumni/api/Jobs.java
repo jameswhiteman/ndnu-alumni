@@ -38,6 +38,7 @@ public class Jobs extends HttpServlet
         }
         catch (SQLException e)
         {
+            e.printStackTrace();
             out.println("Failed to retrieve jobs from database.");
         }
     }

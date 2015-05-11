@@ -38,6 +38,7 @@ public class Feedbacks extends HttpServlet
         }
         catch (SQLException e)
         {
+            e.printStackTrace();
             out.println("Failed to retrieve feedback from database.");
         }
     }

@@ -48,6 +48,7 @@ public class Users extends HttpServlet
         }
         catch (SQLException e)
         {
+            e.printStackTrace();
             out.println("Failed to retrieve user from database.");
         }
     }
@@ -84,6 +85,7 @@ public class Users extends HttpServlet
         }
         catch (SQLException e)
         {
+            e.printStackTrace();
             out.println("Failed to create user.");
         }
     }

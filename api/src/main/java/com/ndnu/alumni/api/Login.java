@@ -44,6 +44,7 @@ public class Login extends HttpServlet
         }
         catch (SQLException e)
         {
+            e.printStackTrace();
             out.println("Failed to login user.");
         }
     }

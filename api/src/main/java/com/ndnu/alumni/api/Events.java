@@ -38,6 +38,7 @@ public class Events extends HttpServlet
         }
         catch (SQLException e)
         {
+            e.printStackTrace();
             out.println("Failed to retrieve events from database.");
         }
     }

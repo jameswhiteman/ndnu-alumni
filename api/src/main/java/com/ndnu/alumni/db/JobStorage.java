@@ -17,32 +17,31 @@ import org.joda.time.format.DateTimeFormat;
 
 public class JobStorage
 {
-    private Connection connection;
+    private DBConnection dbc;
 
     public JobStorage() throws SQLException
     {
-        DBConnection dbc = new DBConnection();
-        connection = dbc.getConnection();
-        Statement statement = connection.createStatement();
-        String query = "use ndnualumni;";
-        statement.executeQuery(query);
+        dbc = new DBConnection();
     }
 
     public void createJob(String title, String company, String type, String description) throws SQLException
     {
-        String query = "insert into jobs (JobTitle,JobType,CompanyName,Description) values (?,?,?,?)";
+        Connection connection = dbc.getConnection();
+        String query = "insert into ndnualumni.jobs (JobTitle,JobType,CompanyName,Description) values (?,?,?,?)";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setString(1, title);
         statement.setString(2, type);
         statement.setString(3, company);
         statement.setString(4, description);
         statement.executeUpdate();
+        dbc.closeConnection();
     }
 
     // Read events
     public List<Job> readJobs() throws SQLException
     {
-        String query = "select * from jobs";
+        Connection connection = dbc.getConnection();
+        String query = "select * from ndnualumni.jobs";
         PreparedStatement statement = connection.prepareStatement(query);
         ResultSet resultSet = statement.executeQuery();
         List<Job> jobs = new ArrayList<Job>();
@@ -56,6 +55,7 @@ public class JobStorage
             Job job = new Job(id, title, type, company, description);
             jobs.add(job);
         }
+        dbc.closeConnection();
         return jobs;
     }
 }

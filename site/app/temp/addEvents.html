@@ -68,8 +68,8 @@
             -->
             <label>Event Start Time:</label>
             <div layout="row" layout-align="start center">
-                <md-select ng-model="month" required>
-                    <md-option value="01" selected>January</md-option>
+                <md-select ng-model="month" placeholder="Month" required>
+                    <md-option value="01">January</md-option>
                     <md-option value="02">February</md-option>
                     <md-option value="03">March</md-option>
                     <md-option value="04">April</md-option>
@@ -88,9 +88,9 @@
             <div layout="row" layout-align="start center">
                 <input ng-model="hour" type="number" min="1" max="12" placeholder="Hour" required>
                 <input ng-model="minute" type="number" min="0" max="59" placeholder="Minute" required>
-                <md-select ng-model="meridian" required>
+                <md-select ng-model="meridian" placeholder="AM/PM" required>
                     <md-option value="AM">AM</md-option>
-                    <md-option value="PM" selected>PM</md-option>
+                    <md-option value="PM">PM</md-option>
                 </md-select>
             </div>
             <md-button class="md-raised md-warn" id="submit" type="submit">Create Event</md-button>
