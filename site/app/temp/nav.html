@@ -8,15 +8,15 @@
 </md-button>
 <a ng-href="#/" layout="row" flex="" class="docs-logo" href="#/">
   <div class="docs-logotype">
-    <h1 class="md-display-2">
+    <h2 class="md-display-2">
       <span>NDNU Alumni</span>
-    </h1>
+    </h2>
   </div>
 </a>
 <span flex></span>
 <div class="md-toolbar-item docs-tools" layout="column" layout-gt-md="row" offset-md="66">
-  <md-button ng-click="showControlPanel()">{{cpanelText}}</md-button>
-  <md-button ng-click="showAdvanced($event)">{{loginText}}</md-button>
+  <md-button ng-click="showControlPanel()">{{getCpanelText()}}</md-button>
+  <md-button ng-click="showAdvanced($event)">{{getLoginText()}}</md-button>
   <md-button href="#/signup">Sign Up</md-button>
 </div>
 </div>

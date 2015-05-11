@@ -56,7 +56,6 @@ public class Events extends HttpServlet
         String type = request.getParameter("type");
         String organizer = request.getParameter("organizer");
         String major = request.getParameter("major");
-        String topic = request.getParameter("topic");
         String description = request.getParameter("description");
         String time = request.getParameter("time");
 
@@ -65,7 +64,7 @@ public class Events extends HttpServlet
         try
         {
             EventStorage store = new EventStorage();
-            store.createEvent(title, type, organizer, major, topic, description, time);
+            store.createEvent(title, type, organizer, major, description, time);
             response.setStatus(HttpServletResponse.SC_CREATED);
             out.println("Successfully created event.");
         }

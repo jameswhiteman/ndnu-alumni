@@ -23,10 +23,6 @@ import java.util.ArrayList;
 
 import org.mindrot.jbcrypt.BCrypt;
 
-import static com.ndnu.alumni.model.User.Major;
-
-//import jdbc_session3.DBConnection;
-
 public class UserStorage
 {
 	////Data Members////
@@ -91,7 +87,7 @@ public class UserStorage
             String type = resultSet.getString(6);
             String title = resultSet.getString(8);
             int year = resultSet.getInt(10);
-            String rawMajor = resultSet.getString(11);
+            String major = resultSet.getString(11);
             String phone = resultSet.getString(12);
             String email = resultSet.getString(13);
             String city = resultSet.getString(14);
@@ -99,7 +95,6 @@ public class UserStorage
             String about = resultSet.getString(16);
             String page = resultSet.getString(17);
             String image = resultSet.getString(18);
-            Major major = User.getMajorForString(rawMajor);
             user = new User(id, first, last, type, title, year, major, phone, email, city, state, about, page, image);
             users.add(user);
         }
@@ -144,7 +139,7 @@ public class UserStorage
             String type = resultSet.getString(6);
             String title = resultSet.getString(8);
             int year = resultSet.getInt(10);
-            String rawMajor = resultSet.getString(11);
+            String major = resultSet.getString(11);
             String phone = resultSet.getString(12);
             String email = resultSet.getString(13);
             String city = resultSet.getString(14);
@@ -152,7 +147,6 @@ public class UserStorage
             String about = resultSet.getString(16);
             String page = resultSet.getString(17);
             String image = resultSet.getString(18);
-            Major major = User.getMajorForString(rawMajor);
             user = new User(id, first, last, type, title, year, major, phone, email, city, state, about, page, image);
         }
         return user;

@@ -1,16 +1,10 @@
 <div layout="column" layout-sm="column" ng-controller="addProjCtrl">
     <md-content class="md-padding">
-
-        <form name="addEventForm" ng-controller="eventsCtrl">
+        <form name="addEventForm" ng-controller="eventsCtrl" ng-submit="addEvent()">
 
             <md-input-container>
                 <label>Title</label>
                 <input type="text" name="title" ng-model="title" required>
-            </md-input-container>
-
-            <md-input-container>
-                <label>Type</label>
-                <input name="type" type="text" ng-model="type" required></textarea>
             </md-input-container>
 
             <md-input-container>
@@ -19,27 +13,87 @@
             </md-input-container>
 
             <md-input-container>
-                <label>Major</label>
-                <input type="text" name="major" ng-model="major" required>
+                <label>Type</label>
+                <input type="text" name="type" ng-model="type" required>
             </md-input-container>
 
-            <md-input-container>
-                <label>Topic</label>
-                <input type="text" name="topic" ng-model="topic" required>
-            </md-input-container>
+            <md-select placeholder="Major" ng-model="major" required>
+                <md-option value="Any/All Majors">Any/All Majors</md-option>
+                <md-option value="Accounting">Accounting</md-option>
+                <md-option value="Art">Art</md-option>
+                <md-option value="Art and Graphic Design">Art and Graphic Design</md-option>
+                <md-option value="Art Therapy">Art Therapy</md-option>
+                <md-option value="Biological Sciences">Biological Sciences</md-option>
+                <md-option value="Business Administration">Business Administration</md-option>
+                <md-option value="Clinical Psychology">Clinical Psychology</md-option>
+                <md-option value="Clinical Psychology, MFT">Clinical Psychology, MFT</md-option>
+                <md-option value="Communication">Communication</md-option>
+                <md-option value="Computer and Information Science">Computer and Information Science</md-option>
+                <md-option value="Education">Education</md-option>
+                <md-option value="English">English</md-option>
+                <md-option value="Gerontology Certificate">Gerontology Certificate</md-option>
+                <md-option value="History">History</md-option>
+                <md-option value="Interdisciplinary Studies">Interdisciplinary Studies</md-option>
+                <md-option value="Kinesiology">Kinesiology</md-option>
+                <md-option value="Liberal Arts">Liberal Arts</md-option>
+                <md-option value="Liberal Studies">Liberal Studies</md-option>
+                <md-option value="Musical Performance">Musical Performance</md-option>
+                <md-option value="Nursing">Nursing</md-option>
+                <md-option value="Performance Certificate (Music)">Performance Certificate (Music)</md-option>
+                <md-option value="Philosophy">Philosophy</md-option>
+                <md-option value="Political Science">Political Science</md-option>
+                <md-option value="Post-Baccalaureate Premedical Program">Post-Baccalaureate Premedical Program</md-option>
+                <md-option value="Preliminary Education Specialist Credential">Preliminary Education Specialist Credential</md-option>
+                <md-option value="Preliminary Multiple Subject Credential">Preliminary Multiple Subject Credential</md-option>
+                <md-option value="Preliminary Single Subject Credential">Preliminary Single Subject Credential</md-option>
+                <md-option value="Preliminary Administrative Services Credential">Preliminary Administrative Services Credential</md-option>
+                <md-option value="Psychology">Psychology</md-option>
+                <md-option value="Public Administration">Public Administration</md-option>
+                <md-option value="School Administration">School Administration</md-option>
+                <md-option value="Sociology">Sociology</md-option>
+                <md-option value="Special Education">Special Education</md-option>
+                <md-option value="Systems Management">Systems Management</md-option>
+                <md-option value="Theatre">Theatre</md-option>
+            </md-select>
 
   			<md-input-container>
                 <label>Description</label>
                 <textarea type="text" name="description" ng-model="description" required></textarea> 
             </md-input-container>
+            <!--
             <time-date-picker ng-model="dateValue" data-display-mode="full" class="modal-content"></time-date-picker>
             <md-input-container>
                 {{dateValue | date:'yyyy/MM/dd HH:mm a'}}
             <md-input-container>
-
-            </form>
-
-        <md-button class="md-raised md-warn" id="submit" type="submit" ng-click="addEvent()">Create Event</md-button>
-
+            -->
+            <label>Event Start Time:</label>
+            <div layout="row" layout-align="start center">
+                <md-select ng-model="month" required>
+                    <md-option value="01" selected>January</md-option>
+                    <md-option value="02">February</md-option>
+                    <md-option value="03">March</md-option>
+                    <md-option value="04">April</md-option>
+                    <md-option value="05">May</md-option>
+                    <md-option value="06">June</md-option>
+                    <md-option value="07">July</md-option>
+                    <md-option value="08">August</md-option>
+                    <md-option value="09">September</md-option>
+                    <md-option value="10">October</md-option>
+                    <md-option value="11">November</md-option>
+                    <md-option value="12">December</md-option>
+                </md-select>
+                <input ng-model="day" type="number" min="1" max="31" placeholder="Day" required>
+                <input ng-model="year" type="number" min="2015" max="3000" placeholder="Year" required>
+            </div>
+            <div layout="row" layout-align="start center">
+                <input ng-model="hour" type="number" min="1" max="12" placeholder="Hour" required>
+                <input ng-model="minute" type="number" min="0" max="59" placeholder="Minute" required>
+                <md-select ng-model="meridian" required>
+                    <md-option value="AM">AM</md-option>
+                    <md-option value="PM" selected>PM</md-option>
+                </md-select>
+            </div>
+            <md-button class="md-raised md-warn" id="submit" type="submit">Create Event</md-button>
+        </form>
     </md-content>
 </div>

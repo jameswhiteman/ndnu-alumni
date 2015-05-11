@@ -12,11 +12,6 @@ package com.ndnu.alumni.model;
 
 public class User
 {
-    public static enum Major
-    {
-        CS,ART,HST,REL,BUS,COMM
-    }
-
 	// Data Members
 	private String id;
 	private String firstName;
@@ -25,7 +20,7 @@ public class User
     private String type;
     private String title;
 	private int year;
-	private Major major;
+	private String major;
 	private String phone;
 	private String city;
 	private String state;
@@ -47,7 +42,7 @@ public class User
         this.type = "";
         this.title = "";
 		this.year = 0;
-		this.major = Major.CS;
+		this.major = "Art";
 		this.phone = "";
 		this.city = "";
 		this.state = "";
@@ -70,7 +65,7 @@ public class User
 	 * @param description
 	 * @param page
 	 */
-    public User(String id, String firstName, String lastName, String type, String title, int year, Major major,
+    public User(String id, String firstName, String lastName, String type, String title, int year, String major,
             String phone, String email, String city, String state,
             String description, String page, String image)
 	{
@@ -89,18 +84,6 @@ public class User
 		this.page = page;
         this.image = image;
 	}
-
-    // Convenience
-    public static Major getMajorForString(String value)
-    {
-        if (value.equals("Software Engineering") ||
-                value.equals("Management Information Systems") ||
-                value.equals("cs"))
-        {
-            return Major.CS;
-        }
-        return Major.CS;
-    }
 
 	////Getters and Setters////
 	/**
@@ -162,7 +145,7 @@ public class User
 	 * Method Description: Sets the major data member.
 	 * @param major
 	 */
-	public void setMajor(Major major)
+	public void setMajor(String major)
 	{
 		this.major = major;
 	}
@@ -276,7 +259,7 @@ public class User
 	 * Method Description: Returns a reference to the major data member.
 	 * @return major
 	 */
-	public Major getMajor()
+	public String getMajor()
 	{
 		return this.major;
 	}

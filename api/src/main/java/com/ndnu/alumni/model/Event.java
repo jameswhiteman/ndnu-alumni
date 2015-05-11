@@ -1,21 +1,17 @@
 package com.ndnu.alumni.model;
 
-import static com.ndnu.alumni.model.User.Major;
-
-import org.joda.time.DateTime;
-
 public class Event
 {
     private String id;
     private String title;
     private String type;
     private String organizer;
-    private Major major;
+    private String major;
     private String topic;
     private String description;
     private long time;
 
-    public Event(String id, String title, String type, String organizer, Major major, String topic,
+    public Event(String id, String title, String type, String organizer, String major, String topic,
             String description, long time)
     {
         setId(id);
@@ -48,7 +44,7 @@ public class Event
         this.organizer = organizer;
     }
 
-    public void setMajor(Major major)
+    public void setMajor(String major)
     {
         this.major = major;
     }
@@ -89,7 +85,7 @@ public class Event
         return this.organizer;
     }
 
-    public Major getMajor()
+    public String getMajor()
     {
         return this.major;
     }

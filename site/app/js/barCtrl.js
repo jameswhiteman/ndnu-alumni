@@ -2,7 +2,18 @@ var app = angular.module('app');
 
 app.controller('barCtrl', ['$scope','$mdDialog', '$state', 'User', function($scope, $mdDialog, $state, $user)
 {
-    $scope.loginText = "Log In";
+    $scope.getCpanelText = function() {
+        if ($user.getRole() === "User") {
+            return "Control Panel";
+        }
+        return "";
+    }
+    $scope.getLoginText = function() {
+        if (!$user.getIdentifier() || !$user.getVerifier()) {
+            return "Log In";
+        }
+        return "Log Out";
+    }
 	 $scope.showAdvanced = function(ev) {
          console.log($scope.identifier + ";" + $scope.verifier);
          if ($user.getIdentifier() != "" && $user.getVerifier() != "") {
@@ -10,8 +21,6 @@ app.controller('barCtrl', ['$scope','$mdDialog', '$state', 'User', function($sco
              $user.setVerifier("");
              $user.setName("");
              $user.setRole("");
-             $scope.loginText = "Log In";
-             $scope.updateControlPanelText();
              return;
          }
     $mdDialog.show({
@@ -21,12 +30,8 @@ app.controller('barCtrl', ['$scope','$mdDialog', '$state', 'User', function($sco
     })
     .then(function(answer) {
       $scope.alert =  answer;
-      $scope.updateControlPanelText();
-      $scope.loginText = "Log Out";
     }, function() {
       $scope.alert = 'You cancelled the dialog.';
-      $scope.updateControlPanelText();
-      $scope.loginText = "Log Out";
     });
   };
 

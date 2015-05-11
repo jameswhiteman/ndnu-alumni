@@ -1,10 +1,12 @@
 <div ng-controller="UsersCtrl">
-  <md-list>
-<md-subheader class="md-no-sticky">List of alumni</md-subheader>
-  <md-list-item ng-repeat="user in users" ng-click="goToPerson(user.firstName, user.lastName, user.year, user.major, user.email, user.phone, user.description, $event)">
-		 <img ng-if="user.image == null " alt="{{ user.firstName }}" src="/img/UsersList/img/photo.jpg" class="md-avatar">
-    <img ng-if="user.image != null " alt="{{ user.firstName }}" ng-src="{{ user.image }}" class="md-avatar">
-    <p>{{user.lastName}},{{user.firstName}}</p>
-  </md-list-item>
-</md-list>
+    <md-list>
+        <md-input-container>
+            <input type="text" ng-model="search" placeholder="Search..." />
+        </md-input-container>
+        <md-list-item ng-repeat="user in users | filter:search" ng-click="goToPerson(user, $event)">
+            <img ng-if="!user.image " alt="{{ user.firstName }}" src="/img/UsersList/img/photo.jpg" class="md-avatar">
+            <img ng-if="user.image" alt="{{ user.firstName }}" ng-src="{{ user.image }}" class="md-avatar">
+            <p>{{user.firstName}} {{user.lastName}}</p>
+        </md-list-item>
+    </md-list>
 </div>

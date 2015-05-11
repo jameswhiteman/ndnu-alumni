@@ -1,0 +1,26 @@
+<md-dialog flex="25">
+    <md-content layout="column" layout-align="space-between center">
+    <div ng-controller="UsersCtrl">
+        <md-subheader class="md-sticky-no-effect">{{person.firstName}} {{person.lastName}}</md-subheader>
+    </div>
+        <div ng-controller="UsersCtrl" layout="column" layout-padding>
+            <p>
+                <md-icon md-svg-src="img/icons/grad_cap.svg" class="name"></md-icon>
+                <span>{{person.major}}, {{person.year}}</span>
+            </p>
+            <p>
+                <md-icon md-svg-src="img/icons/mail.svg" class="name"></md-icon>
+                <span>{{person.email}}</span>
+            </p>
+            <p>
+                <md-icon md-svg-src="img/icons/ic_phone_24px.svg" class="name"></md-icon>
+                <span>{{formattedPhone()}}</span>
+            </p>
+            <p>
+                <md-icon md-svg-src="img/icons/message.svg" class="name"></md-icon>
+                <span>{{person.description}}</span>
+            </p>
+        </div>
+        <md-button ng-click="closeDialog()" class="md-primary">Done</md-button>
+    </md-content>
+</md-dialog>

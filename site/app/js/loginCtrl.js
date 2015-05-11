@@ -66,10 +66,5 @@ app.controller('loginCtrl', ['$scope', '$http', '$state', '$mdToast', '$animate'
             $scope.showToast();
         });
     }
-
-    $scope.logout = function() {
-        $user.setIdentifier("");
-        $user.setVerifier("");
-    }
 }]);
 

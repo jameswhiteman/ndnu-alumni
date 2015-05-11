@@ -4,33 +4,33 @@
       <md-card>
     <form name="signUpForm" ng-submit="submit()" ng-controller="signUpCtrl">
       <md-input-container>
-        <label>First Name {{user.fName}}</label>
+        <label>First Name</label>
         <input type="text" name="first" ng-model="first" required>
       </md-input-container>
 
       <md-input-container>
-        <label>Last Name {{user.lName}}</label>
+        <label>Last Name</label>
         <input type="text" name="last" ng-model="last" required>
       </md-input-container>
 
       <md-input-container>
-        <label>Email {{user.email}}</label>
+        <label>E-mail</label>
         <input type="email" name="email" ng-model="email" required>
       </md-input-container>
 
       <!-- added 4/8/15  -->
       <md-input-container>
-        <label>Password {{user.password}}</label>
-        <input type="password" name="password" ng-model="password" required>
+        <label>Password</label>
+        <input  type="password" name="password" ng-model="password" required>
       </md-input-container>
 
       <md-input-container>
-        <label>Confirm Password {{user.confPass}}</label>
+        <label>Confirm Password</label>
         <input type="password" name="confPass" ng-model="confPass" required>
       </md-input-container>
 
       <md-input-container>
-        <label>Grad. Year {{user.gYear}}</label>
+        <label>Graduation Year</label>
         <input type="number" name="year" ng-model="year" required>
       </md-input-container>
 
@@ -73,18 +73,18 @@
     </md-select>
 
       <md-input-container>
-        <label>Phone# {{user.phone}}</label>
-        <input name="phone" ng-model="phone" required>
+        <label>Phone Number (Optional)</label>
+        <input type="tel" name="phone" ng-model="phone">
       </md-input-container>
 
       <md-input-container>
-        <label>About Me</label>
+        <label>Profile Image URL (Optional)</label>
+        <input name="image" ng-model="image" md-maxlength="512" type="text">
+      </md-input-container>
+
+      <md-input-container>
+        <label>About Me (Optional)</label>
         <textarea md-maxlength="300" name="about" type="text" ng-model="about"></textarea>
-      </md-input-container>
-
-      <md-input-container>
-        <label>Profile Image URL</label>
-        <input name="image" ng-model="image" md-maxlength="512" type="text" required>
       </md-input-container>
 
          <md-button type="submit" id="submit" class="md-raised md-warn" style="height: 45px;">Submit</md-button>

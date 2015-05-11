@@ -1,8 +1,5 @@
-
-
 package com.ndnu.alumni.db;
 
-//Import Directives
 import com.ndnu.alumni.model.Event;
 import com.ndnu.alumni.model.User;
 
@@ -14,14 +11,6 @@ import java.sql.Statement;
 import java.sql.DriverManager;
 import java.util.List;
 import java.util.ArrayList;
-
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormatter;
-import org.joda.time.format.DateTimeFormat;
-
-//import jdbc_session3.DBConnection;
-//
-import static com.ndnu.alumni.model.User.Major;
 
 public class EventStorage
 {
@@ -44,7 +33,7 @@ public class EventStorage
         statement.executeQuery(query);
     }
 
-    public void createEvent(String title, String type, String organizer, String major, String topic, String description, String time) throws SQLException
+    public void createEvent(String title, String type, String organizer, String major, String description, String time) throws SQLException
     {
         String query = "insert into events (EventTitle,EventType,EventOrgName,EventMajor,EventTopic,EventDesc,EventTime) values (?,?,?,?,?,?,?)";
         PreparedStatement statement = connection.prepareStatement(query);
@@ -52,18 +41,12 @@ public class EventStorage
         statement.setString(2, type);
         statement.setString(3, organizer);
         statement.setString(4, major);
-        statement.setString(5, topic);
+        statement.setString(5, "");
         statement.setString(6, description);
         statement.setString(7, time);
-        /*
-        DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
-        String newTime = formatter.print(Long.parseLong(time, 10));
-        statement.setString(7, newTime);
-        */
         statement.executeUpdate();
     }
 
-    // Read events
     public List<Event> readEvents() throws SQLException
     {
         String query = "select * from events";
@@ -76,11 +59,10 @@ public class EventStorage
             String title = resultSet.getString(2);
             String type = resultSet.getString(3);
             String organizer = resultSet.getString(4);
-            String rawMajor = resultSet.getString(5);
+            String major = resultSet.getString(5);
             String topic = resultSet.getString(6);
             String description = resultSet.getString(7);
             long time = resultSet.getLong(8);
-            Major major = User.getMajorForString(rawMajor);
 
             // Parse the correct date
             /*

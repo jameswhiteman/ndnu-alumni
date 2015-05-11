@@ -7,10 +7,12 @@
                 <input type="text" name="title" ng-model="title" required>
             </md-input-container>
 
-            <md-input-container>
-                <label>Type</label>
-                <input name="type" type="text" ng-model="type" required></textarea>
-            </md-input-container>
+            <md-select placeholder="Type" ng-model="type" required>
+                <md-option value="Full-Time">Full-Time</md-option>
+                <md-option value="Part-Time">Part-Time</md-option>
+                <md-option value="Internship">Internship</md-option>
+                <md-option value="Temporary">Temporary</md-option>
+            </md-select>
 
             <md-input-container>
                 <label>Company</label>

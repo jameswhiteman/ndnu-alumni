@@ -1,7 +1,6 @@
 <md-dialog>
-    <md-content>
-        <md-subheader class="md-sticky-no-effect">Enter Name And password</md-subheader>
-        <div class="md-actions" layout="row" layout-align="center center" layout-sm="column" layout-align-sm="space-between center">
+    <div layout="column" layout-align="center center" layout-align-sm="space-between center">
+    <md-content class="md-padding">
             <form name="logInForm" ng-submit="submit()" ng-controller="loginCtrl">
                 <md-input-container>
                     <label>Email</label>
@@ -11,9 +10,11 @@
                     <label>Password</label>
                     <input type="password" name ="password" ng-model="password" required>
                 </md-input-container>
-                <md-button type="submit" id="submit" class="md-raised md-primary">Log In</md-button>
+                <md-input-container>
+                    <md-button type="button" id="cancel" class="md-raised md-warn" ng-click="cancel()">Cancel</md-button>
+                    <md-button type="submit" id="submit" class="md-raised md-primary">Log In</md-button>
+                </md-input-container>
             </form>
-            <md-button class="md-raised md-warn">I forgot my password </md-button>
         </div>
     </md-content>
 </md-dialog>

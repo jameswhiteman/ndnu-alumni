@@ -17,7 +17,6 @@ app.controller('eventsCtrl', ['$scope', '$http', '$state', 'User', function($sco
     $scope.type = "";
     $scope.organizer = "";
     $scope.major = "";
-    $scope.topic = "";
     $scope.description = "";
     $scope.dateValue =  new Date();
 
@@ -29,8 +28,13 @@ app.controller('eventsCtrl', ['$scope', '$http', '$state', 'User', function($sco
     };
 
     $scope.addEvent = function() {
+        var meridianHours = 0;
+        if ($scope.meridian === "PM") {
+            meridianHours = 12;
+        }
+        dateValue = new Date($scope.year, $scope.month, $scope.day, $scope.hour + meridianHours, $scope.minute, 0, 0);
         $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
-        var info = "title="+$scope.title+"&type="+$scope.type+"&organizer="+$scope.organizer+"&major="+$scope.major+"&topic="+$scope.topic+"&description="+$scope.description+"&time="+Math.floor($scope.dateValue.getTime() / 10000);
+        var info = "title="+$scope.title+"&type="+$scope.type+"&organizer="+$scope.organizer+"&major="+$scope.major+"&description="+$scope.description+"&time="+Math.floor($scope.dateValue.getTime() / 10000);
         console.log(info);
         $http.post('http://localhost:8282/ndnualumni-api/events', info).
         success(function(data, status, headers, config) {
