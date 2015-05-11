@@ -1,28 +1,19 @@
-<div ng-controller="feedbackCtrl" layout="column" style="height:100%">
-    <div ng-controller="feedbackCtrl" ng-repeat="feedback in feedbacks">
+<div ng-controller="feedbackCtrl" layout="row" style="height:100%">
+    <div ng-controller="feedbackCtrl" ng-repeat="feedback in feedbacks" flex="50" flex-sm="100" layout-wrap>
         <md-content>
             <md-card>
-                <md-list>
-                    <md-list-item class="md-2-line">
-                        <div class="md-list-item-text">
-                            <h3>Which courses did you find to be most beneficial to your career?</h3>
-                            <p>{{feedback.response1}}</p>
-                            <br/>
-                            <h3>Which courses have you found to be outdated in the industry?</h3>
-                            <p>{{feedback.response2}}</p>
-                            <br/>
-                            <h3>What courses do you think should be added to the catalog?</h3>
-                            <p>{{feedback.response3}}</p>
-                            <br/>
-                            <h3>What technologies do you think should be covered in our courses?</h3>
-                            <p>{{feedback.response4}}</p>
-                            <br/>
-                            <h3>Additional concerns, comments or input</h3>
-                            <p>{{feedback.response5}}</p>
-                        </div>
-                    </md-list-item>
-                </md-list>
-            </md-card>
+                <md-card-content>
+                    <h3>Which courses did you find to be most beneficial to your career?</h3>
+                    <p>{{feedback.response1}}</p>
+                    <h3>Which courses have you found to be outdated in the industry?</h3>
+                    <p>{{feedback.response2}}</p>
+                    <h3>What courses do you think should be added to the catalog?</h3>
+                    <p>{{feedback.response3}}</p>
+                    <h3>What technologies do you think should be covered in our courses?</h3>
+                    <p>{{feedback.response4}}</p>
+                    <h3>Additional concerns, comments or input</h3>
+                    <p>{{feedback.response5}}</p>
+                </md-card-content>
         </md-content>
     </div>
 </div>

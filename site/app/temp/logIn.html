@@ -6,16 +6,10 @@
                 <md-input-container>
                     <label>Email</label>
                     <input type="email" name ="email" ng-model="email" required>
-                    <div ng-messages="logInForm.email.$error.required">
-                        <div ng-message="required">This is required.</div>
-                    </div>
                 </md-input-container>
                 <md-input-container>
                     <label>Password</label>
                     <input type="password" name ="password" ng-model="password" required>
-                    <div ng-messages="logInForm.password.$error.required">
-                        <div ng-message="required">This is required.</div>
-                    </div>
                 </md-input-container>
                 <md-button type="submit" id="submit" class="md-raised md-primary">Log In</md-button>
             </form>
