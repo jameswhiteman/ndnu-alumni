@@ -72,6 +72,9 @@ public class Users extends HttpServlet
         String phone = request.getParameter("phone");
         String about = request.getParameter("about");
         String type = request.getParameter("type");
+        String company = request.getParameter("company");
+        String title = request.getParameter("title");
+        String page = request.getParameter("page");
         String image = request.getParameter("image");
 
         // Add the user to the database.
@@ -79,7 +82,7 @@ public class Users extends HttpServlet
         try
         {
             UserStorage store = new UserStorage();
-            store.createUser(first, last, email, password, type, year, major, phone, about, image);
+            store.createUser(first, last, email, password, type, year, major, phone, about, company, title, page, image);
             response.setStatus(HttpServletResponse.SC_CREATED);
             out.println("Successfully created user.");
         }

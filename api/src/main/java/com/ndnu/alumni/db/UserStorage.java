@@ -46,12 +46,31 @@ public class UserStorage
 	 * @param projectYear
 	 * @param projectAbstract
 	 */
-	public void createUser(String first, String last, String email, String password, String type, int year, String major, String phone, String about, String image) throws SQLException
+	public void createUser(String first, String last, String email, String password, String type, int year, String major, String phone, String about,
+            String company, String title, String page, String image) throws SQLException
     {
         //Variable declarations
         Connection connection = dbc.getConnection();
-        String query = "insert into ndnualumni.users (FirstName,LastName,Email,Password,UserType,GradYear,Major,PhoneNumber,Description,Image) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        PreparedStatement statement = connection.prepareStatement(query);
+        String query = null;
+        PreparedStatement statement = null;
+
+        // Make sure e-mail address isn't in use
+        if (email != null && email != "" && email.length() > 0)
+        {
+            query = "select * from ndnualumni.users where Email=?";
+            statement = connection.prepareStatement(query);
+            statement.setString(1, email);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next())
+            {
+                throw new SQLException();
+            }
+        }
+
+        // Create user account.
+        query = "insert into ndnualumni.users (FirstName,LastName,Email,Password,UserType,GradYear,Major,PhoneNumber,Description," +
+            "Company,JobTitle,Page,Image) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        statement = connection.prepareStatement(query);
         statement.setString(1, first);
         statement.setString(2, last);
         statement.setString(3, email);
@@ -62,7 +81,10 @@ public class UserStorage
         statement.setString(7, major);
         statement.setString(8, phone);
         statement.setString(9, about);
-        statement.setString(10, image);
+        statement.setString(10, company);
+        statement.setString(11, title);
+        statement.setString(12, page);
+        statement.setString(13, image);
         statement.executeUpdate();
         dbc.closeConnection();
 	}
@@ -83,6 +105,7 @@ public class UserStorage
             String last = resultSet.getString(3);
             String type = resultSet.getString(6);
             String title = resultSet.getString(8);
+            String company = resultSet.getString(9);
             int year = resultSet.getInt(10);
             String major = resultSet.getString(11);
             String phone = resultSet.getString(12);
@@ -92,7 +115,7 @@ public class UserStorage
             String about = resultSet.getString(16);
             String page = resultSet.getString(17);
             String image = resultSet.getString(18);
-            user = new User(id, first, last, type, title, year, major, phone, email, city, state, about, page, image);
+            user = new User(id, first, last, type, title, company, year, major, phone, email, city, state, about, page, image);
             users.add(user);
         }
         dbc.closeConnection();
@@ -137,6 +160,7 @@ public class UserStorage
             String last = resultSet.getString(3);
             String type = resultSet.getString(6);
             String title = resultSet.getString(8);
+            String company = resultSet.getString(9);
             int year = resultSet.getInt(10);
             String major = resultSet.getString(11);
             String phone = resultSet.getString(12);
@@ -146,7 +170,7 @@ public class UserStorage
             String about = resultSet.getString(16);
             String page = resultSet.getString(17);
             String image = resultSet.getString(18);
-            user = new User(id, first, last, type, title, year, major, phone, email, city, state, about, page, image);
+            user = new User(id, first, last, type, title, company, year, major, phone, email, city, state, about, page, image);
         }
         dbc.closeConnection();
         return user;

@@ -17,7 +17,7 @@
 <div class="md-toolbar-item docs-tools" layout="column" layout-gt-md="row" offset-md="66">
   <md-button ng-click="showControlPanel()">{{getCpanelText()}}</md-button>
   <md-button ng-click="showAdvanced($event)">{{getLoginText()}}</md-button>
-  <md-button href="#/signup">Sign Up</md-button>
+  <md-button ng-show="showSignup()" href="#/signup">Sign Up</md-button>
 </div>
 </div>
 </md-toolbar>

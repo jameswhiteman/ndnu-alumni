@@ -14,6 +14,13 @@ app.controller('barCtrl', ['$scope','$mdDialog', '$state', 'User', function($sco
         }
         return "Log Out";
     }
+    $scope.showSignup = function() {
+        if (!$user.getIdentifier() || !$user.getVerifier()) {
+            return true;
+        }
+        return false;
+    }
+
 	 $scope.showAdvanced = function(ev) {
          console.log($scope.identifier + ";" + $scope.verifier);
          if ($user.getIdentifier() != "" && $user.getVerifier() != "") {
@@ -21,6 +28,7 @@ app.controller('barCtrl', ['$scope','$mdDialog', '$state', 'User', function($sco
              $user.setVerifier("");
              $user.setName("");
              $user.setRole("");
+             $state.go("home");
              return;
          }
     $mdDialog.show({

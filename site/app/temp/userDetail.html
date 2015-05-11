@@ -1,4 +1,4 @@
-<md-dialog flex="25">
+<md-dialog flex="50" flex-sm="100">
     <md-content layout="column" layout-align="space-between center">
     <div ng-controller="UsersCtrl">
         <md-subheader class="md-sticky-no-effect">{{person.firstName}} {{person.lastName}}</md-subheader>
@@ -7,6 +7,10 @@
             <p>
                 <md-icon md-svg-src="img/icons/grad_cap.svg" class="name"></md-icon>
                 <span>{{person.major}}, {{person.year}}</span>
+            </p>
+            <p>
+                <md-icon md-svg-src="img/icons/ic_person_24px.svg"></md-icon>
+                <span>{{getJob()}}</span>
             </p>
             <p>
                 <md-icon md-svg-src="img/icons/mail.svg" class="name"></md-icon>
@@ -20,7 +24,10 @@
                 <md-icon md-svg-src="img/icons/message.svg" class="name"></md-icon>
                 <span>{{person.description}}</span>
             </p>
+            <a href="{{getPage()}}">Page</a>
         </div>
-        <md-button ng-click="closeDialog()" class="md-primary">Done</md-button>
+        <md-input-container>
+            <md-button ng-click="closeDialog()" class="md-primary">Done</md-button>
+        </md-input-container>
     </md-content>
 </md-dialog>

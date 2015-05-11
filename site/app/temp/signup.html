@@ -73,6 +73,21 @@
     </md-select>
 
       <md-input-container>
+        <label>Company (Optional)</label>
+        <input type="text" name="company" ng-model="company">
+      </md-input-container>
+
+      <md-input-container>
+        <label>Job Title (Optional)</label>
+        <input type="text" name="title" ng-model="title">
+      </md-input-container>
+
+      <md-input-container>
+        <label>Webpage (Optional)</label>
+        <input type="text" name="webpage" ng-model="page">
+      </md-input-container>
+
+      <md-input-container>
         <label>Phone Number (Optional)</label>
         <input type="tel" name="phone" ng-model="phone">
       </md-input-container>
@@ -84,7 +99,7 @@
 
       <md-input-container>
         <label>About Me (Optional)</label>
-        <textarea md-maxlength="300" name="about" type="text" ng-model="about"></textarea>
+        <textarea name="about" type="text" ng-model="about"></textarea>
       </md-input-container>
 
          <md-button type="submit" id="submit" class="md-raised md-warn" style="height: 45px;">Submit</md-button>

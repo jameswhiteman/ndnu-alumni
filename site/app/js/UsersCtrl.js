@@ -19,6 +19,14 @@ $scope.closeDialog = function() {
     };
 
  $scope.goToPerson = function(selectedPerson, ev) {
+     if (!selectedPerson.email)
+         selectedPerson.email = "N/A";
+     if (!selectedPerson.major)
+         selectedPerson.major = "N/A";
+     if (!selectedPerson.year)
+         selectedPerson.year = "????";
+     if (!selectedPerson.description)
+         selectedPerson.description = "N/A";
     $scope.person = selectedPerson;
     var parentEl = angular.element(document.body);
     $mdDialog.show({
@@ -31,8 +39,24 @@ $scope.closeDialog = function() {
 };
 
     $scope.formattedPhone = function() {
+        if (!$scope.person.phone)
+            return "N/A";
         formatted = '(' + $scope.person.phone.substr(0, 3) + ') ' + $scope.person.phone.substr(3, 3) + '-' + $scope.person.phone.substr(6,4);
         return formatted;
+    }
+
+    $scope.getJob = function() {
+        if (!$scope.person.title || !$scope.person.company) {
+            return "N/A";
+        }
+        return $scope.person.title + " at " + $scope.person.company;
+    }
+
+    $scope.getPage = function() {
+        if (!$scope.person.page) {
+            return "#";
+        }
+        return $scope.person.page;
     }
 
 

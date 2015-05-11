@@ -19,6 +19,7 @@ public class User
 	private String email;
     private String type;
     private String title;
+    private String company;
 	private int year;
 	private String major;
 	private String phone;
@@ -41,6 +42,7 @@ public class User
 		this.email = "";
         this.type = "";
         this.title = "";
+        this.company = "";
 		this.year = 0;
 		this.major = "Art";
 		this.phone = "";
@@ -65,8 +67,8 @@ public class User
 	 * @param description
 	 * @param page
 	 */
-    public User(String id, String firstName, String lastName, String type, String title, int year, String major,
-            String phone, String email, String city, String state,
+    public User(String id, String firstName, String lastName, String type, String title, String company,
+            int year, String major, String phone, String email, String city, String state,
             String description, String page, String image)
 	{
         this.id = id;
@@ -75,6 +77,7 @@ public class User
 		this.email = email;
         this.type = type;
         this.title = title;
+        this.company = company;
 		this.year = year;
 		this.major = major;
 		this.phone = phone;
@@ -130,6 +133,11 @@ public class User
     public void setTitle(String title)
     {
         this.title = title;
+    }
+
+    public void setCompany(String company)
+    {
+        this.company = company;
     }
 
 	/**
@@ -254,6 +262,11 @@ public class User
 	{
 		return this.year;
 	}
+
+    public String getCompany()
+    {
+        return this.company;
+    }
 
 	/**
 	 * Method Description: Returns a reference to the major data member.
