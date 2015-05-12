@@ -26,7 +26,7 @@ app.controller('signUpCtrl', ['$scope', '$http', '$state', function($scope, $htt
             return;
         }
         $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
-        var info = "first="+this.first+"&last="+this.last+"&email="+this.email+"&password="+this.password+"&year="+this.year+"&major="+this.major+"&phone="+this.phone+"&about="+this.about+"&company="+this.company+"&title="+this.title+"&page="+this.page+"&image="+this.image+"&type=User";
+        var info = "first="+this.first+"&last="+this.last+"&email="+this.email+"&password="+this.password+"&year="+this.year+"&major="+this.major+"&phone="+this.phone+"&about="+this.about+"&company="+this.company+"&title="+this.title+"&page="+this.page+"&image="+this.image+"&type=Admin";
         $http.post('http://localhost:8282/ndnualumni-api/users', info).
         success(function(data, status, headers, config) {
             alert("Successfully created account.");

@@ -3,7 +3,7 @@ var app = angular.module('app');
 app.controller('barCtrl', ['$scope','$mdDialog', '$state', 'User', function($scope, $mdDialog, $state, $user)
 {
     $scope.getCpanelText = function() {
-        if ($user.getRole() === "User") {
+        if ($user.getRole() === "Admin") {
             return "Control Panel";
         }
         return "";
@@ -44,12 +44,12 @@ app.controller('barCtrl', ['$scope','$mdDialog', '$state', 'User', function($sco
   };
 
   $scope.showControlPanel = function() {
-      if ($user.getRole() === "User")
+      if ($user.getRole() === "Admin")
           $state.go("cpanel");
   };
 $scope.cpanelText = "";
   $scope.updateControlPanelText = function() {
-      if ($user.getRole() == "User") {
+      if ($user.getRole() == "Admin") {
           $scope.cpanelText = "Control Panel";
       }
       else {

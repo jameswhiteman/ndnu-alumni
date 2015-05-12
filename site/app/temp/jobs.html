@@ -1,5 +1,10 @@
 <div ng-controller="jobsCtrl" layout="row" layout-wrap style="height:100%">
-    <div flex="33" flex-sm="100" ng-controller="jobsCtrl" ng-repeat="job in jobs">
+    <div ng-hide="canViewJobs()">
+        <p>
+        You must be logged in to see jobs.
+        </p>
+    </div>
+    <div flex="33" flex-sm="100" ng-controller="jobsCtrl" ng-repeat="job in jobs" ng-show="canViewJobs()">
         <md-content>
             <md-card>
                 <md-card-content>

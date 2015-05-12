@@ -17,6 +17,10 @@ app.controller('projectsCtrl', ['$scope', '$http', '$state', 'User', function($s
     $scope.year = 2010;
     $scope.description = "";
     $scope.addProject = function() {
+        if ($user.getRole() != "Admin") {
+            alert("You must be an administrator to add a new project.");
+            return;
+        }
         $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
         var info = "name="+$scope.name+"&description="+$scope.description+"&year="+$scope.year;
         $http.post('http://localhost:8282/ndnualumni-api/projects', info).

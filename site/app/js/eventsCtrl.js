@@ -19,6 +19,7 @@ app.controller('eventsCtrl', ['$scope', '$http', '$state', 'User', function($sco
     $scope.major = "";
     $scope.description = "";
     $scope.dateValue =  new Date();
+    $scope.year = 2015;
 
     $scope.canDelete = function() {
         if ($user.getRole() === "User") {
@@ -27,7 +28,16 @@ app.controller('eventsCtrl', ['$scope', '$http', '$state', 'User', function($sco
         return false;
     };
 
+    $scope.getEventTime = function(event) {
+        var eventTime = new Date(event.time);
+        return eventTime.toString();
+    }
+
     $scope.addEvent = function() {
+        if ($user.getRole() != "Admin") {
+            alert("You must be an administrator to add an event.");
+            return;
+        }
         var meridianHours = 0;
         if ($scope.meridian === "PM") {
             meridianHours = 12;
@@ -46,6 +56,10 @@ app.controller('eventsCtrl', ['$scope', '$http', '$state', 'User', function($sco
     };
 
     $scope.deleteEvent = function(eventId) {
+        if ($user.getRole() != "Admin") {
+            alert("You must be an administrator to add an event.");
+            return;
+        }
         $http.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
         $http.delete('http://localhost:8282/ndnualumni-api/events?id=' + eventId).
         success(function(data) {

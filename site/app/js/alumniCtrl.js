@@ -1,5 +1,5 @@
 var app = angular.module('app');
-app.controller('alumniCtrl', ['$scope', '$http', '$state', function($scope, $http, $state)
+app.controller('alumniCtrl', ['$scope', '$http', '$state', 'User', function($scope, $http, $state, $user)
 {
     $scope.data = [];
     $scope.firstName = "";
@@ -10,6 +10,10 @@ app.controller('alumniCtrl', ['$scope', '$http', '$state', function($scope, $htt
     $scope.company = "";
     $scope.title = "";
     $scope.addAlum = function() {
+        if ($user.getRole() != "Admin") {
+            alert("You must be an administrator to create an alum.");
+            return;
+        }
         $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
         var info = "first="+this.firstName+"&last="+this.lastName+"&email=&password=&year="+this.year+"&major="+this.major+"&phone=&about="+this.about+"&type=Alum&company="+this.company+"&title="+this.title;
         $http.post('http://localhost:8282/ndnualumni-api/users', info).

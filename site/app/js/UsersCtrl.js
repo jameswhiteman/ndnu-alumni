@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller('UsersCtrl', ['$scope', '$http', '$state', '$mdDialog', function($scope, $http, $state, $mdDialog)
+app.controller('UsersCtrl', ['$scope', '$http', '$state', '$mdDialog', 'User', function($scope, $http, $state, $mdDialog, $user)
 {
  $http.get('http://localhost:8282/ndnualumni-api/users').
  success(function(data) {
@@ -19,6 +19,10 @@ $scope.closeDialog = function() {
     };
 
  $scope.goToPerson = function(selectedPerson, ev) {
+     if (!$user.getIdentifier() || !$user.getVerifier()) {
+         alert("You must be logged in to view this alum's details.");
+         return;
+     }
      if (!selectedPerson.email)
          selectedPerson.email = "N/A";
      if (!selectedPerson.major)
