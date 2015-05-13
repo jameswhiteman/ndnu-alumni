@@ -18,7 +18,7 @@ app.controller('feedbackCtrl', ['$scope', '$http', '$state', 'User', function($s
     $scope.response4 = "";
     $scope.response5 = "";
     $scope.addFeedback = function() {
-        if ($user.getRole() != 'User') {
+        if (!$user.getIdentifier() || !$user.getVerifier()) {
             alert("You must be logged in to submit feedback.");
             return;
         }

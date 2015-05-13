@@ -165,8 +165,8 @@ DROP TABLE IF EXISTS Docs;
 
 DROP TABLE IF EXISTS Jobs;
 CREATE TABLE Jobs (
-  JobID int(5) NOT NULL ,
-  UserID int(5) NOT NULL ,
+  JobID int(5) NOT NULL auto_increment,
+  UserID int(5) NOT NULL default 0,
   JobTitle varchar(40) NOT NULL default '',
   CompanyName varchar(40) default NULL,
   Salary decimal(10,2) default NULL,
